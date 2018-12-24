@@ -51,9 +51,7 @@ nmap ss ysiw
 nmap sS ysiW
 nnoremap <Space> <NOP>
 
-nnoremap zc zC
 nnoremap zm zM
-nnoremap zo zO
 nnoremap zr zR
 
 " add empty lines up/down
