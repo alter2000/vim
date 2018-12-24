@@ -54,6 +54,7 @@ filetype indent plugin on
 set noerrorbells
 set visualbell
 let mapleader=' '
+let maplocalleader = ','
 if executable('rg')
 	let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
 	set grepprg=rg\ --vimgrep
@@ -104,11 +105,6 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-pandoc-after'
 Plug 'fcpg/vim-waikiki'
-			let maplocalleader = ','
-			let g:waikiki_roots = ['~/notes/']
-			let g:waikiki_default_maps = 1
-			let g:waikiki_mkdir_prompt = 1
-			let g:waikiki_done = '✘'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular'
 

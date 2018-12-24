@@ -88,3 +88,13 @@ endif
 " let g:vimtex_view_forward_search_on_start = 1
 " let g:vimtex_view_zathura_options = 'set recolor=false'
 " }}}
+" Waikiki {{{
+if exists('g:waikiki_loaded')
+	let g:waikiki_roots = ['~/notes/']
+	let g:waikiki_default_maps = 1
+	let g:waikiki_mkdir_prompt = 1
+	let g:waikiki_ask_if_noindex = 1
+	let g:waikiki_done = '✘'
+	let g:waikiki_lookup_order = ['ext', 'raw', 'subdir']
+endif
+" }}}

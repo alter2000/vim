@@ -74,9 +74,9 @@ nnoremap <silent> <leader>m        :<c-u><c-r><c-r>='let @'. v:register .' = '. 
 
 " FZF
 if executable('rg')
-	nnoremap <Leader>fe call func#fzfFiles()
+	nnoremap <Leader>ff call func#fzfFiles()
 endif
-nnoremap <Leader>ff :GitFiles<CR>
+" nnoremap <Leader>fe :GitFiles<CR>
 nnoremap <Leader>ft :Tags<CR>
 nnoremap <Leader>/  :Rg<CR>
 

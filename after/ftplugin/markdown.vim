@@ -11,3 +11,8 @@ nmap <buffer> <Space>pc :execute "!pandoc -o"
 nmap <buffer> <Space>pp :execute "!zathura"
             \ . shellescape(b:temp_preview)
             \ . "&" | redraw!
+
+if !get(g:, 'mywaikikisetup_loaded', 0)
+  call mywaikiki#Load()
+  let g:mywaikikisetup_loaded = 1
+endif
