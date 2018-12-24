@@ -1,0 +1,5 @@
+uggplug
+.netrwhist
+session/**
+autoload/plug.vim.old
+tags
