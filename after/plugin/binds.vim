@@ -1,6 +1,4 @@
 " corrections + misc shiz {{{
-" paste with proper indentation
-" nnoremap p ]p
 " switcharooooooo
 nnoremap : ,
 nnoremap ; :
@@ -29,16 +27,6 @@ nnoremap Y y$
 map <Home> g^
 map <End>  g$
 
-noremap <C-j> <C-W><C-j>
-noremap <C-k> <C-W><C-k>
-noremap <C-l> <C-W><C-l>
-noremap <C-h> <C-W><C-h>
-
-nnoremap <Up>    :resize +3<CR>
-nnoremap <Down>  :resize -3<CR>
-nnoremap <Left>  :vertical resize -3<CR>
-nnoremap <Right> :vertical resize +3<CR>
-
 " Emacs heresy
 cnoremap <C-a> <Home>
 inoremap <C-a> <Home>
@@ -49,15 +37,40 @@ inoremap <C-e> <End>
 
 nmap ss ysiw
 nmap sS ysiW
-nnoremap <Space> <NOP>
 
 nnoremap zm zM
 nnoremap zr zR
+" window management {{{
+nnoremap <Up>    :resize +3<CR>
+nnoremap <Down>  :resize -3<CR>
+nnoremap <Left>  :vertical resize -3<CR>
+nnoremap <Right> :vertical resize +3<CR>
 
+noremap <C-j> <C-W><C-j>
+noremap <C-k> <C-W><C-k>
+noremap <C-l> <C-W><C-l>
+noremap <C-h> <C-W><C-h>
+" }}}
+" Unimpaired kangs {{{
 " add empty lines up/down
 nnoremap <silent> [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<CR>'[
 nnoremap <silent> ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<CR>
+onoremap <silent> [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<CR>'[
+onoremap <silent> ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<CR>
+" move around hunks
+nnoremap [n :call pairs#context(1)<CR>
+nnoremap ]n :call pairs#context(0)<CR>
+onoremap [n :call pairs#contextMotion(1)<CR>
+onoremap ]n :call pairs#contextMotion(0)<CR>
+" move chunks of text up or down
+nnoremap [e :<C-U>call pairs#move('--',v:count1,'Up')<CR>
+nnoremap ]e :<C-U>call pairs#move('+',v:count1,'Down')<CR>
+xnoremap [e :<C-U>call pairs#moveSelectionUp(v:count1)<CR>
+xnoremap ]e :<C-U>call pairs#moveSelectionDown(v:count1)<CR>
 
+" }}}
+" leader maps {{{
+nnoremap <space> <NOP>
 nnoremap <silent> <leader><leader> :w<cr>
 nnoremap <silent> <leader>w        :call func#toggleWrap()<CR>
 nnoremap <silent> <leader>cw       :%s/\s+$//g<CR>
@@ -71,15 +84,18 @@ nnoremap <silent> <leader>q        :Explore %:h<CR>
 nnoremap <silent> <leader>e        :execute "ltag " . expand("<cword>")<CR>
 " edit macros
 nnoremap <silent> <leader>m        :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
-
-" FZF
+" paste only from yank
+xnoremap <space>p "0p
+nnoremap <space>p "0p
+" }}}
+" FZF {{{
 if executable('rg')
 	nnoremap <Leader>ff call func#fzfFiles()
 endif
 " nnoremap <Leader>fe :GitFiles<CR>
 nnoremap <Leader>ft :Tags<CR>
 nnoremap <Leader>/  :Rg<CR>
-
+" }}}
 " function keys {{{
 noremap <F1> <Esc>
 
@@ -97,7 +113,7 @@ if exists(':ColorToggle')
 endif
 
 if exists(':Goyo')
-	nnoremap <F11> :Goyo<CR>
-	inoremap <F11> <C-o>:Goyo<CR>
+	nnoremap <F12> :Goyo<CR>
+	inoremap <F12> <C-o>:Goyo<CR>
 endif
 " }}}

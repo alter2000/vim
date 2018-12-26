@@ -17,15 +17,16 @@ set list
 set wildmenu
 set wildcharm=<C-f>
 set autoread
-set nospell
 set linebreak
 set nowrap
+set nospell
 set whichwrap=b,s,~
 set updatetime=290
 set updatecount=100
 set directory=~/.cache/vim/tmp
 set history=1000 undolevels=1000
 set timeoutlen=700 ttimeoutlen=10
+set tildeop
 " }}}
 " Level 1 (modern nano) {{{
 set number relativenumber
@@ -136,7 +137,7 @@ Plug 'LnL7/vim-nix'
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 
 Plug 'chrisbra/colorizer'
-Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 " Plug 'tpope/vim-apathy'
@@ -154,12 +155,22 @@ set termguicolors
 " tmux specific
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
 " Block in normal mode
 " I-beam in insert
 " Underline in replace
-let &t_SI = "\<Esc>[6 q"
-let &t_SR = "\<Esc>[4 q"
-let &t_EI = "\<Esc>[2 q"
+if exists('$TMUX')
+	let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+	let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+	let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+else
+	let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+	let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+	let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+endif
+
+" let &t_SI = "\<Esc>[6 q"
+" let &t_EI = "\<Esc>[2 q"
 
 if has('gui_running')
 	set guioptions='PAciMg'  " remove cruft
@@ -181,6 +192,11 @@ if has('gui_running')
 	set guicursor+=c:CommandCursor
 	set guicursor+=v-ve:VisualCursor
 	set guicursor+=a:blinkon0
+
+	hi InsertCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=37  guibg=#2aa198
+	hi VisualCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=125 guibg=#d33682
+	hi ReplaceCursor ctermfg=15 guifg=#fdf6e3 ctermbg=65  guibg=#dc322f
+	hi CommandCursor ctermfg=15 guifg=#fdf6e3 ctermbg=166 guibg=#cb4b16
 elseif &termguicolors == 1
 	execute 'set background=' . ((strftime('%H') % 22) > 7 ? 'light' : 'dark')
 	colorscheme materialbox
@@ -199,10 +215,6 @@ set wildignore+=*.docx,*.pdf,*.cbr,*.cbz
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 set wildignore+=*.o,*.a,a.out,unit_tests,*.pyc,*.gcda,*.gcno
 
-hi InsertCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=37  guibg=#2aa198
-hi VisualCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=125 guibg=#d33682
-hi ReplaceCursor ctermfg=15 guifg=#fdf6e3 ctermbg=65  guibg=#dc322f
-hi CommandCursor ctermfg=15 guifg=#fdf6e3 ctermbg=166 guibg=#cb4b16
 " }}}
 " Autocommands TODO {{{
 augroup main

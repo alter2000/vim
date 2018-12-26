@@ -1,6 +1,6 @@
 """ Statusline """ -- kanged from enanajmain/vim-status and vim-airline/vim-airline
 
-if has('gui_running')"{{{
+if 0 && has('gui_running') "{{{
 	function! GuiTabLabel()
 		let l:label = ''
 		let l:bufnrlist = tabpagebuflist(v:lnum)
@@ -35,29 +35,7 @@ if has('gui_running')"{{{
 endif
 "}}}
 
-
-function! StatusDefault()
-	set laststatus=2
-	set statusline=%#ModeMsg#\ %{mode()}\ %*
-	set statusline+=%#Normal#\ \ %{status#filename()}
-	" defaults with custom symbols
-	set statusline+=\ %{status#readOnly('')}
-	set statusline+=\ %{status#modified('')}\ 
-	set statusline+=%*
-
-	if exists('status#linter_warn()')
-		set statusline+=\ \ %#warning#%{status#linter_warn()}
-		set statusline+==\ %{status#linter_err()}
-		set statusline+=%*
-	endif
-
-	set statusline+=%=                       " segment break
-	set statusline+=%<%{status#filetype()}\  " filetype without brackets (%< to truncate)
-	set statusline+=%5(\|%v%)\ \ \           " column number
-	set statusline+=%#Folded#\ \ %2p%%\ \    " file percentage
-endfunction
-
-exec StatusDefault()
+exec status#default()
 
 augroup StatuslineHighlight
 	" change statusline highlights if maintaining different statuslines
@@ -69,5 +47,3 @@ augroup end
 
 " highlight! Statusline ctermbg=NONE guibg=NONE
 " highlight! StatuslineNC ctermbg=NONE guibg=NONE
-
-

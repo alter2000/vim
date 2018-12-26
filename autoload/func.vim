@@ -9,7 +9,7 @@ endfunction
 " (un)wrap {{{
 function! func#toggleWrap()
 	if &wrap
-		echo "Wrap OFF"
+		echo 'Wrap OFF'
 		setlocal nowrap
 		" set virtualedit=all
 		silent! nunmap <buffer> <Home>
@@ -17,7 +17,7 @@ function! func#toggleWrap()
 		silent! iunmap <buffer> <Home>
 		silent! iunmap <buffer> <End>
 	else
-		echo "Wrap ON"
+		echo 'Wrap ON'
 		setlocal wrap linebreak nolist
 		" set virtualedit=
 		setlocal display+=lastline
@@ -50,6 +50,7 @@ function func#showSpaces(...)
 	end
 	return oldhlsearch
 endfunction
+
 function func#trimSpaces() range
 	let oldhlsearch=func#showSpaces(1)
 	execute a:firstline.','.a:lastline.'substitute ///gec'
@@ -64,7 +65,7 @@ function! func#redir(cmd)
 			execute win . 'windo close'
 		endif
 	endfor
-	if a:cmd =~ '^!'
+	if a:cmd =~# '^!'
 		execute "let output = system('" . substitute(a:cmd, '^!', '', '') . "')"
 	else
 		redir => output
