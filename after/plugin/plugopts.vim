@@ -22,10 +22,10 @@ if exists('g:loaded_ale')
 		\	'cpp':    ['clang-format'],
 		\	'rust':   ['rustfmt'],
 		\	}
-	let g:ale_c_gcc_options = '-std=c99 -Wall -Wextra'
+	" let g:ale_c_gcc_options = '-std=c99 -Wall -Wextra'
 	let g:ale_completion_enabled = 0
-	let g:ale_completion_delay = 0
-	let g:ale_completion_max_suggestions = 5
+	" let g:ale_completion_delay = 0
+	" let g:ale_completion_max_suggestions = 5
 endif
 " }}}
 " AutoPairs {{{
@@ -40,11 +40,6 @@ endif
 " }}}
 " COC {{{
 if exists('g:coc_local_extensions')
-	" taken from mucomplete docs
-	" imap <expr> / pumvisible() && strpart(getline('.'), 0, col('.') - 1)  =~# '\f\+/$'
-	" 		\ ? "\<c-y>\<plug>(MUcompleteFwd)"
-	" 		\ : '/'
-
 	inoremap <expr> <CR> pumvisible() ? "\<c-y>\<cr>" : "\<CR>"
 	inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 	inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -57,14 +52,11 @@ endif
 "
 " }}}
 " " Easytags {{{
-" " let g:easytags_syntax_keyword = 'always'
-" " let g:easytags_file = '~/.cache/vimtags'
-" " set tags=./tags;
-" " let g:easytags_dynamic_files = 2
-" " let g:easytags_events = ['FileReadPre']
-" " }}}
-" " jedi-vim {{{
-" "	let g:jedi#completions_enabled = 0
+" let g:easytags_syntax_keyword = 'always'
+" let g:easytags_file = '~/.cache/vimtags'
+" set tags=./tags;
+" let g:easytags_dynamic_files = 2
+" let g:easytags_events = ['FileReadPre']
 " " }}}
 " " LanguageClient-neovim {{{
 " if exists('g:loaded_smth') " TODO
@@ -98,20 +90,23 @@ if exists('g:loaded_mucomplete')
 	inoremap <expr> <CR> pumvisible() ? "\<c-y>\<cr>" : "\<CR>"
 	inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 	inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+	imap <expr> <C-l> mucomplete#extend_fwd("\<C-l>")
 
-	let g:mucomplete#spel#max = 15
 	let g:clang_complete_auto = 1
-	let g:clang_user_options = '-std=c99'
+	let g:clang_user_options = '-std=c99 -Wall -Wextra'
 	let g:clang_library_path = '/usr/lib/libclang.so'
 
-	imap <expr> <C-l> mucomplete#extend_fwd("\<C-l>")
 	let g:mucomplete#enable_auto_at_startup = 1
 	let g:mucomplete#delayed_completion = 0
 	let g:mucomplete#spel#max = 8
+
 	let g:mucomplete#chains = {}
-	let g:mucomplete#chains.default = ['omni',  'c-p', 'defs', 'path', 'incl', 'tags', 'dict', 'uspl',]
+	let g:mucomplete#chains.default = ['c-p', 'defs', 'path', 'incl', 'tags', 'dict', 'uspl',]
+	let g:mucomplete#chains.c = ['c-p', 'defs', 'tags', 'incl', 'uspl', 'path', 'dict', 'c-n',]
 	let g:mucomplete#chains.vim = ['cmd', 'path', 'keyn']
-	" let g:mucomplete#can_complete = { 'c' : { 'omni': {t -> t =~# '\%(->\|::\|\.\)$'} } }
+	" let g:mucomplete#can_complete = { 'c' : { 'omni': {t -> t =~# '\%(->\|\.\)$'} } }
+	:MUcompleteAutoOn
+
 endif
 " }}}
 " Mundo (fork of gundo) {{{

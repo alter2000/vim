@@ -64,6 +64,7 @@ set showcmd
 set showmode
 set formatoptions=roqn21j
 set complete=.,w,kspell,k,d,t,i
+" set complete=.,w,b,d,t,i
 set completeopt=noinsert,menuone,noselect,preview
 set diffopt+=algorithm:patience
 set diffopt+=indent-heuristic
@@ -122,6 +123,7 @@ Plug 'nerdypepper/agila.vim'
 " completion + linters
 Plug 'w0rp/ale'
 Plug 'lifepillar/vim-mucomplete'
+Plug 'Rip-Rip/clang_complete'
 " Plug 'm42e/vim-gcov-marker'
 Plug 'tpope/vim-fugitive'
 Plug 'ludovicchabant/vim-gutentags'
@@ -225,6 +227,7 @@ augroup main
 
 	" pandoc really needs this
 	autocmd ColorScheme highlight default link Conceal Special
+	autocmd ColorScheme highlight clear SignColumn
 
 	" highlight trailing whitespace
 	autocmd BufWinEnter * match Error '\s\+$'
