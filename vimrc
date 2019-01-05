@@ -128,6 +128,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'LnL7/vim-nix'
 
 " LSP
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 " if !has('nvim')
   " Plug 'roxma/nvim-yarp'
   " Plug 'roxma/vim-hug-neovim-rpc'

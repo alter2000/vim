@@ -1,0 +1,7 @@
+{
+	"coc.preferences.timeout": 400,
+	"coc.preferences.triggerAfterInsertEnter": true,
+	"coc.preferences.noselect": false,
+	"coc.preferences.minTriggerInputLength": 2,
+	"coc.preferences.snippetIndicator": "⭐︎"
+}

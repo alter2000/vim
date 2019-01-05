@@ -38,6 +38,21 @@ if exists('g:AutoPairsLoaded')
 	let g:AutoPairsMoveCharacter = ''
 endif
 " }}}
+" COC {{{
+if exists('g:coc_local_extensions')
+	" taken from mucomplete docs
+	" imap <expr> / pumvisible() && strpart(getline('.'), 0, col('.') - 1)  =~# '\f\+/$'
+	" 		\ ? "\<c-y>\<plug>(MUcompleteFwd)"
+	" 		\ : '/'
+
+	inoremap <expr> <CR> pumvisible() ? "\<c-y>\<cr>" : "\<CR>"
+	inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+	inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+	let g:coc_snippet_next = '<c-j>'
+	let g:coc_snippet_prev = '<c-k>'
+	let g:rooter_patterns = ['.git/', '.vim/', '.hg/']
+endif
+" }}}
 " delimitMate {{{
 "
 " }}}
