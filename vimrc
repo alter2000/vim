@@ -46,7 +46,7 @@ if has('persistent_undo')
 endif
 " }}}
 " Level 2 (acts properly) {{{
-if !has('nvim')
+if has('viminfo')
 	set viminfo=%10,\"50,'100,'0
 	set viminfofile=~/.cache/vim/viminfo
 endif
@@ -122,6 +122,7 @@ Plug 'nerdypepper/agila.vim'
 " completion + linters
 Plug 'w0rp/ale'
 Plug 'lifepillar/vim-mucomplete'
+" Plug 'm42e/vim-gcov-marker'
 Plug 'tpope/vim-fugitive'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'LnL7/vim-nix'
@@ -137,7 +138,8 @@ Plug 'LnL7/vim-nix'
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 
 Plug 'chrisbra/colorizer'
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
+Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 " Plug 'tpope/vim-apathy'
