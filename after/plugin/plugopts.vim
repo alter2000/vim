@@ -3,6 +3,7 @@ if exists('g:loaded_ale')
 	let g:ale_lint_on_text_changed = 'never'
 	let g:ale_set_loclist = 0
 	let g:ale_set_quickfix = 0
+	let g:ale_sign_column_always = 1
 
 	let g:ale_sign_error = '!!'
 	let g:ale_sign_warning = '‽‽'
@@ -22,7 +23,7 @@ if exists('g:loaded_ale')
 		\	'cpp':    ['clang-format'],
 		\	'rust':   ['rustfmt'],
 		\	}
-	" let g:ale_c_gcc_options = '-std=c99 -Wall -Wextra'
+	let g:ale_c_gcc_options = '-std=c99 -Wall -Wextra'
 	let g:ale_completion_enabled = 0
 	" let g:ale_completion_delay = 0
 	" let g:ale_completion_max_suggestions = 5

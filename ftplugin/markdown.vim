@@ -7,6 +7,6 @@ setlocal nospell
 setlocal spelllang=en,fr
 setlocal textwidth=79
 setlocal wrap
-cnoremap q Goyo! | q
-cnoremap x wqa
-:Goyo 120
+" cnoremap q Goyo! \| q
+" cnoremap x wqa
+" :Goyo 120
