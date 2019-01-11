@@ -103,7 +103,7 @@ if exists('g:loaded_mucomplete')
 
 	let g:mucomplete#chains = {}
 	let g:mucomplete#chains.default = ['c-p', 'defs', 'path', 'incl', 'tags', 'dict', 'uspl',]
-	let g:mucomplete#chains.c = ['c-p', 'defs', 'tags', 'incl', 'uspl', 'path', 'dict', 'c-n',]
+	let g:mucomplete#chains.c = ['defs', 'tags', 'incl', 'uspl', 'path', 'dict', 'c-n',]
 	let g:mucomplete#chains.vim = ['cmd', 'path', 'keyn']
 	" let g:mucomplete#can_complete = { 'c' : { 'omni': {t -> t =~# '\%(->\|\.\)$'} } }
 	:MUcompleteAutoOn
