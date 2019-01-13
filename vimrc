@@ -92,64 +92,6 @@ let g:loaded_logipat = 1
 let g:loaded_vimballPlugin = 1
 packadd! matchit
 
-" install vim-plug if it's not already there
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-" Plug {{{
-call plug#begin('~/.vim/uggplug')
-" docs
-Plug 'jamessan/vim-gnupg'
-Plug 'junegunn/goyo.vim'
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'vim-pandoc/vim-pandoc-after'
-Plug 'fcpg/vim-waikiki'
-Plug 'dhruvasagar/vim-table-mode'
-Plug 'godlygeek/tabular'
-
-Plug 'mhinz/vim-startify'
-Plug 'simnalamburt/vim-mundo'
-Plug 'osyo-manga/vim-over'
-" Plug 'kien/rainbow_parentheses.vim'
-
-" colorschemes
-Plug 'morhetz/gruvbox'
-Plug 'mkarmona/materialbox'
-Plug 'nerdypepper/agila.vim'
-
-" completion + linters
-Plug 'w0rp/ale'
-Plug 'lifepillar/vim-mucomplete'
-Plug 'Rip-Rip/clang_complete'
-Plug 'm42e/vim-gcov-marker'
-Plug 'tpope/vim-fugitive'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'LnL7/vim-nix'
-
-" LSP
-" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-" if !has('nvim')
-  " Plug 'roxma/nvim-yarp'
-  " Plug 'roxma/vim-hug-neovim-rpc'
-" endif
-" Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
-" Plug 'haskell/haskell-ide-engine'
-
-Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
-
-Plug 'chrisbra/colorizer'
-" Plug 'jiangmiao/auto-pairs'
-Plug 'Raimondi/delimitMate'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
-" Plug 'tpope/vim-apathy'
-
-Plug 'johngrib/vim-game-snake'
-
-call plug#end() "}}}
 " }}}
 """ VISUALS {{{
 set laststatus=2 showtabline=1
