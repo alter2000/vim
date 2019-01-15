@@ -20,3 +20,5 @@ nnoremap <silent><buffer> <F5> oimport ipdb; ipdb.set_trace()<Esc>
 " let g:jedi#popup_on_dot = 1
 let b:ale_fixers  = ['yapf', 'autopep8']
 let b:ale_linters = ['flake8', 'pylint']
+
+packadd yapf

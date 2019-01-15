@@ -9,3 +9,9 @@ setlocal norelativenumber
 setlocal filetype=mail.pandoc
 setlocal syntax=pandoc
 let b:loaded_delimitMate = 1
+
+packadd goyo.vim
+packadd vim-gnupg
+packadd vim-pandoc
+packadd vim-pandoc-after
+packadd vim-pandoc-syntax

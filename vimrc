@@ -62,7 +62,7 @@ if executable('rg')
 endif
 set showcmd
 set showmode
-set formatoptions=roqn21j
+set formatoptions=troqn21j
 set complete=.,w,kspell,k,d,t,i
 " set complete=.,w,b,d,t,i
 set completeopt=noinsert,menuone,noselect,preview
@@ -124,6 +124,7 @@ if has('gui_running')
 	set guifont=League\ Mono\ 13,Hasklig\ 13
 	set guipty
 	execute 'set background=' . ((strftime('%H') % 20) > 7 ? 'light' : 'dark')
+	packadd gruvbox
 	colorscheme agila
 	" let g:gruvbox_italic = 1
 	" let g:gruvbox_contrast_dark='oft'

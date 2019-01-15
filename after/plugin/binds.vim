@@ -40,6 +40,8 @@ nmap sS ysiW
 
 nnoremap zm zM
 nnoremap zr zR
+cnoremap !! echo system('')<left><left>
+
 " window management {{{
 nnoremap <Up>    :resize +3<CR>
 nnoremap <Down>  :resize -3<CR>
@@ -87,6 +89,12 @@ nnoremap <silent> <leader>m        :<c-u><c-r><c-r>='let @'. v:register .' = '. 
 " paste only from yank
 xnoremap <space>p "0p
 nnoremap <space>p "0p
+if exists(":Tabularize")
+	nnoremap <leader>a= :Tabularize /=<CR>
+	vnoremap <leader>a= :Tabularize /=<CR>
+	nnoremap <leader>a: :Tabularize /:\zs<CR>
+	vnoremap <leader>a: :Tabularize /:\zs<CR>
+endif
 " }}}
 " FZF {{{
 if executable('rg')

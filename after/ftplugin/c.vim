@@ -9,6 +9,8 @@ setlocal foldmethod=syntax
 setlocal iskeyword+=.
 setlocal path+=./include,./lib,./lib/my,,
 
+packadd clang_complete
+packadd vim-gcov-marker
 if exists('g:loaded_gcov_marker')
 	let g:gcov_marker_path  = './'
 	let g:gcov_marker_auto_lopen = 0

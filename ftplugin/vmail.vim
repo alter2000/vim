@@ -13,3 +13,10 @@ setlocal syntax=pandoc
 :ALEDisableBuffer
 let b:loaded_delimitMate = 1
 runtime plugin/status.vim
+
+packadd goyo.vim
+packadd vim-gnupg
+packadd vim-pandoc
+packadd vim-pandoc-after
+packadd vim-pandoc-syntax
+
