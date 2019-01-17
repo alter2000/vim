@@ -91,7 +91,6 @@ let g:loaded_logipat = 1
 " let g:loaded_matchparen = 1
 let g:loaded_vimballPlugin = 1
 packadd! matchit
-
 " }}}
 """ VISUALS {{{
 set laststatus=2 showtabline=1
@@ -119,38 +118,21 @@ endif
 " let &t_SI = "\<Esc>[6 q"
 " let &t_EI = "\<Esc>[2 q"
 
-if has('gui_running')
-	set guioptions='PAciMg'  " remove cruft
-	set guifont=League\ Mono\ 13,Hasklig\ 13
-	set guipty
-	execute 'set background=' . ((strftime('%H') % 20) > 7 ? 'light' : 'dark')
-	packadd gruvbox
-	colorscheme agila
-	" let g:gruvbox_italic = 1
-	" let g:gruvbox_contrast_dark='oft'
-	" let g:gruvbox_guisp_fallback='fg'
-	" let g:gruvbox_termcolors=256
-	" I'm not even using the gooey
-	set guicursor=a:block
-	" mode aware cursors
-	set guicursor+=o:hor50-Cursor
-	set guicursor+=n:Cursor
-	set guicursor+=i-ci-sm:InsertCursor
-	set guicursor+=r-cr:ReplaceCursor-hor20
-	set guicursor+=c:CommandCursor
-	set guicursor+=v-ve:VisualCursor
-	set guicursor+=a:blinkon0
-
-	hi InsertCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=37  guibg=#2aa198
-	hi VisualCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=125 guibg=#d33682
-	hi ReplaceCursor ctermfg=15 guifg=#fdf6e3 ctermbg=65  guibg=#dc322f
-	hi CommandCursor ctermfg=15 guifg=#fdf6e3 ctermbg=166 guibg=#cb4b16
-elseif &termguicolors == 1
+if &termguicolors == 1
 	execute 'set background=' . ((strftime('%H') % 22) > 7 ? 'light' : 'dark')
 	colorscheme materialbox
 else
 	colorscheme elflord
 endif
+
+augroup GUIColors
+	autocmd!
+
+	autocmd ColorScheme hi InsertCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=37  guibg=#2aa198
+	autocmd ColorScheme hi VisualCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=125 guibg=#d33682
+	autocmd ColorScheme hi ReplaceCursor ctermfg=15 guifg=#fdf6e3 ctermbg=65  guibg=#dc322f
+	autocmd ColorScheme hi CommandCursor ctermfg=15 guifg=#fdf6e3 ctermbg=166 guibg=#cb4b16
+augroup END
 
 set wildignore+=*.swp,*.swo,*lock,._*
 set wildignore+=.git,.hg,.svn

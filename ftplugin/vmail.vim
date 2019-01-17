@@ -19,4 +19,3 @@ packadd vim-gnupg
 packadd vim-pandoc
 packadd vim-pandoc-after
 packadd vim-pandoc-syntax
-

@@ -30,3 +30,6 @@ inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 " cnoremap q Goyo! \| q
 " cnoremap x wqa
 " :Goyo 120
+
+setfiletype pandoc
+setlocal syntax=pandoc

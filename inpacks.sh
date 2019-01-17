@@ -45,3 +45,27 @@ urls=(
 
 'https://github.com/johngrib/vim-game-snake'
 )
+
+install() {
+    for i in $urls; do
+        git submodule add $i
+        vim -c 'helptags\ ALL' -c 'q'
+    done
+}
+
+update() {
+    git submodule update --recursive --remote
+    vim -c 'helptags\ ALL' -c 'q'
+}
+
+remove() {
+    git submodule deinit "$2"
+    vim -c 'helptags\ ALL' -c 'q'
+    echo "removed _temporarily_"
+}
+
+case $1 in
+    i*) install   ;;
+    u*) update    ;;
+    r*) remove $2 ;;
+esac

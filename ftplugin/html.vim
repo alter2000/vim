@@ -8,9 +8,10 @@ setlocal nolist
 setlocal noexpandtab
 setlocal tabstop=2
 setlocal shiftwidth=2
-setlocal foldmethod=indent
 iabbrev <// </<C-X><C-O>
-:ALEDisableBuffer
+setlocal foldmethod=indent
+let b:delimitMate_matchpairs = '(:),[:],{:},<:>'
+" :ALEDisableBuffer
 
 let b:ale_fixers  = ['prettier', 'tidy']
 let b:ale_linters  = ['prettier', 'tidy']

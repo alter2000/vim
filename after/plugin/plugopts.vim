@@ -50,7 +50,15 @@ if exists('g:coc_local_extensions')
 endif
 " }}}
 " delimitMate {{{
-"
+if exists('g:loaded_delimitMate')
+	let g:delimitMate_nesting_quotes = ['"','`']
+	let g:delimitMate_quotes = "\" ' `"
+	let g:delimitMate_expand_cr = 2
+	let g:delimitMate_expand_space = 1
+	let g:delimitMate_expand_inside_quotes = 1
+	let g:delimitMate_excluded_regions = ''
+	let g:delimitMate_balance_matchpairs = 1
+endif
 " }}}
 " " Easytags {{{
 " let g:easytags_syntax_keyword = 'always'
