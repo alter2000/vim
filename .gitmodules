@@ -82,3 +82,6 @@
 [submodule "pack/base/opt/taglist.vim"]
 	path = pack/base/opt/taglist.vim
 	url = https://github.com/vim-scripts/taglist.vim
+[submodule "pack/base/start/seoul256.vim"]
+	path = pack/base/start/seoul256.vim
+	url = https://github.com/junegunn/seoul256.vim
