@@ -52,6 +52,9 @@ function func#showSpaces(...)
 endfunction
 
 function func#trimSpaces() range
+	if &binary || &filetype ==# 'diff'
+		return
+	endif
 	let oldhlsearch=func#showSpaces(1)
 	execute a:firstline.','.a:lastline.'substitute ///gec'
 	let &hlsearch=oldhlsearch
@@ -114,5 +117,16 @@ function! func#Dejoana()
 	nnoremap <Down>  :resize -3<CR>
 	nnoremap <Left>  :vertical resize -3<CR>
 	nnoremap <Right> :vertical resize +3<CR>
+endfunction
+" }}}
+
+" return git root path {{{
+function! func#git_root(path)
+	let gitdir = system("git rev-parse --show-toplevel | tr -d '\\n'")
+	if matchstr(gitdir, '^fatal:.*')
+		return ''
+	else
+		return gitdir
+	endif
 endfunction
 " }}}

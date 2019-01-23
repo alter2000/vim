@@ -35,6 +35,8 @@ inoremap <C-e> <End>
 "cnoremap <C-k>
 " }}}
 
+map s <nop>
+map S <nop>
 nmap ss ysiw
 nmap sS ysiW
 
@@ -89,20 +91,29 @@ nnoremap <silent> <leader>m        :<c-u><c-r><c-r>='let @'. v:register .' = '. 
 " paste only from yank
 xnoremap <space>p "0p
 nnoremap <space>p "0p
-if exists(":Tabularize")
+" }}}
+" plugin-based {{{
+if executable('rg')
+	nnoremap <Leader>ff call func#fzfFiles()
+endif
+if exists(':Tabularize')
 	nnoremap <leader>a= :Tabularize /=<CR>
 	vnoremap <leader>a= :Tabularize /=<CR>
 	nnoremap <leader>a: :Tabularize /:\zs<CR>
 	vnoremap <leader>a: :Tabularize /:\zs<CR>
 endif
-" }}}
-" FZF {{{
-if executable('rg')
-	nnoremap <Leader>ff call func#fzfFiles()
+if exists(':Tlist')
+	nnoremap <leader>t :Tlist<CR>
+	vnoremap <leader>t :Tlist<CR>
+	xnoremap <leader>t :Tlist<CR>
+	nnoremap <C-]> g<C-]>
+	nnoremap g<C-]> <C-]>
 endif
 " nnoremap <Leader>fe :GitFiles<CR>
-nnoremap <Leader>ft :Tags<CR>
-nnoremap <Leader>/  :Rg<CR>
+if exists(':Tags')
+	nnoremap <Leader>ft :Tags<CR>
+	nnoremap <Leader>/  :Rg<CR>
+endif
 " }}}
 " function keys {{{
 noremap <F1> <Esc>

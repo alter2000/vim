@@ -7,10 +7,16 @@ setlocal colorcolumn=80
 setlocal keywordprg=man
 setlocal foldmethod=syntax
 setlocal iskeyword+=.
-setlocal path+=./include,./lib,./lib/my,,
+let &b:path .= './include,'
+		\ . '../include,'
+		\ . './lib/my,'
+		\ . ','
+		\ . func#git_root('<afile>')
 
 packadd clang_complete
 packadd vim-gcov-marker
+packadd taglist.vim
+
 if exists('g:loaded_gcov_marker')
 	let g:gcov_marker_path  = './'
 	let g:gcov_marker_auto_lopen = 0
@@ -19,3 +25,11 @@ if exists('g:loaded_delimitMate')
 	let b:delimitMate_eol_marker = ';'
 	let b:delimitMate_insert_eol_marker = 2
 endif
+
+augroup C
+	autocmd!
+
+	autocmd BufNewFile *.c  call ftfunc#skel('<afile>')
+	autocmd BufNewFile *.h  call ftfunc#skel('<afile>')
+	" autocmd BufRead    *.c  1;/^{
+augroup END

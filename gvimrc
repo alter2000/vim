@@ -1,5 +1,5 @@
 set guioptions='PAciMg'  " remove cruft
-set guifont=League\ Mono\ 13,Hasklig\ 13
+set guifont=Hasklig\ Light\ 11,League\ Mono\ 13
 set guipty
 execute 'set background=' . ((strftime('%H') % 20) > 7 ? 'light' : 'dark')
 packadd gruvbox

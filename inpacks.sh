@@ -17,12 +17,14 @@ urls=(
 'https://github.com/mkarmona/materialbox'
 'https://github.com/morhetz/gruvbox'
 'https://github.com/nerdypepper/agila.vim'
+'https://github.com/junegunn/seoul256.vim'
 
 # completion + linters
 'https://github.com/LnL7/vim-nix'
 'https://github.com/Rip-Rip/clang_complete'
 'https://github.com/lifepillar/vim-mucomplete'
 'https://github.com/ludovicchabant/vim-gutentags'
+'https://github.com/vim-scripts/taglist.vim'
 'https://github.com/m42e/vim-gcov-marker'
 'https://github.com/tpope/vim-fugitive'
 'https://github.com/w0rp/ale'
@@ -42,30 +44,31 @@ urls=(
 'https://github.com/chrisbra/colorizer'
 'https://github.com/tpope/vim-commentary'
 'https://github.com/tpope/vim-surround'
+# 'https://github.com/tpope/vim-projectionist'
 
 'https://github.com/johngrib/vim-game-snake'
 )
 
-install() {
-    for i in $urls; do
-        git submodule add $i
-        vim -c 'helptags\ ALL' -c 'q'
-    done
-}
+# install() {
+#     for i in $urls; do
+#         git submodule add $i
+#         vim -c 'helptags\ ALL' -c 'q'
+#     done
+# }
 
-update() {
-    git submodule update --recursive --remote
-    vim -c 'helptags\ ALL' -c 'q'
-}
+# update() {
+#     git submodule update --recursive --remote
+#     vim -c 'helptags\ ALL' -c 'q'
+# }
 
-remove() {
-    git submodule deinit "$2"
-    vim -c 'helptags\ ALL' -c 'q'
-    echo "removed _temporarily_"
-}
+# remove() {
+#     git submodule deinit "$2"
+#     vim -c 'helptags\ ALL' -c 'q'
+#     echo "removed _temporarily_"
+# }
 
-case $1 in
-    i*) install   ;;
-    u*) update    ;;
-    r*) remove $2 ;;
-esac
+# case $1 in
+#     i*) install   ;;
+#     u*) update    ;;
+#     r*) remove $2 ;;
+# esac

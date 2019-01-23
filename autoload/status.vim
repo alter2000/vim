@@ -54,6 +54,7 @@ function! status#linter_err() abort"{{{
 " }}}
 
 function! status#default() " {{{
+
 	set laststatus=2
 	set statusline=%#ModeMsg#\ %{mode()}\ %*
 	set statusline+=%#Normal#\ \ %{status#filename()}

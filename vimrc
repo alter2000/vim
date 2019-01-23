@@ -96,11 +96,12 @@ packadd! matchit
 set laststatus=2 showtabline=1
 set shortmess=filnrxtWc
 set fillchars=vert:│
-set conceallevel=2
-set termguicolors
-" tmux specific
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+if has('Conceal')
+	set conceallevel=2
+endif
+if has('termguicolors')
+	set termguicolors
+endif
 
 " Block in normal mode
 " I-beam in insert
@@ -109,6 +110,9 @@ if exists('$TMUX')
 	let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 	let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 	let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+	" tmux specific
+	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 else
 	let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 	let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -117,22 +121,20 @@ endif
 
 " let &t_SI = "\<Esc>[6 q"
 " let &t_EI = "\<Esc>[2 q"
+" let &t_SR = "\<Esc>[0 q"
 
 if &termguicolors == 1
-	execute 'set background=' . ((strftime('%H') % 22) > 7 ? 'light' : 'dark')
+	if (strftime('%H') % 22) > 7
+		execute 'set background=light'
+		set nocursorcolumn
+	else
+		execute 'set background=dark'
+		set cursorcolumn
+	endif
 	colorscheme materialbox
 else
 	colorscheme elflord
 endif
-
-augroup GUIColors
-	autocmd!
-
-	autocmd ColorScheme hi InsertCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=37  guibg=#2aa198
-	autocmd ColorScheme hi VisualCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=125 guibg=#d33682
-	autocmd ColorScheme hi ReplaceCursor ctermfg=15 guifg=#fdf6e3 ctermbg=65  guibg=#dc322f
-	autocmd ColorScheme hi CommandCursor ctermfg=15 guifg=#fdf6e3 ctermbg=166 guibg=#cb4b16
-augroup END
 
 set wildignore+=*.swp,*.swo,*lock,._*
 set wildignore+=.git,.hg,.svn
@@ -168,4 +170,14 @@ augroup main
 	" autocmd FilterWritePre * if &diff | map <leader>\| :diffget BASE<cr> | endif
 
 augroup end
+
+augroup GUIColors
+	autocmd!
+
+	autocmd ColorScheme hi InsertCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=37  guibg=#2aa198
+	autocmd ColorScheme hi VisualCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=125 guibg=#d33682
+	autocmd ColorScheme hi ReplaceCursor ctermfg=15 guifg=#fdf6e3 ctermbg=65  guibg=#dc322f
+	autocmd ColorScheme hi CommandCursor ctermfg=15 guifg=#fdf6e3 ctermbg=166 guibg=#cb4b16
+augroup END
+
 " }}}

@@ -1,6 +1,9 @@
-iabbrev <// </<C-X><C-O>
 packadd matchit
+setlocal foldmethod=syntax
+
 let b:xml_syntax_folding=1
 let b:delimitMate_matchpairs = '(:),{:},<:>'
-setlocal foldmethod=syntax
+
+iabbrev <buffer> <// </<C-X><C-O>
+
 :%foldopen!
