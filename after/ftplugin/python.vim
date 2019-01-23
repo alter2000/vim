@@ -13,7 +13,7 @@ setlocal colorcolumn=80
 setlocal makeprg=python\ %
 setlocal foldmethod=indent
 setlocal equalprg="yapf --in-place"
-let &b:path .= func#git_root('<afile>')
+let &path .= func#git_root('<afile>')
 
 nnoremap <silent><buffer> <F4>  :w !python<CR>
 nnoremap <silent><buffer> <F5> oimport ipdb; ipdb.set_trace()<Esc>

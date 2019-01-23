@@ -7,7 +7,7 @@ setlocal colorcolumn=80
 setlocal keywordprg=man
 setlocal foldmethod=syntax
 setlocal iskeyword+=.
-let &b:path .= './include,'
+let &path .= './include,'
 		\ . '../include,'
 		\ . './lib/my,'
 		\ . ','
