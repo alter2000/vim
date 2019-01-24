@@ -126,10 +126,10 @@ endif
 if &termguicolors == 1
 	if (strftime('%H') % 22) > 7
 		execute 'set background=light'
-		set nocursorcolumn
+		" set nocursorcolumn
 	else
 		execute 'set background=dark'
-		set cursorcolumn
+		" set cursorcolumn
 	endif
 	colorscheme materialbox
 else
