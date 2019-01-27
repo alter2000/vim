@@ -85,3 +85,6 @@
 [submodule "pack/base/start/seoul256.vim"]
 	path = pack/base/start/seoul256.vim
 	url = https://github.com/junegunn/seoul256.vim
+[submodule "pack/base/opt/vim-logbook"]
+	path = pack/base/opt/vim-logbook
+	url = https://github.com/jamesroutley/vim-logbook

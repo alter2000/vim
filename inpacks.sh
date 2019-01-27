@@ -7,6 +7,7 @@ urls=(
 'https://github.com/vim-pandoc/vim-pandoc'
 'https://github.com/vim-pandoc/vim-pandoc-after'
 'https://github.com/vim-pandoc/vim-pandoc-syntax'
+'https://github.com/jamesroutley/vim-logbook'
 
 # 'https://github.com/kien/rainbow_parentheses.vim'
 'https://github.com/mhinz/vim-startify'
@@ -51,9 +52,12 @@ urls=(
 
 # install() {
 #     for i in $urls; do
-#         git submodule add $i
-#         vim -c 'helptags\ ALL' -c 'q'
+#         (
+#             cd ~/.vim/pack/base/opt
+#             git submodule add $i
+#         )
 #     done
+#     vim -c 'helptags\ ALL' -c 'q'
 # }
 
 # update() {
@@ -62,7 +66,7 @@ urls=(
 # }
 
 # remove() {
-#     git submodule deinit "$2"
+#     git submodule deinit "pack/base/opt/$2"
 #     vim -c 'helptags\ ALL' -c 'q'
 #     echo "removed _temporarily_"
 # }
