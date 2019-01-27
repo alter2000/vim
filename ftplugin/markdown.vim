@@ -27,9 +27,8 @@ endfunction
 
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
-" cnoremap q Goyo! \| q
-" cnoremap x wqa
-" :Goyo 120
+call mywaikiki#Load()
+call mywaikiki#SetupBuffer()
 
 setfiletype pandoc
 setlocal syntax=pandoc
