@@ -130,3 +130,18 @@ function! func#git_root(path)
 	endif
 endfunction
 " }}}
+
+" resize window to fit all text {{{
+function! func#adjustWinHeight(...)
+	let w:view = winsaveview()
+	let height = line('$')
+	if a:0
+		let height = a:0
+	elseif height > 6
+		let height = 6
+	endif
+	exec 'resize' height
+	call winrestview(w:view)
+	unlet w:view
+endfunction
+" }}}
