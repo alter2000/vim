@@ -26,6 +26,11 @@ if exists('g:loaded_delimitMate')
 	let b:delimitMate_insert_eol_marker = 2
 endif
 
+nnoremap <C-]> g<C-]>
+nnoremap g<C-]> <C-]>
+xnoremap <C-]> g<C-]>
+xnoremap g<C-]> <C-]>
+
 augroup C
 	autocmd!
 
