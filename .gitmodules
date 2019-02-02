@@ -32,10 +32,10 @@
 	path = pack/base/start/vim-mundo
 	url = https://github.com/simnalamburt/vim-mundo
 [submodule "pack/base/start/gruvbox"]
-	path = pack/base/opt/gruvbox
+	path = pack/colorschemes/opt/gruvbox
 	url = https://github.com/morhetz/gruvbox
 [submodule "pack/base/start/agila.vim"]
-	path = pack/base/start/agila.vim
+	path = pack/colorschemes/start/agila.vim
 	url = https://github.com/nerdypepper/agila.vim
 [submodule "pack/base/start/vim-nix"]
 	path = pack/base/start/vim-nix
@@ -77,14 +77,14 @@
 	path = pack/base/opt/vim-game-snake
 	url = https://github.com/johngrib/vim-game-snake
 [submodule "pack/base/start/materialbox"]
-	path = pack/base/start/materialbox
+	path = pack/colorschemes/start/materialbox
 	url = https://github.com/mkarmona/materialbox
 [submodule "pack/base/opt/taglist.vim"]
 	path = pack/base/opt/taglist.vim
 	url = https://github.com/vim-scripts/taglist.vim
 [submodule "pack/base/start/seoul256.vim"]
-	path = pack/base/start/seoul256.vim
+	path = pack/colorschemes/start/seoul256.vim
 	url = https://github.com/junegunn/seoul256.vim
-[submodule "pack/base/opt/vim-logbook"]
-	path = pack/base/opt/vim-logbook
-	url = https://github.com/jamesroutley/vim-logbook
+[submodule "pack/colorschemes/start/ayu-vim"]
+	path = pack/colorschemes/start/ayu-vim
+	url = https://github.com/ayu-theme/ayu-vim
