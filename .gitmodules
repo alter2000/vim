@@ -1,90 +1,87 @@
-[submodule "pack/base/start/vim-table-mode"]
-	path = pack/base/opt/vim-table-mode
-	url = https://github.com/dhruvasagar/vim-table-mode
-[submodule "pack/base/start/vim-waikiki"]
-	path = pack/base/opt/vim-waikiki
-	url = https://github.com/fcpg/vim-waikiki
-[submodule "pack/base/start/tabular"]
-	path = pack/base/start/tabular
-	url = https://github.com/godlygeek/tabular
-[submodule "pack/base/start/vim-gnupg"]
-	path = pack/base/opt/vim-gnupg
-	url = https://github.com/jamessan/vim-gnupg
-[submodule "pack/base/start/goyo.vim"]
-	path = pack/base/opt/goyo.vim
-	url = https://github.com/junegunn/goyo.vim
-[submodule "pack/base/start/vim-pandoc"]
-	path = pack/base/opt/vim-pandoc
-	url = https://github.com/vim-pandoc/vim-pandoc
-[submodule "pack/base/start/vim-pandoc-after"]
-	path = pack/base/opt/vim-pandoc-after
-	url = https://github.com/vim-pandoc/vim-pandoc-after
-[submodule "pack/base/start/vim-pandoc-syntax"]
-	path = pack/base/opt/vim-pandoc-syntax
-	url = https://github.com/vim-pandoc/vim-pandoc-syntax
-[submodule "pack/base/start/vim-startify"]
-	path = pack/base/start/vim-startify
-	url = https://github.com/mhinz/vim-startify
-[submodule "pack/base/start/vim-over"]
-	path = pack/base/start/vim-over
-	url = https://github.com/osyo-manga/vim-over
-[submodule "pack/base/start/vim-mundo"]
-	path = pack/base/start/vim-mundo
-	url = https://github.com/simnalamburt/vim-mundo
-[submodule "pack/base/start/gruvbox"]
-	path = pack/colorschemes/opt/gruvbox
-	url = https://github.com/morhetz/gruvbox
-[submodule "pack/base/start/agila.vim"]
-	path = pack/colorschemes/start/agila.vim
-	url = https://github.com/nerdypepper/agila.vim
-[submodule "pack/base/start/vim-nix"]
-	path = pack/base/start/vim-nix
-	url = https://github.com/LnL7/vim-nix
-[submodule "pack/base/start/clang_complete"]
-	path = pack/base/opt/clang_complete
-	url = https://github.com/Rip-Rip/clang_complete
-[submodule "pack/base/start/vim-mucomplete"]
-	path = pack/base/start/vim-mucomplete
-	url = https://github.com/lifepillar/vim-mucomplete
-[submodule "pack/base/start/vim-gutentags"]
-	path = pack/base/start/vim-gutentags
-	url = https://github.com/ludovicchabant/vim-gutentags
-[submodule "pack/base/start/vim-gcov-marker"]
+[submodule "pack/base/opt/vim-gcov-marker"]
 	path = pack/base/opt/vim-gcov-marker
 	url = https://github.com/m42e/vim-gcov-marker
-[submodule "pack/base/start/vim-fugitive"]
-	path = pack/base/start/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive
-[submodule "pack/base/start/ale"]
-	path = pack/base/start/ale
-	url = https://github.com/w0rp/ale
-[submodule "pack/base/start/yapf"]
-	path = pack/base/opt/yapf
-	url = https://github.com/google/yapf
-[submodule "pack/base/start/delimitMate"]
-	path = pack/base/start/delimitMate
-	url = https://github.com/Raimondi/delimitMate
-[submodule "pack/base/start/colorizer"]
-	path = pack/base/start/colorizer
-	url = https://github.com/chrisbra/colorizer
+[submodule "pack/base/opt/vim-game-snake"]
+	path = pack/base/opt/vim-game-snake
+	url = https://github.com/johngrib/vim-game-snake
+[submodule "pack/base/opt/vim-waikiki"]
+	path = pack/base/opt/vim-waikiki
+	url = https://github.com/fcpg/vim-waikiki
+[submodule "pack/base/opt/goyo.vim"]
+	path = pack/base/opt/goyo.vim
+	url = https://github.com/junegunn/goyo.vim
 [submodule "pack/base/start/vim-commentary"]
 	path = pack/base/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary
-[submodule "pack/base/start/vim-surround"]
-	path = pack/base/start/vim-surround
-	url = https://github.com/tpope/vim-surround
-[submodule "pack/base/start/vim-game-snake"]
-	path = pack/base/opt/vim-game-snake
-	url = https://github.com/johngrib/vim-game-snake
-[submodule "pack/base/start/materialbox"]
-	path = pack/colorschemes/start/materialbox
-	url = https://github.com/mkarmona/materialbox
-[submodule "pack/base/opt/taglist.vim"]
-	path = pack/base/opt/taglist.vim
-	url = https://github.com/vim-scripts/taglist.vim
-[submodule "pack/base/start/seoul256.vim"]
+[submodule "pack/colorschemes/start/agila.vim"]
+	path = pack/colorschemes/start/agila.vim
+	url = https://github.com/nerdypepper/agila.vim
+[submodule "pack/colorschemes/start/seoul256.vim"]
 	path = pack/colorschemes/start/seoul256.vim
 	url = https://github.com/junegunn/seoul256.vim
+[submodule "pack/base/opt/vim-pandoc-after"]
+	path = pack/base/opt/vim-pandoc-after
+	url = https://github.com/vim-pandoc/vim-pandoc-after
+[submodule "pack/base/start/tabular"]
+	path = pack/base/start/tabular
+	url = https://github.com/godlygeek/tabular
+[submodule "pack/colorschemes/start/materialbox"]
+	path = pack/colorschemes/start/materialbox
+	url = https://github.com/mkarmona/materialbox
+[submodule "pack/base/start/vim-over"]
+	path = pack/base/start/vim-over
+	url = https://github.com/osyo-manga/vim-over
+[submodule "pack/base/start/delimitMate"]
+	path = pack/base/start/delimitMate
+	url = https://github.com/Raimondi/delimitMate
+[submodule "pack/base/start/vim-mucomplete"]
+	path = pack/base/start/vim-mucomplete
+	url = https://github.com/lifepillar/vim-mucomplete
+[submodule "pack/base/opt/vim-gnupg"]
+	path = pack/base/opt/vim-gnupg
+	url = https://github.com/jamessan/vim-gnupg
+[submodule "pack/base/opt/yapf"]
+	path = pack/base/opt/yapf
+	url = https://github.com/google/yapf
+[submodule "pack/base/start/vim-gutentags"]
+	path = pack/base/start/vim-gutentags
+	url = https://github.com/ludovicchabant/vim-gutentags
+[submodule "pack/base/opt/vim-pandoc"]
+	path = pack/base/opt/vim-pandoc
+	url = https://github.com/vim-pandoc/vim-pandoc
+[submodule "pack/base/start/colorizer"]
+	path = pack/base/start/colorizer
+	url = https://github.com/chrisbra/colorizer
+[submodule "pack/base/opt/clang_complete"]
+	path = pack/base/opt/clang_complete
+	url = https://github.com/Rip-Rip/clang_complete
+[submodule "pack/colorschemes/opt/gruvbox"]
+	path = pack/colorschemes/opt/gruvbox
+	url = https://github.com/morhetz/gruvbox
+[submodule "pack/base/opt/vim-pandoc-syntax"]
+	path = pack/base/opt/vim-pandoc-syntax
+	url = https://github.com/vim-pandoc/vim-pandoc-syntax
+[submodule "pack/base/start/vim-fugitive"]
+	path = pack/base/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "pack/base/start/vim-startify"]
+	path = pack/base/start/vim-startify
+	url = https://github.com/mhinz/vim-startify
+[submodule "pack/base/opt/vim-table-mode"]
+	path = pack/base/opt/vim-table-mode
+	url = https://github.com/dhruvasagar/vim-table-mode
+[submodule "pack/base/start/vim-mundo"]
+	path = pack/base/start/vim-mundo
+	url = https://github.com/simnalamburt/vim-mundo
+[submodule "pack/base/start/ale"]
+	path = pack/base/start/ale
+	url = https://github.com/w0rp/ale
+[submodule "pack/base/opt/vim-surround"]
+	path = pack/base/opt/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "pack/base/start/vim-nix"]
+	path = pack/base/start/vim-nix
+	url = https://github.com/LnL7/vim-nix
 [submodule "pack/colorschemes/start/ayu-vim"]
 	path = pack/colorschemes/start/ayu-vim
 	url = https://github.com/ayu-theme/ayu-vim
