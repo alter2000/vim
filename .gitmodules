@@ -77,7 +77,7 @@
 	path = pack/base/start/ale
 	url = https://github.com/w0rp/ale
 [submodule "pack/base/opt/vim-surround"]
-	path = pack/base/opt/vim-surround
+	path = pack/base/start/vim-surround
 	url = https://github.com/tpope/vim-surround
 [submodule "pack/base/start/vim-nix"]
 	path = pack/base/start/vim-nix
