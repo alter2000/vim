@@ -110,35 +110,19 @@ if exists('$TMUX')
 	let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 	let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 	let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
-	" tmux specific
 	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 else
 	let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 	let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 	let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+
+	" let &t_SI = "\<Esc>[6 q"
+	" let &t_EI = "\<Esc>[2 q"
+	" let &t_SR = "\<Esc>[0 q"
 endif
 
-" let &t_SI = "\<Esc>[6 q"
-" let &t_EI = "\<Esc>[2 q"
-" let &t_SR = "\<Esc>[0 q"
-
-if &termguicolors == 1
-	if (strftime('%H') % 22) > 7
-		" execute 'set background=light'
-		" set nocursorcolumn
-		let ayucolor = 'light'
-		colorscheme ayu
-	else
-		" execute 'set background=dark'
-		" set cursorcolumn
-		" let ayucolor = 'mirage'
-		colorscheme agila
-	endif
-	" colorscheme ayu
-else
-	colorscheme elflord
-endif
+exec 'source ' . expand('$MYVIMRC').'.curcolors'
 
 set wildignore+=*.swp,*.swo,*lock,._*
 set wildignore+=.git,.hg,.svn
@@ -149,10 +133,10 @@ set wildignore+=*.mp3,*.oga,*.ogg,*.wav,*.alac,*.flac
 set wildignore+=*.eot,*.otf,*.ttf,*.woff
 set wildignore+=*.docx,*.pdf,*.cbr,*.cbz
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
-set wildignore+=*.o,*.a,a.out,unit_tests,*.pyc,*.gcda,*.gcno
+set wildignore+=*.o,*.a,unit_tests,*.pyc,*.gcda,*.gcno
 
 " }}}
-" Autocommands TODO {{{
+" Autocommands {{{
 augroup main
 	autocmd!
 
@@ -172,7 +156,6 @@ augroup main
 	" autocmd FilterWritePre * if &diff | map <leader>{ :diffget LOCAL<cr> | endif
 	" autocmd FilterWritePre * if &diff | map <leader>} :diffget REMOTE<cr>| endif
 	" autocmd FilterWritePre * if &diff | map <leader>\| :diffget BASE<cr> | endif
-
 augroup end
 
 augroup GUIColors
