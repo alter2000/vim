@@ -9,6 +9,8 @@ command -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call func#trimSpaces()
 " :Redir !ls -al ........ show full output of ':!ls -al' in a scratch window
 command -nargs=1 -complete=command Redir silent call func#redir(<f-args>)
 
+command! -nargs=* -complete=shellcmd Do call func#asyncDo(<q-args>)
+
 command -bar Vmake silent w | silent make | unsilent redraw! | cwindow
 
 command -bar -nargs=* AdjustWinH call func#adjustWinHeight()

@@ -122,7 +122,7 @@ else
 	" let &t_SR = "\<Esc>[0 q"
 endif
 
-exec 'source ' . expand('$MYVIMRC').'.curcolors'
+exec 'source ' . fnamemodify(expand("$MYVIMRC"), ":p:h") . '/' . 'curcolors.vim'
 
 set wildignore+=*.swp,*.swo,*lock,._*
 set wildignore+=.git,.hg,.svn
@@ -161,10 +161,10 @@ augroup end
 augroup GUIColors
 	autocmd!
 
-	autocmd ColorScheme hi InsertCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=37  guibg=#2aa198
-	autocmd ColorScheme hi VisualCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=125 guibg=#d33682
-	autocmd ColorScheme hi ReplaceCursor ctermfg=15 guifg=#fdf6e3 ctermbg=65  guibg=#dc322f
-	autocmd ColorScheme hi CommandCursor ctermfg=15 guifg=#fdf6e3 ctermbg=166 guibg=#cb4b16
+	autocmd ColorScheme highlight InsertCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=37  guibg=#2aa198
+	autocmd ColorScheme highlight VisualCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=125 guibg=#d33682
+	autocmd ColorScheme highlight ReplaceCursor ctermfg=15 guifg=#fdf6e3 ctermbg=65  guibg=#dc322f
+	autocmd ColorScheme highlight CommandCursor ctermfg=15 guifg=#fdf6e3 ctermbg=166 guibg=#cb4b16
 augroup END
 
 " }}}

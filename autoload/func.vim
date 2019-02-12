@@ -145,3 +145,21 @@ function! func#adjustWinHeight(...)
 	unlet w:view
 endfunction
 " }}}
+
+" Async make with no output (defaults to 'make') {{{
+function! func#asyncDo(cmd)
+	if v:version < 800
+		echoerr 'wim has no jerbs' | return
+	endif
+	if a:cmd ==# ''
+		let l:cmd = &makeprg
+	else
+		let l:cmd = a:cmd
+	endif
+	call job_start(l:cmd, {'in_io': 'null', 'out_io': 'null', 'err_io': 'null'})
+	" if exists('b:asyncdo_buf')
+	" 	echo 'task running'
+	" else
+	" 	let b:asyncdo_buf = tempname()
+	" endif
+endfunction

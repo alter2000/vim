@@ -126,9 +126,17 @@ endif
 nnoremap <F3> :set list!<CR>
 inoremap <F3> <C-o>:set list!<CR>
 
+nnoremap <F4> :Do<CR>
+inoremap <F4> <C-o>:Do<CR>
+
+if exists(':MUcompleteAutoToggle')
+	nnoremap <F5> :MUcompleteAutoToggle<CR>
+	inoremap <F5> <C-o>:MUcompleteAutoToggle<CR>
+endif
+
 if exists(':ColorToggle')
-  nnoremap <F10> :ColorToggle<CR>
-  inoremap <F10> <C-o>:ColorToggle<CR>
+	nnoremap <F10> :ColorToggle<CR>
+	inoremap <F10> <C-o>:ColorToggle<CR>
 endif
 
 if exists(':Goyo')
