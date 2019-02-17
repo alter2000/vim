@@ -107,10 +107,10 @@ if exists('g:loaded_mucomplete')
 
 	let g:mucomplete#enable_auto_at_startup = 1
 	let g:mucomplete#delayed_completion = 0
-	let g:mucomplete#spel#max = 8
+	let g:mucomplete#spel#max = 7
 
 	let g:mucomplete#chains = {}
-	let g:mucomplete#chains.default = ['c-p', 'defs', 'path', 'incl', 'tags', 'dict', 'uspl',]
+	let g:mucomplete#chains.default = ['c-p', 'path', 'defs', 'incl', 'tags', 'dict', 'uspl',]
 	let g:mucomplete#chains.c = ['defs', 'tags', 'incl', 'uspl', 'path', 'dict', 'c-n',]
 	let g:mucomplete#chains.vim = ['cmd', 'path', 'keyn']
 	" let g:mucomplete#can_complete = { 'c' : { 'omni': {t -> t =~# '\%(->\|\.\)$'} } }
@@ -145,18 +145,7 @@ if exists('g:loaded_netrwPlugin') && g:loaded_netrwPlugin !=# '000'
 	let g:netrw_browsex_viewer = 'xdg-open'
 endif
 " }}}
-" Pandoc {{{
-if exists('g:loaded_pandoc')
-	let g:pandoc#filetypes#handled = ['markdown','rst','latex']
-	let g:pandoc#modules#disabled = ['keyboard']
-	let g:pandoc#formatting#mode = 's'
-	let g:pandoc#spell#enabled = 0
-	let g:pandoc#folding#mode = 'syntax'
-	let g:pandoc#folding#fold_yaml = 1
-	let g:pandoc#folding#fdc = 0
-endif
-" }}}
-" SLIME {{{
+"Pandoc  SLIME {{{
 if exists('g:loaded_slime')
 	let g:slime_target = 'tmux'
 	let g:slime_paste_file = '$HOME/.cache/slime_paste'

@@ -3,20 +3,12 @@ if exists('b:did_ftplugin')
 endif
 let b:did_ftplugin = 1
 
-setlocal nospell
-setlocal spelllang=en,fr
-setlocal textwidth=79
-setlocal wrap
-
-packadd goyo.vim
-packadd vim-gnupg
-packadd vim-pandoc
-packadd vim-pandoc-after
-packadd vim-pandoc-syntax
-
 function! s:align()
   let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+  if exists(':Tabularize')
+	 \  && getline('.') =~# '^\s*|'
+	 \  && (getline(line('.')-1) =~# p
+		\ || getline(line('.')+1) =~# p)
     let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
     let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
     Tabularize/|/l1
@@ -24,11 +16,46 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
-
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
-call mywaikiki#Load()
-call mywaikiki#SetupBuffer()
+" Pandoc + Markdown previews
+" TODO : The mappings do nothing on screen for some reason, whereas typing
+" the full command works
+let b:temp_preview = tempname() . '.pdf'
+nmap <buffer> <Space>pc :execute "!pandoc -o"
+            \ . shellescape(b:temp_preview)
+            \ . shellescape(expand("%:p"))
+            \ | redraw!
+nmap <buffer> <Space>pp :execute "!zathura"
+            \ . shellescape(b:temp_preview)
+            \ . "&" | redraw!
 
-setfiletype pandoc
+" options {{{
+let g:pandoc#filetypes#handled = ['markdown','rst','latex']
+let g:pandoc#modules#disabled = ['keyboard']
+let g:pandoc#formatting#mode = 's'
+let g:pandoc#spell#enabled = 0
+let g:pandoc#folding#mode = 'syntax'
+let g:pandoc#folding#fold_yaml = 1
+let g:pandoc#folding#fdc = 0
+" }}}
+
+packadd goyo.vim
+packadd vim-gnupg
+packadd vim-pandoc
+packadd vim-pandoc-after
+packadd vim-pandoc-syntax
+
+setlocal nospell
+setlocal spelllang=en,fr
+setlocal textwidth=79
+setlocal wrap
+
+if !get(g:, 'mywaikikisetup_loaded', 0)
+  call mywaikiki#Load()
+  call mywaikiki#SetupBuffer()
+  let g:mywaikikisetup_loaded = 1
+endif
+
 setlocal syntax=pandoc
+setlocal filetype=pandoc
