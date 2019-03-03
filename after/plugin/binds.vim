@@ -101,6 +101,8 @@ if exists(':Tabularize')
 	vnoremap <leader>a= :Tabularize /=<CR>
 	nnoremap <leader>a: :Tabularize /:\zs<CR>
 	vnoremap <leader>a: :Tabularize /:\zs<CR>
+	nnoremap <leader>a\| :Tabularize /\|<CR>
+	vnoremap <leader>a\| :Tabularize /\|<CR>
 endif
 if exists(':Tlist')
 	nnoremap <leader>t :Tlist<CR>
