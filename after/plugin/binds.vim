@@ -81,8 +81,7 @@ nnoremap <silent> <leader>cw       :%s/\s+$//g<CR>
 nnoremap <silent> <leader>s        :setlocal spell!<CR>
 nnoremap <silent> <leader>n        :cnext<CR>
 nnoremap <silent> <leader>N        :cprevious<CR>
-nnoremap <silent> <leader>b        :bnext<CR>
-nnoremap <silent> <leader>B        :bprev<CR>
+nnoremap <silent> <leader>b        :buffer<Space><Tab>
 nnoremap <silent> <leader>q        :Explore %:h<CR>
 " needs ctags
 nnoremap <silent> <leader>e        :execute "ltag " . expand("<cword>")<CR>

@@ -1,5 +1,3 @@
-colorscheme agila
-finish
 if &termguicolors == 1
 	if (strftime('%H') % 22) > 7
 		" execute 'set background=light'
@@ -16,3 +14,4 @@ if &termguicolors == 1
 else
 	colorscheme elflord
 endif
+" colorscheme agila

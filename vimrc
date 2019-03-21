@@ -15,7 +15,7 @@ set shell=zsh
 set foldmethod=marker
 set list
 set wildmenu
-set wildcharm=<C-f>
+set wildcharm=<Tab>
 set autoread
 set linebreak
 set nowrap
@@ -32,7 +32,7 @@ set tildeop
 set number relativenumber
 set numberwidth=2
 set splitright splitbelow
-set mouse=a
+set mouse=ar
 set clipboard^=unnamedplus
 set smarttab
 set autoindent
@@ -122,7 +122,7 @@ else
 	" let &t_SR = "\<Esc>[0 q"
 endif
 
-exec 'source ' . fnamemodify(expand("$MYVIMRC"), ":p:h") . '/' . 'curcolors.vim'
+exec 'source ' . fnamemodify(expand('$MYVIMRC'), ':p:h') . '/' . 'curcolors.vim'
 
 set wildignore+=*.swp,*.swo,*lock,._*
 set wildignore+=.git,.hg,.svn
