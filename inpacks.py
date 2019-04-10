@@ -6,7 +6,7 @@ from os import chdir, mkdir, path
 from subprocess import Popen
 
 
-PACKPATH = '$HOME/.vim/pack/'
+PACKPATH = path.expanduser('~/.vim/pack/')
 
 URLS = (
 
@@ -66,7 +66,9 @@ if __name__ == "__main__":
         chdir(PACKPATH if PACKPATH != "" and path.isdir(PACKPATH)
               else path.expanduser("$HOME/.vim/pack"))
     except Exception:
+        pass
         mkdir(PACKPATH)
     for modpath, url in URLS:
         Popen(['git', 'submodule', 'add', url,
-               ''.join(PACKPATH, '/', modpath, '/', url.rsplit('/')[-1])])
+               ''.join([PACKPATH, '/', modpath, '/', url.rsplit('/')[-1]])
+               ])

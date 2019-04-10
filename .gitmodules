@@ -58,9 +58,6 @@
 [submodule "pack/base/start/vim-mundo"]
 	path = pack/base/start/vim-mundo
 	url = https://github.com/simnalamburt/vim-mundo
-[submodule "pack/base/start/vim-nix"]
-	path = pack/base/start/vim-nix
-	url = https://github.com/LnL7/vim-nix
 [submodule "pack/base/start/vim-startify"]
 	path = pack/base/start/vim-startify
 	url = https://github.com/mhinz/vim-startify
