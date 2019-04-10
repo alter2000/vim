@@ -2,14 +2,14 @@
 # install all submodules where they belong
 
 
-import os
+from os import chdir, mkdir, path
 from subprocess import Popen
 
 
-PACKPATH = 'pack/'
+PACKPATH = '$HOME/.vim/pack/'
 
-# 'https://github.com/kien/rainbow_parentheses.vim'
 URLS = (
+
     ('base/opt', 'https://github.com/Rip-Rip/clang_complete'),
     ('base/opt', 'https://github.com/dhruvasagar/vim-table-mode'),
     ('base/opt', 'https://github.com/fcpg/vim-waikiki'),
@@ -20,8 +20,8 @@ URLS = (
     ('base/opt', 'https://github.com/vim-pandoc/vim-pandoc'),
     ('base/opt', 'https://github.com/vim-pandoc/vim-pandoc-after'),
     ('base/opt', 'https://github.com/vim-pandoc/vim-pandoc-syntax'),
+    # ('base/opt', 'https://github.com/kien/rainbow_parentheses.vim'),
 
-    ('base/start', 'https://github.com/LnL7/vim-nix'),
     ('base/start', 'https://github.com/Raimondi/delimitMate'),
     ('base/start', 'https://github.com/chrisbra/colorizer'),
     ('base/start', 'https://github.com/godlygeek/tabular'),
@@ -37,10 +37,16 @@ URLS = (
     ('base/start', 'https://github.com/w0rp/ale'),
 
     ('colorschemes/opt', 'https://github.com/morhetz/gruvbox'),
+
     ('colorschemes/start', 'https://github.com/ayu-theme/ayu-vim'),
     ('colorschemes/start', 'https://github.com/junegunn/seoul256.vim'),
     ('colorschemes/start', 'https://github.com/mkarmona/materialbox'),
     ('colorschemes/start', 'https://github.com/nerdypepper/agila.vim'),
+
+    ('langs/opt', 'https://github.com/diepm/vim-rest-console'),
+
+    ('langs/start', 'https://github.com/LnL7/vim-nix'),
+
 )
 
 # LSP
@@ -56,11 +62,11 @@ URLS = (
 
 
 if __name__ == "__main__":
-    if os.path.exists(PACKPATH) and not os.path.isdir(PACKPATH):
-        raise ValueError("The PACKPATH variable must be a directory")
-    elif not os.path.isdir(PACKPATH):
-        os.mkdir(PACKPATH)
-    for path, url in URLS:
-        cmd = ['git', 'submodule', 'add', url,
-               PACKPATH + '/' + path + '/' + url.rsplit('/')[-1]]
-        Popen(cmd)
+    try:
+        chdir(PACKPATH if PACKPATH != "" and path.isdir(PACKPATH)
+              else path.expanduser("$HOME/.vim/pack"))
+    except Exception:
+        mkdir(PACKPATH)
+    for modpath, url in URLS:
+        Popen(['git', 'submodule', 'add', url,
+               ''.join(PACKPATH, '/', modpath, '/', url.rsplit('/')[-1])])
