@@ -12,13 +12,13 @@ if exists('g:loaded_ale')
 	let g:ale_echo_msg_warning_str = 'W'
 	let g:ale_echo_msg_format = '[%severity%] [%linter%] %s'
 	let g:ale_linters = {
-		\	'python': ['flake8', 'pylint'],
+		\	'python': ['mypy', 'flake8', 'pylint'],
 		\	'c':      ['gcc', 'clangcheck', 'clangd'],
 		\	'cpp':    ['clangcheck', 'cquery', 'clangd'],
 		\	'rust':   ['rls', 'cargo'],
 		\	}
 	let g:ale_fixers = {
-		\	'python': ['yapf', 'autopep8'],
+		\	'python': ['mypy', 'yapf', 'autopep8'],
 		\	'c':      ['clang-format'],
 		\	'cpp':    ['clang-format'],
 		\	'rust':   ['rustfmt'],
