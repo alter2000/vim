@@ -2,7 +2,7 @@ command -bar -nargs=* Ss call func#scratchEdit('split', <q-args>)
 command -bar -nargs=* Svs call func#scratchEdit('vsplit', <q-args>)
 command -bar -nargs=* Ste call func#scratchEdit('tabe', <q-args>)
 
-command -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call func#trimSpaces()
+command -bar -bang -nargs=0 -range=% TrimSpaces <line1>,<line2>call func#trimSpaces(<bang>0)
 
 " Usage:
 " :Redir hi ............. show full output of ':hi' in a scratch window

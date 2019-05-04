@@ -51,12 +51,12 @@ function func#showSpaces(...)
 	return oldhlsearch
 endfunction
 
-function func#trimSpaces() range
+function func#trimSpaces(bang) range
 	if &binary || &filetype ==# 'diff'
 		return
 	endif
 	let oldhlsearch=func#showSpaces(1)
-	execute a:firstline.','.a:lastline.'substitute ///gec'
+	execute a:firstline.','.a:lastline.'substitute ///ge'.(a:bang ? '' : 'c')
 	let &hlsearch=oldhlsearch
 endfunction
 " }}}
