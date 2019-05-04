@@ -82,3 +82,6 @@
 [submodule "pack/base/opt/vim-over"]
 	path = pack/base/opt/vim-over
 	url = https://github.com/osyo-manga/vim-over
+[submodule "pack/langs/start/vim-nix"]
+	path = pack/langs/start/vim-nix
+	url = https://github.com/LnL7/vim-nix
