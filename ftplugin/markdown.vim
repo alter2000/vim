@@ -3,6 +3,7 @@ if exists('b:did_ftplugin')
 endif
 let b:did_ftplugin = 1
 
+" mappings {{{
 function! s:align()
   let p = '^\s*|\s.*\s|\s*$'
   if exists(':Tabularize')
@@ -22,13 +23,15 @@ inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 " TODO : The mappings do nothing on screen for some reason, whereas typing
 " the full command works
 let b:temp_preview = tempname() . '.pdf'
-nmap <buffer> <Space>pc :execute "!pandoc -o"
+nnoremap <buffer> <Space>pc :execute "!pandoc -o"
             \ . shellescape(b:temp_preview)
             \ . shellescape(expand("%:p"))
             \ | redraw!
-nmap <buffer> <Space>pp :execute "!zathura"
+nnoremap <buffer> <Space>pp :execute "!zathura"
             \ . shellescape(b:temp_preview)
             \ . "&" | redraw!
+
+" }}}
 
 " options {{{
 let g:pandoc#filetypes#handled = ['markdown','rst','latex']
@@ -45,17 +48,24 @@ packadd vim-gnupg
 packadd vim-pandoc
 packadd vim-pandoc-after
 packadd vim-pandoc-syntax
-
-setlocal nospell
-setlocal spelllang=en,fr
-setlocal textwidth=79
-setlocal wrap
+packadd vim-waikiki
 
 if !get(g:, 'mywaikikisetup_loaded', 0)
-  call mywaikiki#Load()
-  call mywaikiki#SetupBuffer()
-  let g:mywaikikisetup_loaded = 1
+	nmap <buffer> zl <Plug>(waikikiFollowLinkVSplit)
+	nmap <buffer> zh <Plug>(waikikiGoUpVSplit)
+	nmap <buffer> [[ <Plug>(waikikiPrevLink)
+	nmap <buffer> ]] <Plug>(waikikiNextLink)
+	nmap <buffer> <leader>t <Plug>(waikikiTags)
+
+	xnoremap <buffer>  <LocalLeader>c    <Esc>m`g'<O```<Esc>g'>o```<Esc>``
+	nmap <buffer><silent> <LocalLeader>i :let &l:cocu = (&l:cocu=="" ? "n" : "")<cr>
+
+
+	let g:mywaikikisetup_loaded = 1
 endif
 
-setlocal syntax=pandoc
-setlocal filetype=pandoc
+setlocal nospell wrap
+setlocal spelllang=en,fr
+setlocal textwidth=79
+setlocal shiftwidth=2 conceallevel=2
+setlocal syntax=pandoc filetype=pandoc
