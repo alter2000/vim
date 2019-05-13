@@ -163,3 +163,16 @@ function! func#asyncDo(cmd)
 	" 	let b:asyncdo_buf = tempname()
 	" endif
 endfunction
+" }}}
+
+" Set writing mode (markdown, mail, etc) {{{
+function! func#modeWriting()
+	packadd goyo.vim
+	silent !tmux set status off
+	call goyo#execute(0, [110])
+	setlocal spell nolist
+	setlocal nocopyindent nosmartindent noautoindent
+	setlocal noshowmode noshowcmd
+	setlocal complete+=s
+endfunction
+" }}}

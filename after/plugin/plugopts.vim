@@ -106,13 +106,14 @@ if exists('g:loaded_mucomplete')
 	let g:clang_library_path = '/usr/lib/libclang.so'
 
 	let g:mucomplete#enable_auto_at_startup = 1
-	let g:mucomplete#delayed_completion = 0
+	let g:mucomplete#completion_delay = 40
 	let g:mucomplete#spel#max = 7
 
-	let g:mucomplete#chains = {}
-	let g:mucomplete#chains.default = ['c-p', 'path', 'defs', 'incl', 'tags', 'dict', 'uspl',]
-	let g:mucomplete#chains.c = ['defs', 'tags', 'incl', 'uspl', 'path', 'dict', 'c-n',]
-	let g:mucomplete#chains.vim = ['cmd', 'path', 'keyn']
+	let g:mucomplete#chains = {
+		\ 'default': ['c-p', 'path', 'defs', 'incl', 'tags', 'dict', 'uspl',],
+		\ 'c': ['defs', 'tags', 'incl', 'path', 'dict', 'c-p',],
+		\ 'vim': ['cmd', 'path', 'keyn'],
+		\ }
 	" let g:mucomplete#can_complete = { 'c' : { 'omni': {t -> t =~# '\%(->\|\.\)$'} } }
 	:MUcompleteAutoOn
 
@@ -150,6 +151,13 @@ if exists('g:loaded_slime')
 	let g:slime_target = 'tmux'
 	let g:slime_paste_file = '$HOME/.cache/slime_paste'
 	let g:slime_python_ipython = 1
+endif
+" }}}
+" quick-scope {{{
+if exists('g:qs_enable')
+	let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+	let g:qs_max_chars=200
+	let g:qs_lazy_highlight = 1
 endif
 " }}}
 " Startify {{{

@@ -34,7 +34,7 @@ nnoremap <buffer> <Space>pp :execute "!zathura"
 " }}}
 
 " options {{{
-let g:pandoc#filetypes#handled = ['markdown','rst','latex']
+let g:pandoc#filetypes#handled = ['markdown', 'rst', 'latex']
 let g:pandoc#modules#disabled = ['keyboard']
 let g:pandoc#formatting#mode = 's'
 let g:pandoc#spell#enabled = 0
@@ -43,7 +43,6 @@ let g:pandoc#folding#fold_yaml = 1
 let g:pandoc#folding#fdc = 0
 " }}}
 
-packadd goyo.vim
 packadd vim-gnupg
 packadd vim-pandoc
 packadd vim-pandoc-after
@@ -57,9 +56,8 @@ if !get(g:, 'mywaikikisetup_loaded', 0)
 	nmap <buffer> ]] <Plug>(waikikiNextLink)
 	nmap <buffer> <leader>t <Plug>(waikikiTags)
 
-	xnoremap <buffer>  <LocalLeader>c    <Esc>m`g'<O```<Esc>g'>o```<Esc>``
-	nmap <buffer><silent> <LocalLeader>i :let &l:cocu = (&l:cocu=="" ? "n" : "")<cr>
-
+	xnoremap <buffer>         <LocalLeader>c    <Esc>m`g'<O```<Esc>g'>o```<Esc>``
+	nnoremap <buffer><silent> <LocalLeader>i    :let &l:cocu = (&l:cocu=="" ? "n" : "")<cr>
 
 	let g:mywaikikisetup_loaded = 1
 endif
@@ -68,4 +66,8 @@ setlocal nospell wrap
 setlocal spelllang=en,fr
 setlocal textwidth=79
 setlocal shiftwidth=2 conceallevel=2
-setlocal syntax=pandoc filetype=pandoc
+setlocal syntax=pandoc
+" setlocal filetype=pandoc
+setlocal foldmethod=expr
+setlocal foldexpr=ftfunc#foldingMarkdownFoldExpr()
+setlocal foldtext=ftfunc#foldingMarkdownFoldText()
