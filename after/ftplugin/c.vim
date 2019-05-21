@@ -13,8 +13,8 @@ let &path .= './include,'
 		\ . ','
 		\ . func#git_root('<afile>')
 
-packadd clang_complete
-packadd vim-gcov-marker
+" packadd clang_complete
+" packadd vim-gcov-marker
 packadd taglist.vim
 
 if exists('g:loaded_gcov_marker')
