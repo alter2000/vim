@@ -121,6 +121,7 @@ endif
 " }}}
 " function keys {{{
 noremap <F1> <Esc>
+inoremap <F1> <Esc>
 
 if exists(':MundoToggle')
   nnoremap <F2> :MundoToggle<CR>
