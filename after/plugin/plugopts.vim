@@ -13,7 +13,7 @@ if exists('g:loaded_ale')
 	let g:ale_echo_msg_format = '[%severity%] [%linter%] %s'
 	let g:ale_linters = {
 		\	'python': ['mypy', 'flake8', 'pylint'],
-		\	'c':      ['gcc', 'clangcheck', 'clangd'],
+		\	'c':      ['gcc', 'clang', 'clangcheck', 'clangd'],
 		\	'cpp':    ['clangcheck', 'cquery', 'clangd'],
 		\	'rust':   ['rls', 'cargo'],
 		\	}
@@ -23,7 +23,7 @@ if exists('g:loaded_ale')
 		\	'cpp':    ['clang-format'],
 		\	'rust':   ['rustfmt'],
 		\	}
-	let g:ale_c_gcc_options = '-std=c99 -Wall -Wextra'
+	let g:ale_c_gcc_options = '-std=c99 -Wall -Wextra -isystem ${stdenv.lib.getDev stdenv.cc.libc}/include'
 	let g:ale_completion_enabled = 0
 	" let g:ale_completion_delay = 0
 	" let g:ale_completion_max_suggestions = 5
@@ -67,6 +67,14 @@ endif
 " let g:easytags_dynamic_files = 2
 " let g:easytags_events = ['FileReadPre']
 " " }}}
+" Gcov marker {{{
+if exists('gcov_marker_path')
+	let g:gcov_marker_covered    = '✓'
+	let g:gcov_marker_uncovered  = 'X'
+	let g:gcov_marker_path  = './'
+	let g:gcov_marker_auto_lopen = 0
+endif
+" }}}
 " " LanguageClient-neovim {{{
 " if exists('g:loaded_smth') " TODO
 "	 let g:LanguageClient_serverCommands = {
