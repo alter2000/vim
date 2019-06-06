@@ -75,6 +75,7 @@ set showbreak=↪\ "
 set listchars=tab:¦\ ,precedes:←,extends:→,nbsp:‡,trail:·,eol:¬
 " wrap shiz
 set virtualedit=block
+set lazyredraw
 " default tab->4 spaces, use multiples of 4 when autoindenting
 " }}}
 " }}}
