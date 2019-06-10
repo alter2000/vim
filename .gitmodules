@@ -85,3 +85,6 @@
 [submodule "pack/langs/start/vim-nix"]
 	path = pack/langs/start/vim-nix
 	url = https://github.com/LnL7/vim-nix
+[submodule "pack/langs/opt/hledger-vim"]
+	path = pack/langs/opt/hledger-vim
+	url = https://github.com/anekos/hledger-vim

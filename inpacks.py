@@ -48,6 +48,7 @@ URLS = (
     ('colorschemes/start', 'https://github.com/nerdypepper/agila.vim'),
 
     ('langs/opt', 'https://github.com/diepm/vim-rest-console'),
+    ('langs/opt', 'https://github.com/anekos/hledger-vim'),
 
     ('langs/start', 'https://github.com/LnL7/vim-nix'),
 
