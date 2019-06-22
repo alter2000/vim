@@ -4,20 +4,9 @@ endif
 let b:did_ftplugin = 1
 
 " mappings {{{
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize')
-	 \  && getline('.') =~# '^\s*|'
-	 \  && (getline(line('.')-1) =~# p
-		\ || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+inoremap <buffer> <silent> <Bar>   <Bar><Esc>:call ftfunc#MarkdownAlign()<CR>a
+
+nnoremap <buffer> <silent> -- :call ftfunc#MarkdownChecklistToggle({})<cr>
 
 " Pandoc + Markdown previews
 " TODO : The mappings do nothing on screen for some reason, whereas typing

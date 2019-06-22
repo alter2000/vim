@@ -55,3 +55,29 @@ function! ftfunc#foldingMarkdownFoldText()
 	endif
 endfunction
 " }}}
+" Markdown checklist toggle {{{
+function! ftfunc#mdToggle(pattern, dict, ...)
+	let view = winsaveview()
+	execute 'keeppatterns s/' . a:pattern . '/\=get(a:dict, submatch(0), a:0 ? a:1 : " ")/e'
+	return view
+endfunction
+function! ftfunc#MarkdownChecklistToggle(dict)
+	return winrestview(ftfunc#mdToggle('^\s*-\s*\[\zs.\ze\]',
+				\a:dict == {} ? {' ': '.', '.': 'x', 'x': ' '} : a:dict))
+endfunction
+" }}}
+" Markdown table alignment, borked? {{{
+function! ftfunc#MarkdownAlign()
+	let p = '^\s*|\s.*\s|\s*$'
+	if exists(':Tabularize')
+		\  && getline('.') =~# '^\s*|'
+		\  && (getline(line('.')-1) =~# p
+			\ || getline(line('.')+1) =~# p)
+		let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+		let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+		Tabularize/|/l1
+		normal! 0
+		call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+	endif
+endfunction
+" }}}
