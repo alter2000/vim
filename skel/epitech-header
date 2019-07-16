@@ -12,6 +12,6 @@ cat << EOF
 ** EPITECH PROJECT, $YEAR
 ** $PROJNAME
 ** File description:
-** something small
+** automated desc ftw
 */
 EOF
