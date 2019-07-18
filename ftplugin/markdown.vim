@@ -30,6 +30,7 @@ let g:pandoc#spell#enabled = 0
 let g:pandoc#folding#mode = 'syntax'
 let g:pandoc#folding#fold_yaml = 1
 let g:pandoc#folding#fdc = 0
+let g:pandoc#syntax#codeblocks#embeds#use = ['bash=sh', 'c', 'haskell', 'python', 'nix', 'yaml', 'json']
 " }}}
 
 packadd vim-gnupg

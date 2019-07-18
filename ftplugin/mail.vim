@@ -4,6 +4,7 @@ endif
 let b:did_ftplugin = 1
 
 setlocal nospell
+setlocal textwidth=0
 setlocal number
 setlocal norelativenumber
 let b:loaded_delimitMate = 1

@@ -10,6 +10,8 @@ set whichwrap+=<,>,[,]
 " gj and gk that work with rnu
 nnoremap <expr> j v:count ? 'j' : 'gj'
 nnoremap <expr> k v:count ? 'k' : 'gk'
+xnoremap <expr> j v:count ? 'j' : 'gj'
+xnoremap <expr> k v:count ? 'k' : 'gk'
 nnoremap H gT
 nnoremap L gt
 xnoremap < <gv

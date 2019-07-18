@@ -154,7 +154,7 @@ if exists('g:loaded_netrwPlugin') && g:loaded_netrwPlugin !=# '000'
 	let g:netrw_browsex_viewer = 'xdg-open'
 endif
 " }}}
-"Pandoc  SLIME {{{
+" SLIME {{{
 if exists('g:loaded_slime')
 	let g:slime_target = 'tmux'
 	let g:slime_paste_file = '$HOME/.cache/slime_paste'
