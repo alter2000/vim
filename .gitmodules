@@ -52,9 +52,6 @@
 [submodule "pack/base/start/vim-gutentags"]
 	path = pack/base/start/vim-gutentags
 	url = https://github.com/ludovicchabant/vim-gutentags
-[submodule "pack/base/start/vim-mucomplete"]
-	path = pack/base/start/vim-mucomplete
-	url = https://github.com/lifepillar/vim-mucomplete
 [submodule "pack/base/start/vim-mundo"]
 	path = pack/base/start/vim-mundo
 	url = https://github.com/simnalamburt/vim-mundo
@@ -88,3 +85,6 @@
 [submodule "pack/langs/opt/hledger-vim"]
 	path = pack/langs/opt/hledger-vim
 	url = https://github.com/anekos/hledger-vim
+[submodule "pack/base/start/coc.nvim"]
+	path = pack/base/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim

@@ -34,7 +34,7 @@ URLS = (
 
     # noice
     ('base/start', 'https://github.com/chrisbra/colorizer'),
-    ('base/start', 'https://github.com/lifepillar/vim-mucomplete'),
+    ('base/start', 'https://github.com/neoclide/coc.nvim'),
     ('base/start', 'https://github.com/ludovicchabant/vim-gutentags'),
     ('base/start', 'https://github.com/mhinz/vim-startify'),
     ('base/start', 'https://github.com/unblevable/quick-scope'),

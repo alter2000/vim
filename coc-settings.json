@@ -1,7 +1,53 @@
 {
-	"coc.preferences.timeout": 400,
-	"coc.preferences.triggerAfterInsertEnter": true,
-	"coc.preferences.noselect": false,
-	"coc.preferences.minTriggerInputLength": 2,
-	"coc.preferences.snippetIndicator": "⭐︎"
+
+	"coc": {
+
+		// "github": {
+		//	 "filetypes": ["gitcommit", "markdown.ghpull"]
+		// },
+
+		"preferences": {
+			"colorSupport": 0,
+			"hoverTarget": "float",
+			"minTriggerInputLength": 2,
+			"rootPatterns": [ ".git", ".env", ".hg", ".svn" ],
+			"snippetIndicator": " ",
+			"timeout": 400,
+			"triggerAfterInsertEnter": true
+		}
+	},
+
+	"suggest": {
+		"autoTrigger": "always",
+		"echodocSupport": 1,
+		"floatEnable": 1
+	},
+
+	"signature.target": "float",
+
+	"diagnostic": {
+		"errorSign": "×",
+		"warningSign": "●",
+		"infoSign": "!",
+		"hintSign": "?",
+		"messageTarget": "float",
+		"displayByAle": 0,
+		"refreshOnInsertMode": 1
+	},
+
+	"python": {
+		"linting": {
+			"pylintUseMinimalCheckers": 0
+		}
+	},
+
+	"git": {
+		"enableGutters": 1,
+		"addedSign.text": "▎",
+		"changedSign.text": "▎",
+		"removedSign.text": "◢",
+		"topRemovedSign.text": "◥",
+		"changeRemovedSign.text": "◢"
+	}
+
 }

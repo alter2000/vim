@@ -39,16 +39,6 @@ if exists('g:AutoPairsLoaded')
 	let g:AutoPairsMoveCharacter = ''
 endif
 " }}}
-" COC {{{
-if exists('g:coc_local_extensions')
-	inoremap <expr> <CR> pumvisible() ? "\<c-y>\<cr>" : "\<CR>"
-	inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-	inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-	let g:coc_snippet_next = '<c-j>'
-	let g:coc_snippet_prev = '<c-k>'
-	let g:rooter_patterns = ['.git/', '.vim/', '.hg/']
-endif
-" }}}
 " delimitMate {{{
 if exists('g:loaded_delimitMate')
 	let g:delimitMate_nesting_quotes = ['"','`']
@@ -104,8 +94,8 @@ if exists('g:loaded_mucomplete')
 			\ ? "\<c-y>\<plug>(MUcompleteFwd)"
 			\ : '/'
 
-	inoremap <expr> <CR> pumvisible() ? "\<c-y>\<cr>" : "\<CR>"
-	inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+	inoremap <expr> <CR>    pumvisible() ? "\<c-y>\<cr>" : "\<CR>"
+	inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 	inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 	imap <expr> <C-l> mucomplete#extend_fwd("\<C-l>")
 
