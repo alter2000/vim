@@ -1,4 +1,4 @@
-if !exists('g:coc_enabled')
+if !exists('g:coc_enabled') || g:coc_enabled == 0
   finish
 endif
 
