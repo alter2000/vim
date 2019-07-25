@@ -4,27 +4,27 @@ function! status#branch() abort "{{{
 endfunction
 " }}}
 
-function! status#filename() abort"{{{
+function! status#filename() abort "{{{
 	return expand('%:t') !=# '' ? expand('%:t') : '[NEMO]'
 endfunction
 " }}}
 
-function! status#filetype() abort"{{{
+function! status#filetype() abort "{{{
 	return &filetype
 endfunction
 " }}}
 
-function! status#modified(arg) abort"{{{
+function! status#modified(arg) abort "{{{
 	return (&modified) ? a:arg : ''
 endfunction
 " }}}
 
-function! status#readOnly(arg) abort"{{{
+function! status#readOnly(arg) abort "{{{
 	return (&readonly || !&modifiable) ? ' '.a:arg.' ' : ''
 endfunction
 " }}}
 
-function! status#whitespace()"{{{
+function! status#whitespace() "{{{
 	let @/='\v(\s+$)|( +\ze\t)'
 	let l:oldhlsearch=&hlsearch
 	let &hlsearch = (!a:0) ?  !&hlsearch : a:1
@@ -32,28 +32,28 @@ function! status#whitespace()"{{{
 endfunction
 " }}}
 
-function! status#linter_warn() abort"{{{
-	if exists('g:loaded_ale')
-		let s:counts = ale#statusline#Count(bufnr(''))
-		let s:all_errors = s:counts.error + s:counts.style_error
-		let s:all_non_errors = s:counts.total - s:all_errors
-		return s:counts.total == 0 ? '' : printf('%dW', s:all_non_errors)
+function! status#linter_warn() abort "{{{
+	if get(g:, 'coc_enabled', 0)
+		let s:info = get(b:, 'coc_diagnostic_info', {})
+		if empty(info) | return '' | endif
+		return get(s:info, 'warning', '') . 'W'
 	else
 		return ''
 	endif
 endfunction
 " }}}
 
-function! status#linter_err() abort"{{{
-	if exists('g:loaded_ale')
-		return s:counts.total == 0 ? '' : printf('%dE', s:all_errors)
+function! status#linter_err() abort "{{{
+	if get(g:, 'coc_enabled', 0)
+		if empty(s:info) | return '' | endif
+		return get(s:info, 'error', '') . 'E ' . get(g:, 'coc_status', '')
 	else
 		return ''
 	endif
-	endfunction
+endfunction
 " }}}
 
-function! status#default() " {{{
+function! status#default() "{{{
 
 	set laststatus=2
 	set statusline=%#ModeMsg#\ %{mode()}\ %*
@@ -67,6 +67,7 @@ function! status#default() " {{{
 		set statusline+=\ \ %#warning#%{status#linter_warn()}
 		set statusline+==\ %{status#linter_err()}
 		set statusline+=%*
+		set statusline+=%{coc#status()}
 	endif
 
 	set statusline+=%=                       " segment break
