@@ -168,4 +168,12 @@ augroup GUIColors
 	autocmd ColorScheme highlight CommandCursor ctermfg=15 guifg=#fdf6e3 ctermbg=166 guibg=#cb4b16
 augroup END
 
+augroup C
+	autocmd!
+
+	autocmd BufNewFile *.c  call ftfunc#skel('<afile>')
+	autocmd BufNewFile *.h  call ftfunc#skel('<afile>')
+	" autocmd BufRead    *.c  1;/^{
+augroup END
+
 " }}}

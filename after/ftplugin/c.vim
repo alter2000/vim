@@ -30,11 +30,3 @@ nnoremap <C-]> g<C-]>
 nnoremap g<C-]> <C-]>
 xnoremap <C-]> g<C-]>
 xnoremap g<C-]> <C-]>
-
-augroup C
-	autocmd!
-
-	autocmd BufNewFile *.c  call ftfunc#skel('<afile>')
-	autocmd BufNewFile *.h  call ftfunc#skel('<afile>')
-	" autocmd BufRead    *.c  1;/^{
-augroup END
