@@ -44,7 +44,8 @@ nmap sS ysiW
 
 nnoremap zm zM
 nnoremap zr zR
-cnoremap !! echo system('')<left><left>
+cnoremap w!! %!sudo tee > /dev/null %
+" cnoremap !! echo system('')<left><left>
 
 " window management {{{
 nnoremap <Up>    :resize +3<CR>

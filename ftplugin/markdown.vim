@@ -53,7 +53,7 @@ if !get(g:, 'mywaikikisetup_loaded', 0)
 endif
 
 setlocal nospell wrap
-setlocal spelllang=en,fr
+setlocal spelllang=en,fr,de
 setlocal textwidth=79
 setlocal shiftwidth=2 conceallevel=2
 setlocal syntax=pandoc

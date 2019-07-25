@@ -66,7 +66,7 @@ set formatoptions=troqn21j
 set complete=.,w,kspell,k,d,t,i
 " set complete=.,w,b,d,t,i
 set completeopt=noinsert,menuone,noselect,preview
-set diffopt+=algorithm:patience
+set diffopt+=algorithm:patience,vertical
 set diffopt+=indent-heuristic
 " }}}
 " Level 5 (looks vimish) {{{
