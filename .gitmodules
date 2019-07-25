@@ -34,9 +34,6 @@
 [submodule "pack/base/start/colorizer"]
 	path = pack/base/start/colorizer
 	url = https://github.com/chrisbra/colorizer
-[submodule "pack/base/start/delimitMate"]
-	path = pack/base/start/delimitMate
-	url = https://github.com/Raimondi/delimitMate
 [submodule "pack/base/start/tabular"]
 	path = pack/base/start/tabular
 	url = https://github.com/godlygeek/tabular
@@ -63,7 +60,7 @@
 	url = https://github.com/tpope/vim-surround
 [submodule "pack/colorschemes/opt/gruvbox"]
 	path = pack/colorschemes/opt/gruvbox
-	url = https://github.com/morhetz/gruvbox
+	url = https://github.com/gruvbox-community/gruvbox
 [submodule "pack/colorschemes/start/ayu-vim"]
 	path = pack/colorschemes/start/ayu-vim
 	url = https://github.com/ayu-theme/ayu-vim
