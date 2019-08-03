@@ -33,7 +33,7 @@ set number relativenumber
 set numberwidth=2
 set splitright splitbelow
 set mouse=ar
-set clipboard^=unnamedplus
+set clipboard^=unnamedplus,unnamed
 set smarttab
 set autoindent
 set scrolloff=4  " 4 lines of context when scrolling
@@ -76,6 +76,7 @@ set listchars=tab:¦\ ,precedes:←,extends:→,nbsp:‡,trail:·,eol:¬
 " wrap shiz
 set virtualedit=block
 set lazyredraw
+set signcolumn=yes
 " default tab->4 spaces, use multiples of 4 when autoindenting
 " }}}
 " }}}
