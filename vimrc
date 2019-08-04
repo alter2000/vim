@@ -135,7 +135,7 @@ set wildignore+=*.mp3,*.oga,*.ogg,*.wav,*.alac,*.flac
 set wildignore+=*.eot,*.otf,*.ttf,*.woff
 set wildignore+=*.docx,*.pdf,*.cbr,*.cbz
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
-set wildignore+=*.o,*.a,unit_tests,*.pyc,*.gcda,*.gcno
+set wildignore+=*.o,*.a,unit_tests,*.pyc,*.gcda,*.gcno,*.hi
 
 " }}}
 " Autocommands {{{

@@ -56,7 +56,7 @@ function func#trimSpaces(bang) range
 		return
 	endif
 	let oldhlsearch=func#showSpaces(1)
-	execute a:firstline.','.a:lastline.'substitute ///ge'.(a:bang ? '' : 'c')
+	execute a:firstline.','.a:lastline.'substitute ///ge'.(a:bang ? 'c' : '')
 	let &hlsearch=oldhlsearch
 endfunction
 " }}}
