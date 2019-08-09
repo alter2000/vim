@@ -11,10 +11,9 @@ PACKPATH = path.expanduser('~/.vim/pack/')
 URLS = (
 
     # ('base/opt', 'https://github.com/kien/rainbow_parentheses.vim'),
-    ('base/opt', 'https://github.com/Rip-Rip/clang_complete'),
+    # ('base/opt', 'https://github.com/Rip-Rip/clang_complete'),
     ('base/opt', 'https://github.com/dhruvasagar/vim-table-mode'),
     ('base/opt', 'https://github.com/fcpg/vim-waikiki'),
-    ('base/opt', 'https://github.com/google/yapf'),
     ('base/opt', 'https://github.com/jamessan/vim-gnupg'),
     ('base/opt', 'https://github.com/johngrib/vim-game-snake'),
     ('base/opt', 'https://github.com/junegunn/goyo.vim'),
@@ -47,8 +46,9 @@ URLS = (
     ('colorschemes/start', 'https://github.com/mkarmona/materialbox'),
     ('colorschemes/start', 'https://github.com/nerdypepper/agila.vim'),
 
-    ('langs/opt', 'https://github.com/diepm/vim-rest-console'),
+    # ('langs/opt', 'https://github.com/diepm/vim-rest-console'),
     ('langs/opt', 'https://github.com/anekos/hledger-vim'),
+    ('langs/opt', 'https://github.com/itchyny/vim-haskell-indent'),
 
     ('langs/start', 'https://github.com/LnL7/vim-nix'),
 

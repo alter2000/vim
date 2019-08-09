@@ -1,6 +1,3 @@
-[submodule "pack/base/opt/clang_complete"]
-	path = pack/base/opt/clang_complete
-	url = https://github.com/Rip-Rip/clang_complete
 [submodule "pack/base/opt/goyo.vim"]
 	path = pack/base/opt/goyo.vim
 	url = https://github.com/junegunn/goyo.vim
@@ -25,9 +22,6 @@
 [submodule "pack/base/opt/vim-waikiki"]
 	path = pack/base/opt/vim-waikiki
 	url = https://github.com/fcpg/vim-waikiki
-[submodule "pack/base/opt/yapf"]
-	path = pack/base/opt/yapf
-	url = https://github.com/google/yapf
 [submodule "pack/base/start/ale"]
 	path = pack/base/start/ale
 	url = https://github.com/w0rp/ale
@@ -86,3 +80,6 @@
 	path = pack/base/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim
 	branch = release
+[submodule "pack/langs/opt/vim-haskell-indent"]
+	path = pack/langs/opt/vim-haskell-indent
+	url = https://github.com/itchyny/vim-haskell-indent
