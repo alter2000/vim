@@ -1,5 +1,5 @@
 if &termguicolors == 1
-	if (strftime('%H') % 22) > 7
+	if (strftime('%H') % 20) > 9
 		" execute 'set background=light'
 		" set nocursorcolumn
 		let ayucolor = 'light'
@@ -14,4 +14,4 @@ if &termguicolors == 1
 else
 	colorscheme elflord
 endif
-" colorscheme turtles
+" colorscheme agila
