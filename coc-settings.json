@@ -73,6 +73,7 @@
 				}
 			}
 		}
-	}
+  },
+  "coc.preferences.extensionUpdateCheck": "daily"
 
 }
