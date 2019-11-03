@@ -62,12 +62,14 @@
 		},
 
 		"haskell": {
-			"command": "hie-wrapper",
+			"command": "hie",
+			// "args": ["-l", "hie-log", "-d"],
+			// "trace.server": "verbose",
 			"rootPatterns": [ ".stack.yaml", "cabal.config", "package.yaml" ],
 			"filetypes": [ "hs", "lhs", "haskell" ],
 			"settings": {
 				"languageServerHaskell": {
-					"hlintOn": false,
+					"hlintOn": true,
 					"maxNumberOfProblems": 10,
 					"completionSnippetsOn": true
 				}

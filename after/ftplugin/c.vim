@@ -13,9 +13,9 @@ let &path .= './include,'
 		\ . ','
 		\ . func#git_root('<afile>')
 
-" packadd clang_complete
 " packadd vim-gcov-marker
 packadd taglist.vim
+packadd termdebug
 
 if exists('g:loaded_gcov_marker')
 	let g:gcov_marker_path  = './'
