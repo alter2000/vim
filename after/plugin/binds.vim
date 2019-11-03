@@ -94,8 +94,8 @@ nnoremap <silent> <leader>m        :<c-u><c-r><c-r>='let @'. v:register .' = '. 
 xnoremap <space>p "0p
 nnoremap <space>p "0p
 " clean paste
-nnoremap =p p==
-nnoremap =P P==
+" nnoremap =p p==
+" nnoremap =P P==
 " }}}
 " plugin-based {{{
 if executable('rg')

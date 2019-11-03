@@ -72,7 +72,7 @@ function! status#default() "{{{
 
 	set statusline+=%=                       " segment break
 	set statusline+=%<%{status#filetype()}\  " filetype without brackets (%< to truncate)
-	set statusline+=%5(\|%v%)\ \ \           " column number
+	set statusline+=%5(\|%c%)\ \ \           " column number
 	set statusline+=%#Folded#\ \ %2p%%\ \    " file percentage
 
 endfunction

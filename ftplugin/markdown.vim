@@ -38,6 +38,7 @@ packadd vim-pandoc
 packadd vim-pandoc-after
 packadd vim-pandoc-syntax
 packadd vim-waikiki
+packadd goyo.vim
 
 if !get(g:, 'mywaikikisetup_loaded', 0)
 	nmap <buffer> zl <Plug>(waikikiFollowLinkVSplit)

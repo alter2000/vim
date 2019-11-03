@@ -92,7 +92,9 @@ let g:loaded_getscriptPlugin = 1
 let g:loaded_logipat = 1
 " let g:loaded_matchparen = 1
 let g:loaded_vimballPlugin = 1
-packadd! matchit
+if !has("nvim")
+	packadd! matchit
+endif
 " }}}
 """ VISUALS {{{
 set laststatus=2 showtabline=1
@@ -124,7 +126,11 @@ else
 	" let &t_SR = "\<Esc>[0 q"
 endif
 
-exec 'source ' . fnamemodify(expand('$MYVIMRC'), ':p:h') . '/' . 'curcolors.vim'
+if has("nvim")
+	exec 'source ' . fnamemodify(expand('$HOME'), ':p:h') . '/.vim/curcolors.vim'
+else
+	exec 'source ' . fnamemodify(expand('$MYVIMRC'), ':p:h') . '/' . 'curcolors.vim'
+endif
 
 set wildignore+=*.swp,*.swo,*lock,._*
 set wildignore+=.git,.hg,.svn
