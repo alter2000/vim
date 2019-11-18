@@ -62,7 +62,7 @@
 		},
 
 		"haskell": {
-			"command": "hie",
+			"command": "hie-wrapper",
 			// "args": ["-l", "hie-log", "-d"],
 			// "trace.server": "verbose",
 			"rootPatterns": [ ".stack.yaml", "cabal.config", "package.yaml" ],
@@ -74,6 +74,13 @@
 					"completionSnippetsOn": true
 				}
 			}
+		},
+
+		"bash": {
+			"command": "bash-language-server",
+			"args": [ "start" ],
+			"filetypes": [ "sh", "bash" ],
+			"ignoredRootPaths": [ "~" ]
 		}
   },
   "coc.preferences.extensionUpdateCheck": "daily"
