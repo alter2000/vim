@@ -80,9 +80,6 @@
 	path = pack/base/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim
 	branch = release
-[submodule "pack/langs/opt/vim-haskell-indent"]
-	path = pack/langs/opt/vim-haskell-indent
-	url = https://github.com/itchyny/vim-haskell-indent
-[submodule "pack/langs/opt/haskell-vim"]
-	path = pack/langs/opt/haskell-vim
+[submodule "pack/langs/start/haskell-vim"]
+	path = pack/langs/start/haskell-vim
 	url = https://github.com/neovimhaskell/haskell-vim
