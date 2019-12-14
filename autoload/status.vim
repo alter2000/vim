@@ -56,7 +56,7 @@ endfunction
 function! status#default() "{{{
 
 	set laststatus=2
-	set statusline=%#ModeMsg#\ %{mode()}\ %*
+	set statusline=%#ModeMsg#\ \ %{mode()}\ \ %*
 	set statusline+=%#Normal#\ \ %{status#filename()}
 	" defaults with custom symbols
 	set statusline+=\ %{status#readOnly('')}

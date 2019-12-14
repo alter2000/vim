@@ -36,14 +36,14 @@
 		"refreshOnInsertMode": 0
 	},
 
-	// "git": {
-	// 	"enableGutters": 1,
-	// 	"addedSign.text": "▎",
-	// 	"changedSign.text": "▎",
-	// 	"removedSign.text": "◢",
-	// 	"topRemovedSign.text": "◥",
-	// 	"changeRemovedSign.text": "◢"
-	// },
+	"git": {
+		"enableGutters": 0,
+		"addedSign.text": "▎",
+		"changedSign.text": "▎",
+		"removedSign.text": "◢",
+		"topRemovedSign.text": "◥",
+		"changeRemovedSign.text": "◢"
+	},
 
 	"languageserver": {
 		"ccls": {
@@ -73,6 +73,18 @@
 					"maxNumberOfProblems": 10,
 					"completionSnippetsOn": true
 				}
+			}
+		},
+
+		"go": {
+			"command": "go-langserver",
+			"filetypes": [ "go" ],
+			"rootPatterns": [ "go.mod", "go.sum", "Gopkg.toml", "Gopkg.lock" ],
+			"settings": {
+				"funcSnippetEnabled": true,
+				"gocodeCompletionEnabled": true,
+				"formatTool": "gofmt",
+				"lintTool": "golint"
 			}
 		},
 
