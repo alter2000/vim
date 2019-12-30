@@ -15,4 +15,4 @@ else
 	colorscheme elflord
 endif
 " colorscheme agila
-colorscheme materialbox
+colo ayu
