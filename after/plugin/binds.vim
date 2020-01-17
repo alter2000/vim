@@ -47,6 +47,7 @@ map S <nop>
 nmap ss ysiw
 nmap sS ysiW
 
+nnoremap Q q:
 nnoremap zm zM
 nnoremap zr zR
 cnoremap w!! %!sudo tee > /dev/null %
