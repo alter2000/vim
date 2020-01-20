@@ -15,7 +15,9 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 nnoremap <silent> K :call func#show_documentation()<CR>
-autocmd CursorHold * silent call CocActionAsync('highlight')
+nnoremap <leader>r :CocCommand document.renameCurrentWord<CR>
+
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort

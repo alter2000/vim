@@ -8,6 +8,7 @@
 
 		"preferences": {
 			"colorSupport": 0,
+			"extensionUpdateCheck": "daily",
 			"hoverTarget": "float",
 			"minTriggerInputLength": 2,
 			"rootPatterns": [ ".git", ".env", ".hg", ".svn" ],
@@ -45,13 +46,29 @@
 		"changeRemovedSign.text": "◢"
 	},
 
+	"vimlsp": {
+		"diagnostic.enable": false,
+		"indexes.runtimepath": false
+	},
+
+	"yaml": {
+		"format": {
+			"enable": true,
+			"singleQuote": true,
+			"bracketSpacing": true
+		},
+		"validate": true,
+		"completion": true
+	},
+
 	"languageserver": {
+
 		"ccls": {
 			"command": "ccls",
-			"filetypes": [ "c", "cpp", "objc", "objcpp" ],
+			"filetypes": [ "c", "cpp" ],
 			"rootPatterns": [ "Makefile", "compile_commands.json", ".git/", ".hg/" ],
 			"initializationOptions": {
-				"cache.directory": "/tmp/ccls-cache"
+				"cache": { "directory": "/home/alter2000/.cache/ccls" }
 			}
 		},
 
@@ -93,8 +110,14 @@
 			"args": [ "start" ],
 			"filetypes": [ "sh", "bash" ],
 			"ignoredRootPaths": [ "~" ]
-		}
-  },
-  "coc.preferences.extensionUpdateCheck": "daily"
+		},
 
+		"latex": {
+			"command": "texlab",
+			// not start server at home directory, since it won't work.
+			"ignoredRootPaths": ["~"],
+			"filetypes": [ "tex", "bib", "plaintex", "context" ]
+		}
+
+  }
 }
