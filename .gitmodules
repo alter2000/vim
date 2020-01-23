@@ -22,9 +22,6 @@
 [submodule "pack/base/opt/vim-waikiki"]
 	path = pack/base/opt/vim-waikiki
 	url = https://github.com/fcpg/vim-waikiki
-[submodule "pack/base/start/ale"]
-	path = pack/base/start/ale
-	url = https://github.com/w0rp/ale
 [submodule "pack/base/start/colorizer"]
 	path = pack/base/start/colorizer
 	url = https://github.com/chrisbra/colorizer
@@ -49,9 +46,6 @@
 [submodule "pack/base/start/vim-startify"]
 	path = pack/base/start/vim-startify
 	url = https://github.com/mhinz/vim-startify
-[submodule "pack/base/start/vim-surround"]
-	path = pack/base/start/vim-surround
-	url = https://github.com/tpope/vim-surround
 [submodule "pack/colorschemes/opt/gruvbox"]
 	path = pack/colorschemes/opt/gruvbox
 	url = https://github.com/gruvbox-community/gruvbox
