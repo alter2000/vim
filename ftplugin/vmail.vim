@@ -10,7 +10,6 @@ setlocal nospell
 setlocal norelativenumber
 setlocal filetype=mail.pandoc
 setlocal syntax=pandoc
-:ALEDisableBuffer
 let b:loaded_delimitMate = 1
 runtime plugin/status.vim
 

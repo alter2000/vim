@@ -11,7 +11,6 @@ PACKPATH = path.expanduser('~/.vim/pack/')
 URLS = (
 
     # ('base/opt', 'https://github.com/kien/rainbow_parentheses.vim'),
-    # ('base/opt', 'https://github.com/Rip-Rip/clang_complete'),
     ('base/opt', 'https://github.com/dhruvasagar/vim-table-mode'),
     ('base/opt', 'https://github.com/fcpg/vim-waikiki'),
     ('base/opt', 'https://github.com/jamessan/vim-gnupg'),
@@ -24,12 +23,11 @@ URLS = (
     ('base/opt', 'https://github.com/vim-pandoc/vim-pandoc-syntax'),
 
     # actions/motions
-    ('base/start', 'https://github.com/Raimondi/delimitMate'),
     ('base/start', 'https://github.com/godlygeek/tabular'),
     ('base/start', 'https://github.com/simnalamburt/vim-mundo'),
     ('base/start', 'https://github.com/tpope/vim-commentary'),
     ('base/start', 'https://github.com/tpope/vim-fugitive'),
-    ('base/start', 'https://github.com/tpope/vim-surround'),
+    # ('base/start', 'https://github.com/tpope/vim-surround'),
 
     # noice
     ('base/start', 'https://github.com/chrisbra/colorizer'),
@@ -54,18 +52,6 @@ URLS = (
     ('langs/start', 'https://github.com/LnL7/vim-nix'),
 
 )
-
-# LSP
-# '*', 'do', 'https://github.com/neoclide/coc.nvim', {'tag': { ->
-#                                                        coc#util#install()}}
-# if !has('nvim')
-# https://github.com/roxma/nvim-yarp'
-# https://github.com/roxma/vim-hug-neovim-rpc'
-# endif
-# 'bash install.sh', 'https://github.com/autozimu/LanguageClient-neovim', \
-#                                        { 'branch': 'next', 'do',)
-# 'https://github.com/haskell/haskell-ide-engine'
-
 
 if __name__ == "__main__":
     try:

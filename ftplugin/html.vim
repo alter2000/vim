@@ -9,7 +9,9 @@ setlocal expandtab
 setlocal tabstop=2
 setlocal shiftwidth=2
 setlocal foldmethod=indent
-let b:delimitMate_matchpairs = '(:),[:],{:},<:>'
+if exists('g:loaded_delimitMate')
+	let b:delimitMate_matchpairs = '(:),[:],{:},<:>'
+endif
 " :ALEDisableBuffer
 
 iabbrev <buffer> <// </<C-X><C-O>
