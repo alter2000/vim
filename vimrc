@@ -35,7 +35,7 @@ set splitright splitbelow
 set mouse=ar
 set clipboard^=unnamedplus,unnamed
 set smarttab
-set autoindent
+" set autoindent
 set scrolloff=4  " 4 lines of context when scrolling
 if !isdirectory(expand('$HOME/.cache/vim'))
 	call mkdir(expand('$HOME/.cache/vim'))
@@ -178,8 +178,10 @@ augroup END
 augroup C
 	autocmd!
 
-	autocmd BufNewFile *.c  call ftfunc#skel('<afile>')
-	autocmd BufNewFile *.h  call ftfunc#skel('<afile>')
+	autocmd BufNewFile *.c   call ftfunc#skel('<afile>')
+	autocmd BufNewFile *.h   call ftfunc#skel('<afile>')
+	autocmd BufNewFile *.cpp call ftfunc#skel('<afile>')
+	autocmd BufNewFile *.hpp call ftfunc#skel('<afile>')
 	" autocmd BufRead    *.c  1;/^{
 augroup END
 

@@ -25,11 +25,28 @@ function! s:check_back_space() abort
 	return !col || getline('.')[col - 1]  =~? '\s'
 endfunction
 
-" inoremap <expr> / pumvisible() && strpart(getline('.'), 0, col('.') - 1)  =~# '\f\+/$'
-" 		\ ? "\<c-y>\<cr>"
-" 		\ : "<cr>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <silent><expr> <Tab>
 	\ pumvisible() ? "\<C-n>" :
 	\ <SID>check_back_space() ? "\<Tab>" :
 	\ coc#refresh()
+
+if 1 == 0
+" use <tab> to:
+" trigger and confirm completion
+" navigate to the next complete item
+" select and expand snippet
+function! s:coc_tab() abort
+	if pumvisible()
+		return coc#_select_confirm()
+	else
+		if coc#expandableOrJumpable()
+			return "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>"
+		else
+			return <SID>check_back_space() ? "\<Tab>" : coc#refresh()
+		endif
+	endif
+endfunction
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <silent><expr> <Tab> <SID>coc_tab()
+endif

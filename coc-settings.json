@@ -24,7 +24,14 @@
 		"floatEnable": 1
 	},
 
-	"signature.target": "float",
+	"snippets": {
+		"ultisnips.enable": false,
+		"snipmate.enable": false,
+		"ultisnips.directories": [ "usnips" ],
+		"extend": {
+			"cpp": [ "c" ]
+		}
+	},
 
 	"diagnostic": {
 		"errorSign": "×",
