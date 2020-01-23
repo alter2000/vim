@@ -77,3 +77,6 @@
 [submodule "pack/langs/start/haskell-vim"]
 	path = pack/langs/start/haskell-vim
 	url = https://github.com/neovimhaskell/haskell-vim
+[submodule "pack/base/start/vim-sandwich"]
+	path = pack/base/start/vim-sandwich
+	url = https://github.com/machakann/vim-sandwich
