@@ -14,5 +14,5 @@ if &termguicolors == 1
 else
 	colorscheme elflord
 endif
-" colorscheme agila
-colo ayu
+colorscheme agila
+" colo ayu
