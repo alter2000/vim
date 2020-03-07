@@ -62,3 +62,4 @@ setlocal syntax=pandoc
 setlocal foldmethod=expr
 setlocal foldexpr=ftfunc#foldingMarkdownFoldExpr()
 setlocal foldtext=ftfunc#foldingMarkdownFoldText()
+setlocal makeprg=pandoc\ '%'\ -o\ '%:r'.pdf
