@@ -18,7 +18,7 @@ function! func#toggleWrap()
 		silent! iunmap <buffer> <End>
 	else
 		echo 'Wrap ON'
-		setlocal wrap linebreak nolist
+		setlocal wrap linebreak
 		" set virtualedit=
 		setlocal display+=lastline
 		noremap  <buffer> <silent> <Home> g<Home>

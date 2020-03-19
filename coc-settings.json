@@ -27,6 +27,7 @@
 	"snippets": {
 		"ultisnips.enable": false,
 		"snipmate.enable": false,
+		"snippets.author": "Jor Bashllari <altnate2000@gmail.com>",
 		"ultisnips.directories": [ "usnips" ],
 		"extend": {
 			"cpp": [ "c" ]
@@ -87,11 +88,12 @@
 
 		"haskell": {
 			"command": "hie-wrapper",
+			"args": ["--lsp"],
 			// "args": ["-l", "hie-log", "-d"],
 			// "trace.server": "verbose",
 			"rootPatterns": [ ".stack.yaml", "cabal.config", "package.yaml" ],
 			"filetypes": [ "hs", "lhs", "haskell" ],
-			"settings": {
+			"initializationOptions": {
 				"languageServerHaskell": {
 					"hlintOn": true,
 					"maxNumberOfProblems": 10,

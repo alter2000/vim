@@ -80,3 +80,6 @@
 [submodule "pack/base/start/vim-sandwich"]
 	path = pack/base/start/vim-sandwich
 	url = https://github.com/machakann/vim-sandwich
+[submodule "pack/colorschemes/opt/paper.vim"]
+	path = pack/colorschemes/opt/paper.vim
+	url = https://github.com/swalladge/paper.vim
