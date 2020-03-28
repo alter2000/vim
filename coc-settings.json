@@ -35,8 +35,8 @@
 	},
 
 	"diagnostic": {
-		"errorSign": "×",
-		"warningSign": "●",
+		"errorSign": "●",
+		"warningSign": "×",
 		"infoSign": "!",
 		"hintSign": "?",
 		"messageTarget": "float",

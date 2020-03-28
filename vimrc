@@ -68,6 +68,7 @@ set complete=.,w,kspell,k,d,t,i
 set completeopt=noinsert,menuone,noselect,preview
 set diffopt+=algorithm:patience,vertical
 set diffopt+=indent-heuristic
+set sessionoptions+=globals
 " }}}
 " Level 5 (looks vimish) {{{
 set ambiwidth=single

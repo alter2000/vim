@@ -42,11 +42,6 @@ inoremap <C-e> <End>
 
 " }}}
 
-map s <nop>
-map S <nop>
-nmap ss ysiw
-nmap sS ysiW
-
 nnoremap Q q:
 nnoremap zm zM
 nnoremap zr zR
@@ -123,8 +118,13 @@ nnoremap <leader>p "0p
 
 " }}}
 " plugin-based {{{
-if executable('rg')
-	nnoremap <Leader>ff call func#fzfFiles()
+if get(g:, 'loaded_sandwich', 0)
+	nnoremap s ys
+	vnoremap s ys
+	nnoremap S ys
+	vnoremap S ys
+	nnoremap ss ysiw
+	nnoremap sS ysiW
 endif
 if exists(':Tabularize')
 	nnoremap <leader>a= :Tabularize /=<CR>
@@ -161,11 +161,6 @@ inoremap <F3> <C-o>:set list!<CR>
 
 nnoremap <F4> :Do<CR>
 inoremap <F4> <C-o>:Do<CR>
-
-if exists(':MUcompleteAutoToggle')
-	nnoremap <F5> :MUcompleteAutoToggle<CR>
-	inoremap <F5> <C-o>:MUcompleteAutoToggle<CR>
-endif
 
 if exists(':ColorToggle')
 	nnoremap <F10> :ColorToggle<CR>
