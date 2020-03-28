@@ -45,6 +45,16 @@
 		"refreshOnInsertMode": 0
 	},
 
+	"todolist": {
+		"enable": true,
+		"maxsize": 99999,
+		"dateFormat": "YYYYMMDD-HHmm",
+		"autoUpload": true,
+		"monitor": true,
+		// "floating" | "virtual" | "echo" | "none"
+		"notify": "floating"
+	},
+
 	"git": {
 		"enableGutters": 0,
 		"addedSign.text": "▎",
@@ -87,7 +97,7 @@
 		},
 
 		"haskell": {
-			"command": "hie-wrapper",
+			//"command": "hie-wrapper",
 			"args": ["--lsp"],
 			// "args": ["-l", "hie-log", "-d"],
 			// "trace.server": "verbose",

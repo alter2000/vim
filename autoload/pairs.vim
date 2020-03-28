@@ -11,20 +11,21 @@ function! pairs#contextMotion(reverse) abort
 		-
 	endif
 	call search('^@@ .* @@\|^diff \|^[<=>|]\{7}[<=>|]\@!', 'bWc')
-	if getline('.') =~# '^diff '
+	let cur = getline('.')
+	if cur =~# '^diff '
 		let end = search('^diff ', 'Wn') - 1
 		if end < 0
 			let end = line('$')
 		endif
-	elseif getline('.') =~# '^@@ '
+	elseif cur =~# '^@@ '
 		let end = search('^@@ .* @@\|^diff ', 'Wn') - 1
 		if end < 0
 			let end = line('$')
 		endif
-	elseif getline('.') =~# '^=\{7\}'
+	elseif cur =~# '^=\{7\}'
 		+
 		let end = search('^>\{7}>\@!', 'Wnc')
-	elseif getline('.') =~# '^[<=>|]\{7\}'
+	elseif cur =~# '^[<=>|]\{7\}'
 		let end = search('^[<=>|]\{7}[<=>|]\@!', 'Wn') - 1
 	else
 		return

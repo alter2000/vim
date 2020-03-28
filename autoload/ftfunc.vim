@@ -22,16 +22,14 @@ endfunction
 " }}}
 " Pandoc folding {{{
 function! ftfunc#foldingMarkdownFoldExpr()
-	if getline(v:lnum) =~# '^#\{1,6}' && getline(v:lnum-1) =~# '^\s*$'
-		return '>'. len(matchstr(getline(v:lnum), '^#\{1,6}'))
-	elseif getline(v:lnum) =~# '^[^-=].\+$' && getline(v:lnum+1) =~# '^=\+$'
+	let l:cur = getline(v:lnum)
+	let l:next = getline(v:lnum+1)
+	if l:cur =~# '^#\{1,6}' && getline(v:lnum-1) =~# '^\s*$'
+		return '>'. len(matchstr(l:cur, '^#\{1,6}'))
+	elseif l:cur =~# '^[^-=].\+$' && l:next =~# '^=\+$'
 		return '>1'
-	elseif getline(v:lnum) =~# '^[^-=].\+$' && getline(v:lnum+1) =~# '^-\+$'
+	elseif l:cur =~# '^[^-=].\+$' && l:next =~# '^-\+$'
 		return '>2'
-	elseif getline(v:lnum) =~? '^<!--.*fold-begin -->'
-		return 'a1'
-	elseif getline(v:lnum) =~? '^<!--.*fold-end -->'
-		return 's1'
 	endif
 	return '='
 endfunction

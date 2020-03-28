@@ -1,5 +1,7 @@
-uggplug
 .netrwhist
 session/**
-autoload/plug.vim.old
 tags*
+**/*.local*
+**/*.priv*
+**/*.db*
+**/*.sql*

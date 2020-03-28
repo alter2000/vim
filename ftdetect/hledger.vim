@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead *.h?ledger setlocal filetype=hledger
+autocmd BufNewFile,BufRead *.h?ledger *.journal setlocal filetype=hledger
