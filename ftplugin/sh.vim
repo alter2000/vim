@@ -11,3 +11,5 @@ setlocal softtabstop=4
 setlocal colorcolumn=80
 setlocal keywordprg=man
 setlocal keywordprg=:vert\ term\ ++close\ man
+
+packadd vim-ripple

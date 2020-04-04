@@ -18,6 +18,7 @@ URLS = (
     ('base/opt', 'https://github.com/junegunn/goyo.vim'),
     ('base/opt', 'https://github.com/m42e/vim-gcov-marker'),
     ('base/opt', 'https://github.com/osyo-manga/vim-over'),
+    ('base/opt', 'https://github.com/urbainvaes/vim-ripple'),
     ('base/opt', 'https://github.com/vim-pandoc/vim-pandoc'),
     ('base/opt', 'https://github.com/vim-pandoc/vim-pandoc-after'),
     ('base/opt', 'https://github.com/vim-pandoc/vim-pandoc-syntax'),

@@ -18,8 +18,9 @@ let &path .= func#git_root('<afile>')
 nnoremap <silent><buffer> <F4>  :w !python<CR>
 nnoremap <silent><buffer> <F5> obreakpoint()<Esc>
 
-" let g:jedi#popup_on_dot = 1
-let b:ale_fixers  = ['yapf', 'autopep8']
-let b:ale_linters = ['flake8', 'pylint']
+if exists('g:loaded_ale')
+	let b:ale_fixers  = ['yapf', 'autopep8']
+	let b:ale_linters = ['flake8', 'pylint']
+endif
 
-packadd yapf
+packadd vim-ripple

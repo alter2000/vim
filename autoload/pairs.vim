@@ -38,7 +38,7 @@ function! pairs#contextMotion(reverse) abort
 endfunction
 " }}}
 " chunks {{{
-function! s:ExecMove(cmd) abort
+function! pairs#execMove(cmd) abort
 	let old_fdm = &foldmethod
 	if old_fdm !=# 'manual'
 		let &foldmethod = 'manual'
@@ -52,17 +52,17 @@ function! s:ExecMove(cmd) abort
 endfunction
 
 function! pairs#move(cmd, count, map) abort
-	call s:ExecMove('move'.a:cmd.a:count)
+	call pairs#execMove('move'.a:cmd.a:count)
 	silent! call repeat#set("\<Plug>unimpairedMove".a:map, a:count)
 endfunction
 
 function! pairs#moveSelectionUp(count) abort
-	call s:ExecMove("'<,'>move'<--".a:count)
+	call pairs#execMove("'<,'>move'<--".a:count)
 	silent! call repeat#set("\<Plug>unimpairedMoveSelectionUp", a:count)
 endfunction
 
 function! pairs#moveSelectionDown(count) abort
-	call s:ExecMove("'<,'>move'>+".a:count)
+	call pairs#execMove("'<,'>move'>+".a:count)
 	silent! call repeat#set("\<Plug>unimpairedMoveSelectionDown", a:count)
 endfunction
 " }}}

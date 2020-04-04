@@ -23,7 +23,12 @@ set nospell
 set whichwrap=b,s,~
 set updatetime=290
 set updatecount=100
+if !isdirectory(expand('$HOME/.cache/vim'))
+	call mkdir(expand('$HOME/.cache/vim'))
+endif
 set directory=~/.cache/vim/tmp
+set backupdir=~/.cache/vim/backup
+set backupext=.bak
 set history=1000 undolevels=1000
 set timeoutlen=700 ttimeoutlen=10
 set tildeop
@@ -37,9 +42,6 @@ set clipboard^=unnamedplus,unnamed
 set smarttab
 " set autoindent
 set scrolloff=4  " 4 lines of context when scrolling
-if !isdirectory(expand('$HOME/.cache/vim'))
-	call mkdir(expand('$HOME/.cache/vim'))
-endif
 if has('persistent_undo')
 	set undofile
 	set undodir=~/.cache/vim/undo
@@ -87,7 +89,6 @@ if has('win32')
 endif
 
 " disable some built-in plugins
-let g:loaded_2html_plugin = 1
 " let g:loaded_netrwPlugin = '000'
 let g:loaded_getscriptPlugin = 1
 let g:loaded_logipat = 1
@@ -157,14 +158,10 @@ augroup main
 	autocmd BufWinEnter * match Error '\s\+$'
 	" autocmd BufWinEnter * match Error '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
-
-	autocmd QuickFixCmdPost *grep* cwindow
-	" open QFix window if makeprg has errors
-	autocmd QuickFixCmdPost [^l]* cwindow
-
-	" autocmd FilterWritePre * if &diff | map <leader>{ :diffget LOCAL<cr> | endif
-	" autocmd FilterWritePre * if &diff | map <leader>} :diffget REMOTE<cr>| endif
-	" autocmd FilterWritePre * if &diff | map <leader>\| :diffget BASE<cr> | endif
+	" Don't screw up folds when inserting text that might affect them, until leaving insert mode.
+	" Foldmethod is local to the window. Protect against screwing up folding when switching between windows.
+	autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+	autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
 augroup end
 
 augroup GUIColors
@@ -183,7 +180,6 @@ augroup C
 	autocmd BufNewFile *.h   call ftfunc#skel('<afile>')
 	autocmd BufNewFile *.cpp call ftfunc#skel('<afile>')
 	autocmd BufNewFile *.hpp call ftfunc#skel('<afile>')
-	" autocmd BufRead    *.c  1;/^{
 augroup END
 
 " }}}

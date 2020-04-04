@@ -83,3 +83,6 @@
 [submodule "pack/colorschemes/opt/paper.vim"]
 	path = pack/colorschemes/opt/paper.vim
 	url = https://github.com/swalladge/paper.vim
+[submodule "pack/base/opt/vim-ripple"]
+	path = pack/base/opt/vim-ripple
+	url = https://github.com/urbainvaes/vim-ripple

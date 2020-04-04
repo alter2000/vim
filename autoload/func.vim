@@ -186,3 +186,9 @@ function! func#show_documentation()
 	endif
 endfunction
 " }}}
+
+" better :grep {{{
+function! func#callGrep(...)
+    return system(join(extend([&grepprg], a:000), ' '))
+endfunction
+" }}}

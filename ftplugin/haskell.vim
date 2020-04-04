@@ -25,3 +25,4 @@ let g:haskell_indent_case_alternative = 1
 let g:cabal_indent_section = 2
 
 " packadd vim-haskell-indent
+" packadd vim-ripple
