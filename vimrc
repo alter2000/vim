@@ -1,61 +1,59 @@
 """ MAIN {{{
 " Base {{{
-set fsync
-set shiftround
-set tabstop=4 shiftwidth=4
-set backspace=indent,eol,start
 if &modifiable
-	set encoding=utf-8
 	set fileformat=unix
 	set fileencoding=utf-8
 endif
-set incsearch nohlsearch
-set ignorecase smartcase
-set shell=zsh
-set foldmethod=marker
-set list
-set wildmenu
-set wildcharm=<Tab>
-set autoread
-set linebreak
-set nowrap
-set nospell
-set whichwrap=b,s,~
-set updatetime=290
-set updatecount=100
 if !isdirectory(expand('$HOME/.cache/vim'))
 	call mkdir(expand('$HOME/.cache/vim'))
 endif
-set directory=~/.cache/vim/tmp
+set encoding=utf-8
+set autoread
+set backspace=indent,eol,start
 set backupdir=~/.cache/vim/backup
 set backupext=.bak
+set directory=~/.cache/vim/tmp
+set fsync
 set history=1000 undolevels=1000
-set timeoutlen=700 ttimeoutlen=10
-set tildeop
-" }}}
-" Level 1 (modern nano) {{{
-set number relativenumber
-set numberwidth=2
-set splitright splitbelow
-set mouse=ar
-set clipboard^=unnamedplus,unnamed
-set smarttab
-" set autoindent
 set scrolloff=4  " 4 lines of context when scrolling
+set shell=zsh
+set timeoutlen=700 ttimeoutlen=10
+set updatecount=100
+set updatetime=290
+set tildeop
+set clipboard^=unnamedplus,unnamed
 if has('persistent_undo')
 	set undofile
 	set undodir=~/.cache/vim/undo
 endif
 " }}}
-" Level 2 (acts properly) {{{
+" Level 1 (modern nano) {{{
+set foldmethod=marker
+set ignorecase smartcase
+set incsearch nohlsearch
+set linebreak
+set list
+set nospell
+set nowrap
+set number relativenumber
+set numberwidth=2
+set shiftround
+set smarttab
+set splitright splitbelow
+set tabstop=4 shiftwidth=4
+set whichwrap=b,s,~
+set mouse=ar
+set wildcharm=<Tab>
+set wildmenu
 if has('viminfo')
 	set viminfo=%10,\"50,'100,'0
 	set viminfofile=~/.cache/vim/viminfo
 endif
-syntax enable
-filetype indent plugin on
 set noerrorbells
 set visualbell
+" set autoindent
+" }}}
+" Level 2 (acts properly) {{{
 let mapleader=' '
 let maplocalleader = ','
 if executable('rg')
@@ -71,16 +69,13 @@ set completeopt=noinsert,menuone,noselect,preview
 set diffopt+=algorithm:patience,vertical
 set diffopt+=indent-heuristic
 set sessionoptions+=globals
+set startofline
 " }}}
 " Level 5 (looks vimish) {{{
-set ambiwidth=single
-set showbreak=↪\ "
-set listchars=tab:¦\ ,precedes:←,extends:→,nbsp:‡,trail:·,eol:¬
-" wrap shiz
+" set ambiwidth=single
 set virtualedit=block
 set lazyredraw
 set signcolumn=yes
-" default tab->4 spaces, use multiples of 4 when autoindenting
 " }}}
 " }}}
 """ PLUGINS {{{
@@ -102,6 +97,8 @@ endif
 set laststatus=2 showtabline=1
 set shortmess=filnrxtWc
 set fillchars=vert:│
+set listchars=tab:¦\ ,precedes:←,extends:→,nbsp:‡,trail:·,eol:¬
+set showbreak=↪\ "
 if has('Conceal')
 	set conceallevel=2
 endif
@@ -128,22 +125,21 @@ else
 	" let &t_SR = "\<Esc>[0 q"
 endif
 
-if has("nvim")
-	exec 'source ' . fnamemodify(expand('$HOME'), ':p:h') . '/.vim/curcolors.vim'
-else
-	exec 'source ' . fnamemodify(expand('$MYVIMRC'), ':p:h') . '/' . 'curcolors.vim'
-endif
+exec 'source '.fnamemodify('$MYVIMRC', ':p:h').'/curcolors.vim'
 
 set wildignore+=*.swp,*.swo,*lock,._*
-set wildignore+=.git,.hg,.svn
+set wildignore+=.git,.hg,.svn,.darcs
 set wildignore+=*.aux,*.out,*.toc
 set wildignore+=*.ai,*.bmp,*.gif,*.ico,*.jpg,*.jpeg,*.png
 set wildignore+=*.avi,*.div,*.mp4,*.webm,*.mkv,*.mpg,*.mpeg
 set wildignore+=*.mp3,*.oga,*.ogg,*.wav,*.alac,*.flac
 set wildignore+=*.eot,*.otf,*.ttf,*.woff
-set wildignore+=*.docx,*.pdf,*.cbr,*.cbz
-set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
-set wildignore+=*.o,*.a,unit_tests,*.pyc,*.gcda,*.gcno,*.hi
+set wildignore+=*.docx,*.pdf,*.cbr,*.cbz,*.epub
+set wildignore+=*.zip,*.tar.*,*.tgz,*.rar
+set wildignore+=*.o,*.a,unit_tests,*.gcda,*.gcno,*.gch
+set wildignore+=*.hi
+set wildignore+=*.pyc
+set wildignore+=tags
 
 " }}}
 " Autocommands {{{
@@ -183,3 +179,7 @@ augroup C
 augroup END
 
 " }}}
+
+if has('nvim') && filereadable(fnamemodify('$MYVIMRC', ":p:h")."/nvimrc")
+	source $MYVIMRC/nvimrc
+endif
