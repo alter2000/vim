@@ -5,7 +5,6 @@ function! func#scratchEdit(cmd, options)
 	if !empty(a:options) | exe 'setl' a:options | endif
 endfunction
 " }}}
-
 " (un)wrap {{{
 function! func#toggleWrap()
 	if &wrap
@@ -28,7 +27,6 @@ function! func#toggleWrap()
 	endif
 endfunction
 " }}}
-
 " " toggle explore netrw {{{
 " function! func#toggleExplore()
 " 	if &ft ==# "netrw"
@@ -38,7 +36,6 @@ endfunction
 " 	endif
 " endfunction
 " " }}}
-
 " trim whitespace {{{
 function func#showSpaces(...)
 	let @/='\v(\s+$)|( +\ze\t)'
@@ -60,7 +57,6 @@ function func#trimSpaces(bang) range
 	let &hlsearch=oldhlsearch
 endfunction
 " }}}
-
 " redirect output to file {{{
 function! func#redir(cmd)
 	for win in range(1, winnr('$'))
@@ -81,7 +77,6 @@ function! func#redir(cmd)
 	call setline(1, split(output, "\n"))
 endfunction
 " }}}
-
 " run fzf with file preview {{{
 function! func#fzfFiles()
 	let l:fzf_files_options = '--preview "bat --theme="GitHub" --style=numbers,changes --color always {} | head -'.&lines.'"'
@@ -103,7 +98,6 @@ function! func#fzfFiles()
 		\ 'down':    '40%' })
 endfunction
 " }}}
-
 " remap arrows {{{
 function! func#Joana()
 	unmap <Up>
@@ -119,7 +113,6 @@ function! func#Dejoana()
 	nnoremap <Right> :vertical resize +3<CR>
 endfunction
 " }}}
-
 " return git root path {{{
 function! func#git_root(path)
 	let gitdir = system("git rev-parse --show-toplevel | tr -d '\\n'")
@@ -130,7 +123,6 @@ function! func#git_root(path)
 	endif
 endfunction
 " }}}
-
 " resize window to fit all text {{{
 function! func#adjustWinHeight(...)
 	let w:view = winsaveview()
@@ -145,7 +137,6 @@ function! func#adjustWinHeight(...)
 	unlet w:view
 endfunction
 " }}}
-
 " Async make with no output (defaults to 'make') {{{
 function! func#asyncDo(cmd)
 	if v:version < 800
@@ -164,7 +155,6 @@ function! func#asyncDo(cmd)
 	" endif
 endfunction
 " }}}
-
 " Set writing mode (markdown, mail, etc) {{{
 function! func#modeWriting()
 	packadd goyo.vim
@@ -176,7 +166,6 @@ function! func#modeWriting()
 	setlocal complete+=s
 endfunction
 " }}}
-
 " Show doccs via coccs {{{
 function! func#show_documentation()
 	if (index([ 'vim', 'help', 'c' ], &filetype) >= 0)
@@ -186,9 +175,19 @@ function! func#show_documentation()
 	endif
 endfunction
 " }}}
-
 " better :grep {{{
 function! func#callGrep(...)
-    return system(join(extend([&grepprg], a:000), ' '))
+	return system(join(extend([&grepprg], a:000), ' '))
+endfunction
+" }}}
+" neato fold {{{
+function! func#neatFold(fc) abort
+	let indent = repeat(' ', indent(v:foldstart))
+	let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+	let foldchar = matchstr(&fillchars, 'fold:\zs.')
+	let foldtextstart = printf("%3s", (v:foldend - v:foldstart + 1)) .' '. strpart(a:fc . repeat(foldchar, v:foldlevel * 2) . line, 0, (winwidth(0)*2)/3)
+	let foldtextend = repeat(foldchar, 8)
+	let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+	return indent . foldtextstart . repeat(foldchar, winwidth(0) - foldtextlength) . foldtextend
 endfunction
 " }}}

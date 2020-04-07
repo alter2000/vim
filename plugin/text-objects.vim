@@ -136,10 +136,10 @@ onoremap <silent> ii :<c-u>call <sid>inIndentation()<cr>
 xnoremap <silent> ai :<c-u>call <sid>aroundIndentation()<cr>
 onoremap <silent> ai :<c-u>call <sid>aroundIndentation()<cr>
 
-" "in line" (entire line sans white-space; cursor at beginning--ie, ^)
+" "in line" entire line sans white-space; cursor at beginning--ie, ^
 xnoremap <silent> il :<c-u>normal! g_v^<cr>
 onoremap <silent> il :<c-u>normal! g_v^<cr>
 
-" "around line" (entire line sans trailing newline; cursor at beginning--ie, 0)
+" "around line" entire line sans trailing newline; cursor at beginning--ie, 0
 xnoremap <silent> al :<c-u>normal! $v0<cr>
 onoremap <silent> al :<c-u>normal! $v0<cr>

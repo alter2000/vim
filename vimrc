@@ -26,9 +26,13 @@ if has('persistent_undo')
 	set undofile
 	set undodir=~/.cache/vim/undo
 endif
+filetype indent plugin on
+syntax on
 " }}}
 " Level 1 (modern nano) {{{
 set foldmethod=marker
+set foldminlines=0
+set foldtext=func#neatFold('+')
 set ignorecase smartcase
 set incsearch nohlsearch
 set linebreak
@@ -43,15 +47,16 @@ set splitright splitbelow
 set tabstop=4 shiftwidth=4
 set whichwrap=b,s,~
 set mouse=ar
-set wildcharm=<Tab>
+set wildchar=<Tab> wildcharm=<Tab>
 set wildmenu
+set wildignorecase
 if has('viminfo')
-	set viminfo=%10,\"50,'100,'0
+	set viminfo=%10,<50,'0,r/tmp
 	set viminfofile=~/.cache/vim/viminfo
 endif
 set noerrorbells
 set visualbell
-" set autoindent
+set autoindent
 " }}}
 " Level 2 (acts properly) {{{
 let mapleader=' '
@@ -125,7 +130,7 @@ else
 	" let &t_SR = "\<Esc>[0 q"
 endif
 
-exec 'source '.fnamemodify('$MYVIMRC', ':p:h').'/curcolors.vim'
+exec 'source '.fnamemodify(expand('$MYVIMRC'), ':p:h').'/curcolors.vim'
 
 set wildignore+=*.swp,*.swo,*lock,._*
 set wildignore+=.git,.hg,.svn,.darcs
