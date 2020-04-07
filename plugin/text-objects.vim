@@ -127,6 +127,23 @@ function! s:aroundIndentation()
 	let &magic = l:magic
 endfunction
 " }}}
+" {{{ extra textobj @voldikss
+function! s:textobj(pattern) abort
+	let lnum = getpos('.')[1]
+	let line = getline(lnum)
+	let [str, start, end] = matchstrpos(line, a:pattern)
+	if str !=# ''
+		call cursor(lnum, start+1)
+		normal v
+		call cursor(lnum, end)
+	endif
+endfunction
+
+function! s:Url() abort
+	let pattern = '\(http\|https\|ftp\)://[a-zA-Z0-9][a-zA-Z0-9_-]*\(\.[a-zA-Z0-9][a-zA-Z0-9_-]*\)*\(:\d\+\)\?\(/[a-zA-Z0-9_/.\-+%?&=;@$,!''*~]*\)\?\(#[a-zA-Z0-9_/.\-+%#?&=;@$,!''*~]*\)\?'
+	call s:textobj(pattern)
+endfunction
+" }}}
 
 " "in indentation" (indentation level sans any surrounding empty lines)
 xnoremap <silent> ii :<c-u>call <sid>inIndentation()<cr>
