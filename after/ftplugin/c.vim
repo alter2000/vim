@@ -20,10 +20,6 @@ if exists('g:loaded_gcov_marker')
 	let g:gcov_marker_path  = './'
 	let g:gcov_marker_auto_lopen = 0
 endif
-if exists('g:loaded_delimitMate')
-	let b:delimitMate_eol_marker = ';'
-	let b:delimitMate_insert_eol_marker = 2
-endif
 
 nnoremap <C-]> g<C-]>
 nnoremap g<C-]> <C-]>
