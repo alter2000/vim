@@ -42,11 +42,13 @@ inoremap <C-e> <End>
 
 " }}}
 
-nnoremap Q q:
 nnoremap zm zM
 nnoremap zr zR
 cnoremap w!! %!sudo tee > /dev/null %
 " cnoremap !! echo system('')<left><left>
+
+nmap ss ysiw
+nmap sS ysiW
 
 " window management {{{
 "
@@ -76,8 +78,6 @@ onoremap [n :call pairs#contextMotion(1)<CR>
 onoremap ]n :call pairs#contextMotion(0)<CR>
 
 " move chunks of text up or down
-nnoremap [e :<C-U>call pairs#move('--',v:count1,'Up')<CR>
-nnoremap ]e :<C-U>call pairs#move('+',v:count1,'Down')<CR>
 xnoremap [e :<C-U>call pairs#moveSelectionUp(v:count1)<CR>
 xnoremap ]e :<C-U>call pairs#moveSelectionDown(v:count1)<CR>
 
@@ -85,6 +85,7 @@ xnoremap ]e :<C-U>call pairs#moveSelectionDown(v:count1)<CR>
 " leader maps {{{
 
 nnoremap <space> <NOP>
+nnoremap s <NOP>
 nnoremap <silent> <leader><leader> :w<cr>
 nnoremap <silent> <leader>w        :call func#toggleWrap()<CR>
 nnoremap <silent> <leader>cw       :%s/\s+$//g<CR>
@@ -119,12 +120,8 @@ nnoremap <leader>p "0p
 " }}}
 " plugin-based {{{
 if get(g:, 'loaded_sandwich', 0)
-	nnoremap s ys
-	vnoremap s ys
-	nnoremap S ys
-	vnoremap S ys
-	nnoremap ss ysiw
-	nnoremap sS ysiW
+	" TODO: lines 51-56
+	" add sS/ss/etc maps here
 endif
 if exists(':Tabularize')
 	nnoremap <leader>a= :Tabularize /=<CR>

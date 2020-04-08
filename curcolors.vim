@@ -1,17 +1,13 @@
-if &termguicolors == 1
+if &termguicolors
 	if (strftime('%H') % 20) > 9
-		" execute 'set background=light'
-		" set nocursorcolumn
+		execute 'set background=light'
 		let ayucolor = 'light'
 		colorscheme ayu
 	else
-		" execute 'set background=dark'
-		" set cursorcolumn
+		execute 'set background=dark'
 		" let ayucolor = 'mirage'
 		colorscheme agila
 	endif
-	" colorscheme ayu
 else
 	colorscheme elflord
 endif
-colo paper

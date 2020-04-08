@@ -81,6 +81,7 @@ set startofline
 set virtualedit=block
 set lazyredraw
 set signcolumn=yes
+colorscheme ayu
 " }}}
 " }}}
 """ PLUGINS {{{
