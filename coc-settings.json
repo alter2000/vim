@@ -98,7 +98,7 @@
 
 		"haskell": {
 			//"command": "hie-wrapper",
-			"args": ["--lsp"],
+			//"args": ["--lsp"],
 			// "args": ["-l", "hie-log", "-d"],
 			// "trace.server": "verbose",
 			"rootPatterns": [ ".stack.yaml", "cabal.config", "package.yaml" ],
