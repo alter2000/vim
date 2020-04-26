@@ -36,9 +36,9 @@ hi LineNr    guifg=#ffffff guibg=#c0d0e0
 
 hi Normal    guifg=#404850   guibg=#f0f0f0
 
-hi StatusLine guifg=white guibg=#8090a0 gui=bold,italic
-hi StatusLineNC guifg=#506070 guibg=#a0b0c0 gui=italic
-hi VertSplit guifg=#a0b0c0 guibg=#a0b0c0 gui=NONE
+hi StatusLine term=bold,reverse cterm=bold ctermfg=white guifg=#506070 guibg=#a0b0c0 gui=italic
+hi StatusLineNC cterm=bold ctermfg=white ctermbg=white guifg=white guibg=white gui=bold,italic
+hi VertSplit cterm=none gui=none guifg=#a0b0c0
 
 " hi Folded    guifg=#708090 guibg=#c0d0e0
 hi Folded    guifg=#a0a0a0 guibg=#e8e8e8 gui=italic
@@ -93,3 +93,4 @@ hi DiffDelete guifg=NONE guibg=#f0e0b0 gui=italic,bold
 
 " Conceal
 hi! link Conceal          Special
+hi! link NonText          Comment
