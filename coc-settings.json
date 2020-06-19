@@ -97,11 +97,15 @@
 		},
 
 		"haskell": {
-			//"command": "hie-wrapper",
-			//"args": ["--lsp"],
+			"command": "ghcide",
+			"args": ["--lsp"],
 			// "args": ["-l", "hie-log", "-d"],
 			// "trace.server": "verbose",
-			"rootPatterns": [ ".stack.yaml", "cabal.config", "package.yaml" ],
+			"rootPatterns": [
+				"stack.yaml",
+				".stack.yaml",
+				"cabal.config",
+				"package.yaml" ],
 			"filetypes": [ "hs", "lhs", "haskell" ],
 			"initializationOptions": {
 				"languageServerHaskell": {
