@@ -56,6 +56,8 @@ nnoremap <Up>    :resize +3<CR>
 nnoremap <Down>  :resize -3<CR>
 nnoremap <Left>  :vertical resize -3<CR>
 nnoremap <Right> :vertical resize +3<CR>
+nnoremap <C-Left>  z10h
+nnoremap <C-Right> z10l
 
 noremap <C-j> <C-W><C-j>
 noremap <C-k> <C-W><C-k>

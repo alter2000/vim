@@ -40,7 +40,7 @@ URLS = (
     ('base/start', 'https://github.com/w0rp/ale'),
 
     ('colorschemes/opt', 'https://github.com/morhetz/gruvbox'),
-    ('colorschemes/opt', 'https://github.com/swalladge/paper.vim'),
+    ('colorschemes/opt', 'https://github.com/NLKNguyen/papercolor-theme'),
 
     ('colorschemes/start', 'https://github.com/ayu-theme/ayu-vim'),
     ('colorschemes/start', 'https://github.com/junegunn/seoul256.vim'),
