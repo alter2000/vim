@@ -30,10 +30,14 @@ hi Folded       guifg=#3C78A2 guibg=#C3DAEA gui=NONE    "
 hi LineNr       guifg=#438EC3 guibg=#FFFFFF gui=NONE    "  Window
 hi Pmenu        guifg=#FFFFFF guibg=#CB2F27 gui=NONE    "  elements
 hi PmenuThumb   guifg=NONE    guibg=#0086D2 gui=NONE    "
-hi SignColumn   guifg=NONE    guibg=NONE    gui=NONE    "
+hi SignColumn   guifg=NONE    guibg=#FFFFFF gui=NONE    "
 hi StatusLine   guifg=#FFFFFF guibg=#43C464 gui=NONE    "
 hi StatusLineNC guifg=#FFFFFF guibg=#438EC3 gui=NONE    "
-hi VertSplit    guifg=#3687A2 guibg=#3687A2 gui=NONE    "
+hi VertSplit    guifg=#FFFFFF guibg=#3687A2 gui=NONE
+" hi StatusLine term=bold,reverse cterm=bold ctermfg=white guifg=#506070 guibg=#a0b0c0 gui=italic
+" hi StatusLineNC cterm=bold ctermfg=white ctermbg=white guifg=white guibg=white gui=bold,italic
+" hi VertSplit cterm=none gui=none guifg=#a0b0c0
+
 hi WildMenu     guifg=#FFFFFF guibg=#FD8900 gui=NONE    " ----------------
 hi ErrorMsg     guifg=#FFFFFF guibg=#FF0007 gui=NONE    "  Messages
 hi ModeMsg      guifg=#FFFFFF guibg=#1B5C8A gui=NONE    " ----------------
