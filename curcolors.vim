@@ -13,5 +13,4 @@ if &termguicolors
 else
 	colorscheme elflord
 endif
-" colorscheme agila
 colorscheme seoul256-light

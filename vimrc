@@ -33,6 +33,7 @@ syntax on
 set foldmethod=marker
 set foldminlines=0
 set foldtext=func#neatFold('+')
+set foldopen=hor,mark,percent,quickfix,search,tag,undo,jump
 set ignorecase smartcase
 set incsearch nohlsearch
 set linebreak
@@ -60,7 +61,7 @@ set autoindent
 " }}}
 " Level 2 (acts properly) {{{
 let mapleader=' '
-let maplocalleader = ','
+let maplocalleader = '£'
 if executable('rg')
 	let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
 	set grepprg=rg\ --vimgrep
@@ -101,7 +102,7 @@ endif
 " }}}
 """ VISUALS {{{
 set laststatus=2 showtabline=1
-set shortmess=filnrxtWc
+set shortmess=TWca
 set fillchars=vert:│
 set listchars=tab:¦\ ,precedes:←,extends:→,nbsp:‡,trail:·,eol:¬
 set showbreak=↪\ "
@@ -152,10 +153,6 @@ set wildignore+=tags
 augroup main
 	autocmd!
 
-	" pandoc really needs this
-	autocmd ColorScheme highlight default link Conceal Special
-	autocmd ColorScheme highlight clear SignColumn
-
 	" highlight trailing whitespace
 	autocmd BufWinEnter * match Error '\s\+$'
 	" autocmd BufWinEnter * match Error '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -166,13 +163,21 @@ augroup main
 	autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
 augroup end
 
-augroup GUIColors
+augroup Colors
 	autocmd!
 
 	autocmd ColorScheme highlight InsertCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=37  guibg=#2aa198
 	autocmd ColorScheme highlight VisualCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=125 guibg=#d33682
 	autocmd ColorScheme highlight ReplaceCursor ctermfg=15 guifg=#fdf6e3 ctermbg=65  guibg=#dc322f
 	autocmd ColorScheme highlight CommandCursor ctermfg=15 guifg=#fdf6e3 ctermbg=166 guibg=#cb4b16
+
+	" pandoc really needs this
+	autocmd ColorScheme highlight! link Conceal          Special
+	autocmd ColorScheme highlight! link StatusLineTerm   StatusLine
+	autocmd ColorScheme highlight! link StatusLineTermNC StatusLineNC
+	autocmd ColorScheme highlight! link VertSplit        NonText
+	autocmd ColorScheme highlight  clear SignColumn
+
 augroup END
 
 augroup C
