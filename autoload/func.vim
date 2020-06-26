@@ -168,8 +168,10 @@ endfunction
 " }}}
 " Show doccs via coccs {{{
 function! func#show_documentation()
-	if (index([ 'vim', 'help', 'c' ], &filetype) >= 0)
+	if (index([ 'vim', 'help' ], &filetype) >= 0)
 		execute 'h '.expand('<cword>')
+	elseif (index([ 'c', 'cpp' ], &filetype) >= 0)
+		execute '!man '.expand('<cword>')
 	else
 		call CocAction('doHover')
 	endif
