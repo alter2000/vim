@@ -85,7 +85,6 @@ set startofline
 set virtualedit=block
 set lazyredraw
 set signcolumn=yes
-colorscheme ayu
 " }}}
 " }}}
 """ PLUGINS {{{
@@ -99,7 +98,10 @@ let g:loaded_getscriptPlugin = 1
 let g:loaded_logipat = 1
 " let g:loaded_matchparen = 1
 let g:loaded_vimballPlugin = 1
-if !has("nvim")
+
+if has("nvim")
+	set inccommand=nosplit
+else
 	packadd! matchit
 endif
 " }}}
@@ -109,6 +111,7 @@ set shortmess=TWca
 set fillchars=vert:│
 set listchars=tab:¦\ ,precedes:←,extends:→,nbsp:‡,trail:·,eol:¬
 set showbreak=↪\ "
+set highlight+=c:NonText
 if has('Conceal')
 	set conceallevel=2
 endif

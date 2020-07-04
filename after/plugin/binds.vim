@@ -47,6 +47,9 @@ nnoremap zr zR
 cnoremap w!! %!sudo tee > /dev/null %
 " cnoremap !! echo system('')<left><left>
 
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : '') . 'j'
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : '') . 'k'
+
 nmap ss ysiw
 nmap sS ysiW
 
@@ -114,6 +117,8 @@ nnoremap <leader>ew :e <C-R>=expand("%:.:h") . "/"<CR>
 " paste only from yank
 xnoremap <leader>p "0p
 nnoremap <leader>p "0p
+
+nnoremap <leader>c :syntax sync fromstart<CR>
 
 " clean paste
 " nnoremap =p p==
