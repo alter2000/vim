@@ -3,10 +3,7 @@ exec status#default()
 augroup StatuslineHighlight
 	" change statusline highlights if maintaining different statuslines
 	autocmd!
-	autocmd WinEnter exec StatusDefault()
-	autocmd WinLeave highlight! link StatusLineNC Normal
+	autocmd WinEnter exec status#default()
+	autocmd WinLeave exec status#nofocus()
 	autocmd CmdlineEnter * redrawstatus
 augroup end
-
-" highlight! Statusline ctermbg=NONE guibg=NONE
-" highlight! StatuslineNC ctermbg=NONE guibg=NONE

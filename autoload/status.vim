@@ -77,3 +77,7 @@ function! status#default() "{{{
 
 endfunction
 " }}}
+
+function! status#nofocus() "{{{
+endfunction
+" }}}
