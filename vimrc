@@ -138,8 +138,6 @@ else
 	" let &t_SR = "\<Esc>[0 q"
 endif
 
-exec 'source '.fnamemodify(expand('$MYVIMRC'), ':p:h').'/curcolors.vim'
-
 set wildignore+=*.swp,*.swo,*lock,._*
 set wildignore+=.git,.hg,.svn,.darcs
 set wildignore+=*.aux,*.out,*.toc
