@@ -10,12 +10,12 @@ endif
 set encoding=utf-8
 set autoread
 set backspace=indent,eol,start
-set backupdir=~/.cache/vim/backup
+set backupdir=~/.cache/vim/backup//
 set backupext=.bak
-set directory=~/.cache/vim/tmp
+set directory=~/.cache/vim/tmp//
 set fsync
 set history=1000 undolevels=1000
-set scrolloff=4  " 4 lines of context when scrolling
+set scrolloff=4 " sidescrolloff=8
 set shell=zsh
 set timeoutlen=700 ttimeoutlen=10
 set updatecount=100
@@ -24,7 +24,7 @@ set tildeop
 set clipboard^=unnamedplus,unnamed
 if has('persistent_undo')
 	set undofile
-	set undodir=~/.cache/vim/undo
+	set undodir=~/.cache/vim/undo//
 endif
 filetype indent plugin on
 syntax on
@@ -53,7 +53,7 @@ set wildmenu
 set wildignorecase
 if has('viminfo')
 	set viminfo=%10,<50,'0,r/tmp
-	set viminfofile=~/.cache/vim/viminfo
+	set viminfofile=~/.cache/vim/viminfo//
 endif
 set noerrorbells
 set visualbell
@@ -74,7 +74,10 @@ set complete=.,w,kspell,k,d,t,i
 set completeopt=noinsert,menuone,noselect,preview
 set diffopt+=algorithm:patience,vertical
 set diffopt+=indent-heuristic
-set sessionoptions+=globals
+if has('mksession')
+	set sessionoptions+=globals
+	set viewdir=~/.cache/vim/view//
+endi
 set startofline
 " }}}
 " Level 5 (looks vimish) {{{
