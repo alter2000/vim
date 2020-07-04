@@ -19,7 +19,7 @@ set scrolloff=4 " sidescrolloff=8
 set shell=zsh
 set timeoutlen=700 ttimeoutlen=10
 set updatecount=100
-set updatetime=290
+set updatetime=750
 set tildeop
 set clipboard^=unnamedplus,unnamed
 if has('persistent_undo')

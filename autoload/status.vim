@@ -32,10 +32,11 @@ function! status#whitespace() "{{{
 endfunction
 " }}}
 
+" counts how many warnings
 function! status#linter_warn() abort "{{{
 	if get(g:, 'coc_enabled', 0)
 		let s:info = get(b:, 'coc_diagnostic_info', {})
-		if empty(info) | return '' | endif
+		if empty(s:info) | return '' | endif
 		return get(s:info, 'warning', '') . 'W'
 	else
 		return ''
@@ -43,6 +44,7 @@ function! status#linter_warn() abort "{{{
 endfunction
 " }}}
 
+" counts how many errors
 function! status#linter_err() abort "{{{
 	if get(g:, 'coc_enabled', 0)
 		if empty(s:info) | return '' | endif
