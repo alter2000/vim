@@ -12,12 +12,12 @@ colorscheme agila
 " 	let g:gruvbox_termcolors=256
 " endif
 " I'm not even using the gooey
-set guicursor=a:block
-" mode aware cursors
-set guicursor+=o:hor50-Cursor
-set guicursor+=n:Cursor
-set guicursor+=i-ci-sm:InsertCursor
-set guicursor+=r-cr:ReplaceCursor-hor20
-set guicursor+=c:CommandCursor
-set guicursor+=v-ve:VisualCursor
-set guicursor+=a:blinkon0
+" set guicursor=a:block
+" " mode aware cursors
+" set guicursor+=o:hor50-Cursor
+" set guicursor+=n:Cursor
+" set guicursor+=i-ci-sm:InsertCursor
+" set guicursor+=r-cr:ReplaceCursor-hor20
+" set guicursor+=c:CommandCursor
+" set guicursor+=v-ve:VisualCursor
+" set guicursor+=a:blinkon0
