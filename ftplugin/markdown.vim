@@ -63,3 +63,6 @@ setlocal foldmethod=expr
 setlocal foldexpr=ftfunc#foldingMarkdownFoldExpr()
 setlocal foldtext=ftfunc#foldingMarkdownFoldText()
 setlocal makeprg=pandoc\ '%'\ -o\ '%:r'.pdf
+
+packadd vim-ripple
+let b:ripple_repl = 'pandoc -o out.html -r markdown'

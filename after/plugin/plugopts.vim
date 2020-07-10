@@ -104,12 +104,6 @@ endif
 " }}}
 " vim-ripple {{{
 if exists('g:loaded_ripple')
-	let g:ripple_window = "vnew"
-	let g:ripple_term_command = "vertical terminal"
-	let g:ripple_repls = {
-		\ 'nix': 'nix repl',
-		\ 'haskell': 'stack ghci',
-		\ 'markdown': 'pandoc -o out.html -r markdown',
-		\ }
+	let g:ripple_winpos = "vertical"
 endif
 " }}}

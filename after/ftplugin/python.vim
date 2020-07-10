@@ -24,3 +24,4 @@ if exists('g:loaded_ale')
 endif
 
 packadd vim-ripple
+let b:ripple_repl = ['ipython', '\<c-u>\<esc>[200~', '\<esc>[201~', 1]

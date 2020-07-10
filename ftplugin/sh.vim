@@ -13,3 +13,4 @@ setlocal keywordprg=man
 setlocal keywordprg=:vert\ term\ ++close\ man
 
 packadd vim-ripple
+let b:ripple_repl = 'bash'
