@@ -25,3 +25,6 @@ nnoremap <C-]> g<C-]>
 nnoremap g<C-]> <C-]>
 xnoremap <C-]> g<C-]>
 xnoremap g<C-]> <C-]>
+
+packadd vim-projectionist
+let b:projectionist_heuristics = { '*.c': {'alternate': '{}.h'} }

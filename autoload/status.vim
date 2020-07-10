@@ -5,7 +5,8 @@ endfunction
 " }}}
 
 function! status#filename() abort "{{{
-	return expand('%:t') !=# '' ? expand('%:t') : '[NEMO]'
+	let l:fname = expand('%:t')
+	return l:fname !=# '' ? l:fname : '[NEMO]'
 endfunction
 " }}}
 
