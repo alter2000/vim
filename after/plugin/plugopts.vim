@@ -58,15 +58,27 @@ endif
 " }}}
 " Startify {{{
 if exists('g:loaded_startify')
-	let g:startify_list_order = [
-					\ ['     ### MRU'],      'files',
-					\ ['     ## Bookmarks'], 'bookmarks',
-					\ ['     ## Sessions'],  'sessions',
-					\ ['     ## Commands'],  'commands' ]
 	let g:startify_change_to_dir = 0
 	let g:startify_change_to_vcs_root = 1
 	let g:startify_fortune_use_unicode = 1
-	let g:startify_padding_left = 5
+	let g:startify_padding_left = 15
+	let g:startify_files_number = 6
+	let g:startify_lists = [
+				\ { 'type': 'files'    , 'header': [repeat(' ', g:startify_padding_left - 4).'### MRU']      },
+				\ { 'type': 'bookmarks', 'header': [repeat(' ', g:startify_padding_left - 3).'## Bookmarks'] },
+				\ { 'type': 'sessions' , 'header': [repeat(' ', g:startify_padding_left - 3).'## Sessions']  },
+				\ { 'type': 'commands' , 'header': [repeat(' ', g:startify_padding_left - 3).'## Commands']  },
+				\ ]
+	let g:startify_bookmarks = [
+				\ { 'n': '~/notes/' },
+				\ { 'd': '~/.dots/' },
+				\ { 'l': '~/notes/log.md' },
+				\ { 't': '~/todo' },
+				\ ]
+	let g:startify_commands = [
+				\ { 'g': [ 'git status', ':Gstatus' ] },
+				\ ]
+	let g:startify_session_before_save = []
 endif
 " }}}
 " " TeX {{{
