@@ -103,6 +103,7 @@ if has("nvim")
 	set inccommand=nosplit
 else
 	packadd! matchit
+	set highlight+=c:NonText
 endif
 " }}}
 """ VISUALS {{{
@@ -111,7 +112,6 @@ set shortmess=TWca
 set fillchars=vert:│
 set listchars=tab:¦\ ,precedes:←,extends:→,nbsp:‡,trail:·,eol:¬
 set showbreak=↪\ "
-set highlight+=c:NonText
 if has('Conceal')
 	set conceallevel=2
 endif
@@ -153,7 +153,3 @@ set wildignore+=*.pyc
 set wildignore+=tags
 
 " }}}
-
-if has('nvim') && filereadable(fnamemodify('$MYVIMRC', ":p:h")."/nvimrc")
-	source $MYVIMRC/nvimrc
-endif
