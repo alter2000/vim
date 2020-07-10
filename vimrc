@@ -52,7 +52,7 @@ set wildchar=<Tab> wildcharm=<Tab>
 set wildmenu
 set wildignorecase
 if has('viminfo')
-	set viminfo=%,'50,r/tmp,f100
+	set viminfo=%,'50,r/tmp,f100,n~/.cache/vim/viminfo
 	set viminfofile=$HOME/.cache/vim/viminfo
 endif
 set noerrorbells

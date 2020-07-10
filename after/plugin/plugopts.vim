@@ -68,6 +68,7 @@ if exists('g:loaded_startify')
 				\ { 'type': 'bookmarks', 'header': [repeat(' ', g:startify_padding_left - 3).'## Bookmarks'] },
 				\ { 'type': 'sessions' , 'header': [repeat(' ', g:startify_padding_left - 3).'## Sessions']  },
 				\ { 'type': 'commands' , 'header': [repeat(' ', g:startify_padding_left - 3).'## Commands']  },
+				\ { 'type': 'dir'      , 'header': [repeat(' ', g:startify_padding_left - 4).'### local '.getcwd()] },
 				\ ]
 	let g:startify_bookmarks = [
 				\ { 'n': '~/notes/' },
@@ -79,6 +80,10 @@ if exists('g:loaded_startify')
 				\ { 'g': [ 'git status', ':Gstatus' ] },
 				\ ]
 	let g:startify_session_before_save = []
+	let g:startify_skiplist = map(copy(g:startify_bookmarks), {_, val -> expand(values(val)[0])}) + [
+				\ 'COMMIT_EDITMSG',
+				\ '/nix/store/',
+				\ ]
 endif
 " }}}
 " " TeX {{{
