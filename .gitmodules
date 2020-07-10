@@ -86,3 +86,6 @@
 [submodule "pack/colorschemes/opt/papercolor-theme"]
 	path = pack/colorschemes/opt/papercolor-theme
 	url = https://github.com/NLKNguyen/papercolor-theme
+[submodule "pack/base/opt/vim-projectionist"]
+	path = pack/base/opt/vim-projectionist
+	url = https://github.com/tpope/vim-projectionist
