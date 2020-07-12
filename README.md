@@ -9,4 +9,4 @@ plugins](./inpacks.py) too.
 
 **Warning:**  
 <kbd>;</kbd> and <kbd>:</kbd> are reversed. Arrow keys are used for aligning
-buffers, not moving.
+windows, not moving.
