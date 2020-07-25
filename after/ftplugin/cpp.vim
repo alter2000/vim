@@ -12,10 +12,20 @@ let &path .= './include,'
 		\ . ','
 		\ . func#git_root('<afile>')
 
-" packadd vim-gcov-marker
 packadd taglist.vim
-packadd termdebug
 
+packadd termdebug
+nnoremap <silent><buffer> <leader>j :Step<CR>
+nnoremap <silent><buffer> <leader>n :Over<CR>
+nnoremap <silent><buffer> <leader>m :Break<CR>
+nnoremap <silent><buffer> <leader>, :Continue<CR>
+nnoremap <silent><buffer> <leader>. :Finish<CR>
+nnoremap <silent><buffer> <leader>k :Evaluate<CR>
+xnoremap <silent><buffer> <leader>k :'<,'>Evaluate<CR>
+
+let b:termdebugger = "gdb"
+
+" packadd vim-gcov-marker
 if exists('g:loaded_gcov_marker')
 	let g:gcov_marker_path  = './'
 	let g:gcov_marker_auto_lopen = 0

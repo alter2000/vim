@@ -84,9 +84,10 @@
 		"ccls": {
 			"command": "ccls",
 			"filetypes": [ "c", "cpp" ],
-			"rootPatterns": [ "Makefile", "compile_commands.json", ".git/", ".hg/" ],
+			"rootPatterns": [ "Makefile", ".ccls", "compile_commands.json", ".git/", ".hg/" ],
 			"initializationOptions": {
-				"cache": { "directory": "/home/alter2000/.cache/ccls" }
+				"cache": { "directory": "/home/alter2000/.cache/ccls" },
+				"client": { "snippetSupport": true }
 			}
 		},
 

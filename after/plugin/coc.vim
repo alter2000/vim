@@ -5,10 +5,15 @@ endif
 let g:coc_node_path = exepath('node')
 
 " Remap keys for goto
-nmap     <silent> gd        <Plug>(coc-definition)
-nmap     <silent> gy        <Plug>(coc-type-definition)
-nmap     <silent> gi        <Plug>(coc-implementation)
-nmap     <silent> gr        <Plug>(coc-references)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+xmap <silent> if <Plug>(coc-funcobj-i)
+omap <silent> if <Plug>(coc-funcobj-i)
+xmap <silent> af <Plug>(coc-funcobj-a)
+omap <silent> af <Plug>(coc-funcobj-a)
 
 " Use `[c` and `]c` for navigate diagnostics
 nmap     <silent> [c        <Plug>(coc-diagnostic-prev)
