@@ -77,7 +77,7 @@ if exists('g:loaded_startify')
 				\ { 't': '~/todo' },
 				\ ]
 	let g:startify_commands = [
-				\ { 'g': [ 'git status', ':Gstatus' ] },
+				\ { 'g': [ 'git status', ':vert Gstatus' ] },
 				\ ]
 	let g:startify_session_before_save = []
 	let g:startify_skiplist = map(copy(g:startify_bookmarks), {_, val -> expand(values(val)[0])}) + [

@@ -47,8 +47,8 @@ nnoremap zr zR
 cnoremap w!! %!sudo tee > /dev/null %
 " cnoremap !! echo system('')<left><left>
 
-nnoremap <expr> j (v:count > 5 ? "m'" . v:count : '') . 'j'
-nnoremap <expr> k (v:count > 5 ? "m'" . v:count : '') . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : '') . 'gj'
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : '') . 'gk'
 
 nmap ss ysiw
 nmap sS ysiW

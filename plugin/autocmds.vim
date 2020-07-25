@@ -37,3 +37,15 @@ augroup C " {{{
 	autocmd BufNewFile *.cpp call ftfunc#skel('<afile>')
 	autocmd BufNewFile *.hpp call ftfunc#skel('<afile>')
 augroup END " }}}
+augroup quickfix " {{{
+	autocmd!
+	autocmd QuickFixCmdPost cgetexpr cwindow
+	autocmd QuickFixCmdPost lgetexpr lwindow
+	autocmd QuickFixCmdPost *grep*   cwindow
+	" open QFix window if makeprg has errors
+	autocmd QuickFixCmdPost [^l]*    cwindow
+
+	" autocmd FilterWritePre * if &diff | map <leader>{ :diffget LOCAL<cr> | endif
+	" autocmd FilterWritePre * if &diff | map <leader>} :diffget REMOTE<cr>| endif
+	" autocmd FilterWritePre * if &diff | map <leader>\| :diffget BASE<cr> | endif
+augroup END " }}}

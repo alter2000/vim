@@ -29,11 +29,11 @@ endfunction
 " }}}
 " " toggle explore netrw {{{
 " function! func#toggleExplore()
-" 	if &ft ==# "netrw"
-" 		Rexplore
-" 	else
-" 		Explore
-" 	endif
+"	if &ft ==# "netrw"
+"		Rexplore
+"	else
+"		Explore
+"	endif
 " endfunction
 " " }}}
 " trim whitespace {{{
@@ -123,20 +123,6 @@ function! func#git_root(path)
 	endif
 endfunction
 " }}}
-" resize window to fit all text {{{
-function! func#adjustWinHeight(...)
-	let w:view = winsaveview()
-	let height = line('$')
-	if a:0
-		let height = a:0
-	elseif height > 6
-		let height = 6
-	endif
-	exec 'resize' height
-	call winrestview(w:view)
-	unlet w:view
-endfunction
-" }}}
 " Async make with no output (defaults to 'make') {{{
 function! func#asyncDo(cmd)
 	if v:version < 800
@@ -193,3 +179,29 @@ function! func#neatFold(fc) abort
 	return indent . foldtextstart . repeat(foldchar, winwidth(0) - foldtextlength) . foldtextend
 endfunction
 " }}}
+" quickly close and go to next file in arglist {{{
+function! func#argNext() abort
+	update
+	if empty(argv())
+		quit
+	endif
+	argdelete %
+	bdelete
+	if !empty(argv())
+		argument
+	endif
+endfunction
+" }}}
+" function! Hash() abort
+" 	let dirfile = '~/.zsh/hashed.dirs'
+" 	" get dirfile
+" 	" check if file exists
+" 	" open and call `let $.line```
+" 	for line in split(system('zsh -c "[[ -e '.dirfile.' ]]; hash -d"'), '\n')
+" 		echoerr line
+" 		" let l:pair = split(line, '=')
+" 		" if !exists('$'.l:pair[0])
+" 		" 	execute 'let $' . l:pair[0] . '="' . l:pair[1] . '"'
+" 		" endif
+" 	endfor
+" endfunction
