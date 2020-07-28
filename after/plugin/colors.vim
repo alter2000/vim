@@ -1,5 +1,5 @@
-" colorscheme seoul256-light
-" finish
+colorscheme seoul256-light
+finish
 
 if &termguicolors
 	if (strftime('%H') % 20) > 9

@@ -52,7 +52,9 @@
 		"autoUpload": true,
 		"monitor": true,
 		// "floating" | "virtual" | "echo" | "none"
-		"notify": "floating"
+		"notify": "floating",
+		"promptForReminder": true,
+		"easyMode": true
 	},
 
 	"git": {

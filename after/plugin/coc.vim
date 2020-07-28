@@ -5,15 +5,20 @@ endif
 let g:coc_node_path = exepath('node')
 
 " Remap keys for goto
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gd    <Plug>(coc-definition)
+nmap <silent> gy    <Plug>(coc-type-definition)
+nmap <silent> gi    <Plug>(coc-implementation)
+nmap <silent> gr    <Plug>(coc-references)
 
-xmap <silent> if <Plug>(coc-funcobj-i)
-omap <silent> if <Plug>(coc-funcobj-i)
-xmap <silent> af <Plug>(coc-funcobj-a)
-omap <silent> af <Plug>(coc-funcobj-a)
+xmap <silent> if    <Plug>(coc-funcobj-i)
+omap <silent> if    <Plug>(coc-funcobj-i)
+xmap <silent> af    <Plug>(coc-funcobj-a)
+omap <silent> af    <Plug>(coc-funcobj-a)
+
+imap          <C-l> <Plug>(coc-snippets-expand)
+vmap          <C-j> <Plug>(coc-snippets-select)
+let g:coc_snippet_next = '<c-j>'
+let g:coc_snippet_prev = '<c-k>'
 
 " Use `[c` and `]c` for navigate diagnostics
 nmap     <silent> [c        <Plug>(coc-diagnostic-prev)
@@ -40,8 +45,10 @@ endfunction
 " 	else
 " 		if coc#expandableOrJumpable()
 " 			return "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>"
+" 		else if <SID>check_back_space()
+" 			return "\<Tab>"
 " 		else
-" 			return <SID>check_back_space() ? "\<Tab>" : coc#refresh()
+" 			return coc#refresh()
 " 		endif
 " 	endif
 " endfunction

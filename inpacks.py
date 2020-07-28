@@ -52,6 +52,7 @@ URLS = (
     ('langs/opt', 'https://github.com/anekos/hledger-vim'),
     ('langs/opt', 'https://github.com/itchyny/vim-haskell-indent'),
     ('langs/opt', 'https://github.com/neovimhaskell/haskell-vim'),
+    # ('langs/opt', 'https://github.com/fatih/vim-go'),
 
     ('langs/start', 'https://github.com/LnL7/vim-nix'),
 

@@ -159,7 +159,7 @@ function! func#show_documentation()
 	elseif (index([ 'c', 'cpp' ], &filetype) >= 0)
 		execute '!man '.expand('<cword>')
 	else
-		call CocAction('doHover')
+		call CocActionAsync('doHover')
 	endif
 endfunction
 " }}}
