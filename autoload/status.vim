@@ -1,12 +1,16 @@
 function! status#branch() abort "{{{
-	let l:git = fugitive#head()
-	return (l:git) ? ' '.git : ''
+	let git = fugitive#head()
+	if empty(git) || git ==# 'master'
+		return ''
+	else
+		return ' '.git
+	endif
 endfunction
 " }}}
 
 function! status#filename() abort "{{{
-	let l:fname = expand('%:t')
-	return l:fname !=# '' ? l:fname : '[NEMO]'
+	let fname = expand('%:t')
+	return empty(fname) ? '[NEMO]' : fname
 endfunction
 " }}}
 
@@ -25,37 +29,6 @@ function! status#readOnly(arg) abort "{{{
 endfunction
 " }}}
 
-function! status#whitespace() "{{{
-	let @/='\v(\s+$)|( +\ze\t)'
-	let l:oldhlsearch=&hlsearch
-	let &hlsearch = (!a:0) ?  !&hlsearch : a:1
-	return l:oldhlsearch
-endfunction
-" }}}
-
-" counts how many warnings
-function! status#linter_warn() abort "{{{
-	if get(g:, 'coc_enabled', 0)
-		let s:info = get(b:, 'coc_diagnostic_info', {})
-		if empty(s:info) | return '' | endif
-		return get(s:info, 'warning', '') . 'W'
-	else
-		return ''
-	endif
-endfunction
-" }}}
-
-" counts how many errors
-function! status#linter_err() abort "{{{
-	if get(g:, 'coc_enabled', 0)
-		if empty(s:info) | return '' | endif
-		return get(s:info, 'error', '') . 'E ' . get(g:, 'coc_status', '')
-	else
-		return ''
-	endif
-endfunction
-" }}}
-
 function! status#default() "{{{
 
 	set laststatus=2
@@ -63,15 +36,9 @@ function! status#default() "{{{
 	set statusline+=%#Normal#\ \ %{status#filename()}
 	" defaults with custom symbols
 	set statusline+=\ %{status#readOnly('')}
-	set statusline+=\ %{status#modified('')}\ 
-	set statusline+=%*
-
-	if exists('status#linter_warn()')
-		set statusline+=\ \ %#warning#%{status#linter_warn()}
-		set statusline+==\ %{status#linter_err()}
-		set statusline+=%*
-		set statusline+=%{coc#status()}
-	endif
+	set statusline+=\ %{status#modified('')}
+	set statusline+=\ %*
+	set statusline+=\ %{status#branch()}
 
 	set statusline+=%=                       " segment break
 	set statusline+=%<%{status#filetype()}\  " filetype without brackets (%< to truncate)
