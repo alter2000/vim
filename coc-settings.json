@@ -25,10 +25,13 @@
 	},
 
 	"snippets": {
-		"ultisnips.enable": false,
-		"snipmate.enable": false,
+		"priority": 90,
+		"ultisnips.enable": true,
+		"snipmate.enable": true,
 		"snippets.author": "Jor Bashllari <altnate2000@gmail.com>",
-		"ultisnips.directories": [ "usnips" ],
+		"ultisnips.directories": [ "snips" ],
+		"userSnippetsDirectory": [ "snips" ],
+		"convertToSnippetsAction": true,
 		"extend": {
 			"cpp": [ "c" ]
 		}
