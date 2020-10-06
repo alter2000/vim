@@ -104,7 +104,10 @@ if exists('g:waikiki_loaded')
 endif
 " }}}
 " vim-ripple {{{
-" if exists('g:loaded_ripple')
-" 	" let g:ripple_winpos = "vertical"
-" endif
+if exists('g:loaded_ripple')
+	let g:ripple_winpos = "vertical"
+	let g:ripple_term_name = "[REPL]"
+	let g:ripple_enable_mappings = 1
+	let g:ripple_highlight = "DiffAdd"
+endif
 " }}}

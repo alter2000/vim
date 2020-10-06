@@ -69,6 +69,11 @@
 		"changeRemovedSign.text": "◢"
 	},
 
+	"python": {
+		"autoUpdateLanguageServer": false,
+		"languageServerPath": "python-language-server"
+	},
+
 	"vimlsp": {
 		"diagnostic.enable": false,
 		"indexes.runtimepath": false

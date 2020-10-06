@@ -54,6 +54,7 @@ if !get(g:, 'mywaikikisetup_loaded', 0)
 	" nnoremap <buffer><silent> <LocalLeader>i    :let &l:cocu = (&l:cocu=="" ? "nc" : "")<cr>
 
 	let g:mywaikikisetup_loaded = 1
+	call waikiki#CheckBuffer(expand('%:p'))
 endif
 
 setlocal nospell wrap
