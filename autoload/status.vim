@@ -30,24 +30,33 @@ endfunction
 " }}}
 
 function! status#default() "{{{
+	hi! link MyModeMsg ModeMsg
 
 	set laststatus=2
-	set statusline=%#ModeMsg#\ \ %{mode()}\ \ %*
-	set statusline+=%#Normal#\ \ %{status#filename()}
+	" highlight mode
+	set statusline=%#MyModeMsg#\ \ %{mode()}\ \ %*
+	" end highlight mode
+	set statusline+=%#MyFilename#\ \ %{status#filename()}
 	" defaults with custom symbols
 	set statusline+=\ %{status#readOnly('')}
 	set statusline+=\ %{status#modified('')}
 	set statusline+=\ %*
-	set statusline+=\ %{status#branch()}
+	" set statusline+=\ %{status#branch()}
 
 	set statusline+=%=                       " segment break
 	set statusline+=%<%{status#filetype()}\  " filetype without brackets (%< to truncate)
 	set statusline+=%5(\|%c%)\ \ \           " column number
 	set statusline+=%#Folded#\ \ %2p%%\ \    " file percentage
 
+	" redrawstatus
 endfunction
 " }}}
 
 function! status#nofocus() "{{{
+	hi! link MyModeMsg Normal
+	" redrawstatus
 endfunction
 " }}}
+
+hi! link MyFilename Normal
+hi! link MyModeMsg ModeMsg

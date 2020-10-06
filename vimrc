@@ -84,7 +84,7 @@ set startofline
 " set ambiwidth=single
 set virtualedit=block
 set lazyredraw
-set signcolumn=yes
+set signcolumn=yes  " or number
 " }}}
 " }}}
 """ PLUGINS {{{
