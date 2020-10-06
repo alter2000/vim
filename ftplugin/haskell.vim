@@ -3,6 +3,9 @@ setlocal tabstop=8
 setlocal shiftwidth=2
 setlocal textwidth=79
 setlocal iskeyword-='
+setlocal includeexpr=substitute(v:fname,'\\.','/','g')
+setlocal path=.,app,src,test,lib
+setlocal suffixesadd=.hs
 
 " enable highlighting of
 let g:haskell_enable_quantification = 1   " `forall`

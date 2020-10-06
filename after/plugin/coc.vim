@@ -26,6 +26,7 @@ nmap     <silent> ]c        <Plug>(coc-diagnostic-next)
 
 nnoremap <silent> K         :call func#show_documentation()<CR>
 nnoremap          <leader>r :CocCommand document.renameCurrentWord<CR>
+" nmap              <leader>r <Plug>(coc-rename)
 
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 
