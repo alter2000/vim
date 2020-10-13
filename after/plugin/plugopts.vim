@@ -111,3 +111,9 @@ if exists('g:loaded_ripple')
 	let g:ripple_highlight = "DiffAdd"
 endif
 " }}}
+if get(g:, 'gutentags_dont_load', 0) == 1
+	let g:gutenags_cache_dir = "~/.cache/vim/tags"
+	let g:gutentags_project_info = [
+				\ {'type': 'haskell', 'file': 'Setup.hs'}
+				\ ]
+endif

@@ -109,7 +109,7 @@ endif
 """ VISUALS {{{
 set laststatus=2 showtabline=1
 set shortmess=TWca
-set fillchars=vert:│
+set fillchars=vert:│,diff:\ 
 set listchars=tab:¦\ ,precedes:←,extends:→,nbsp:‡,trail:·,eol:¬
 set showbreak=↪\ "
 if has('Conceal')
