@@ -10,12 +10,21 @@ nmap <silent> gy    <Plug>(coc-type-definition)
 nmap <silent> gi    <Plug>(coc-implementation)
 nmap <silent> gr    <Plug>(coc-references)
 
-xmap <silent> if    <Plug>(coc-funcobj-i)
-omap <silent> if    <Plug>(coc-funcobj-i)
-xmap <silent> af    <Plug>(coc-funcobj-a)
-omap <silent> af    <Plug>(coc-funcobj-a)
+xmap <leader>a   <Plug>(coc-codeaction-selected)
+nmap <leader>a   <Plug>(coc-codeaction-selected)
 
-imap          <C-l> <Plug>(coc-snippets-expand)
+nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <leader>qf  <Plug>(coc-fix-current)
+xmap         if  <Plug>(coc-funcobj-i)
+omap         if  <Plug>(coc-funcobj-i)
+xmap         af  <Plug>(coc-funcobj-a)
+omap         af  <Plug>(coc-funcobj-a)
+xmap         ic  <Plug>(coc-classobj-i)
+omap         ic  <Plug>(coc-classobj-i)
+xmap         ac  <Plug>(coc-classobj-a)
+omap         ac  <Plug>(coc-classobj-a)
+
+" imap          <C-l> <Plug>(coc-snippets-expand)
 vmap          <C-j> <Plug>(coc-snippets-select)
 let g:coc_snippet_next = '<c-j>'
 let g:coc_snippet_prev = '<c-k>'
@@ -25,8 +34,8 @@ nmap     <silent> [c        <Plug>(coc-diagnostic-prev)
 nmap     <silent> ]c        <Plug>(coc-diagnostic-next)
 
 nnoremap <silent> K         :call func#show_documentation()<CR>
-nnoremap          <leader>r :CocCommand document.renameCurrentWord<CR>
-" nmap              <leader>r <Plug>(coc-rename)
+" nnoremap          <leader>r :CocCommand document.renameCurrentWord<CR>
+nmap              <leader>r <Plug>(coc-rename)
 
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 
