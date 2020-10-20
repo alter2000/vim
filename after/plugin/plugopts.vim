@@ -111,9 +111,16 @@ if exists('g:loaded_ripple')
 	let g:ripple_highlight = "DiffAdd"
 endif
 " }}}
-if get(g:, 'gutentags_dont_load', 0) == 1
+" gutentags {{{
+if get(g:, 'loaded_gutentags', 0) == 1
 	let g:gutenags_cache_dir = "~/.cache/vim/tags"
 	let g:gutentags_project_info = [
 				\ {'type': 'haskell', 'file': 'Setup.hs'}
 				\ ]
 endif
+" }}}
+" colorizer {{{
+if get(g:, 'loaded_colorizer', 0) == 1
+	let g:colorizer_use_virtual_text = 1
+endif
+" }}}

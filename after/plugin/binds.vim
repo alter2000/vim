@@ -104,7 +104,7 @@ nnoremap <silent> <leader>q        :Explore %:h<CR>
 nnoremap <silent> <leader>e        :execute "ltag " . expand("<cword>")<CR>
 
 " edit macros
-nnoremap <silent> <leader>m        :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
+" nnoremap <silent> <leader>m        :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 
 " from vimways.org
 " 'cd' towards the directory in which the current file is edited

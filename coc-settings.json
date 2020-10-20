@@ -115,22 +115,21 @@
 		},
 
 		"haskell": {
-			"command": "ghcide",
+			"command": "haskell-language-server-wrapper",
 			"args": ["--lsp"],
-			// "args": ["-l", "hie-log", "-d"],
-			// "trace.server": "verbose",
 			"rootPatterns": [
 				"stack.yaml",
 				".stack.yaml",
 				"cabal.config",
 				"package.yaml" ],
 			"filetypes": [ "hs", "lhs", "haskell" ],
-			"initializationOptions": {
-				"languageServerHaskell": {
-					"hlintOn": true,
-					"maxNumberOfProblems": 10,
-					"completionSnippetsOn": true
-				}
+			"settings.haskell": {
+				"formattingProvider": "stylish-haskell",
+				//"formatOnImportOn": true,
+				"hlintOn": true,
+				//"liquidOn": true,
+				"maxNumberOfProblems": 10,
+				"completionSnippetsOn": true
 			}
 		},
 

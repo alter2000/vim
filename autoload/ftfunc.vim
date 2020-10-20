@@ -75,3 +75,8 @@ function! ftfunc#MarkdownAlign()
 	endif
 endfunction
 " }}}
+" Haskell path to module name {{{
+function! ftfunc#haskellModuleName()
+	return substitute(substitute(expand('%:r'), '[/\\]', '.', 'g'), '^\%(\l*\.\)\?', '', '')
+endfunction
+" }}}
