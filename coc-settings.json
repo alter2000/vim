@@ -7,30 +7,32 @@
 		// },
 
 		"preferences": {
-			"colorSupport": 0,
+			"colorSupport": true,
 			"extensionUpdateCheck": "daily",
 			"hoverTarget": "float",
 			"minTriggerInputLength": 2,
 			"rootPatterns": [ ".git", ".env", ".hg", ".svn" ],
-			"snippetIndicator": " ",
 			"timeout": 400,
-			"triggerAfterInsertEnter": true
+			"currentFunctionSymbolAutoUpdate": false,
+			"triggerAfterInsertEnter": true,
+			"jumpCommand": "edit"
 		}
 	},
 
 	"suggest": {
 		"autoTrigger": "always",
-		"echodocSupport": 1,
-		"floatEnable": 1
+		"snippetIndicator": " ",
+		"floatEnable": true
 	},
 
 	"snippets": {
 		"priority": 90,
+		"editSnippetsCommand": "vsplit",
 		"ultisnips.enable": true,
 		"snipmate.enable": true,
 		"snippets.author": "Jor Bashllari <altnate2000@gmail.com>",
-		"ultisnips.directories": [ "snips" ],
-		"userSnippetsDirectory": [ "snips" ],
+		"ultisnips.directories": [ "/home/alter2000/.vim/snips" ],
+		//"userSnippetsDirectory": [ "/home/alter2000/.vim/snips" ],
 		"convertToSnippetsAction": true,
 		"extend": {
 			"cpp": [ "c" ]
@@ -43,9 +45,14 @@
 		"infoSign": "!",
 		"hintSign": "?",
 		"messageTarget": "float",
-		"virtualText": 1,
-		"displayByAle": 0,
-		"refreshOnInsertMode": 0
+		"virtualText": false,
+		"displayByAle": false,
+		"refreshOnInsertMode": false
+	},
+
+	"codeLens": {
+		"enable": true,
+		"separator": "‣"
 	},
 
 	"todolist": {
@@ -95,7 +102,7 @@
 			"command": "ccls",
 			"filetypes": [ "c", "cpp" ],
 			"rootPatterns": [ "Makefile", ".ccls", "compile_commands.json", ".git/", ".hg/" ],
-			"initializationOptions": {
+			"settings": {
 				"cache": { "directory": "/home/alter2000/.cache/ccls" },
 				"client": { "snippetSupport": true }
 			}

@@ -196,7 +196,7 @@ endfunction
 " 	let dirfile = '~/.zsh/hashed.dirs'
 " 	" get dirfile
 " 	" check if file exists
-" 	" open and call `let $.line```
+" 	" open and call `let $.line`
 " 	for line in split(system('zsh -c "[[ -e '.dirfile.' ]]; hash -d"'), '\n')
 " 		echoerr line
 " 		" let l:pair = split(line, '=')
