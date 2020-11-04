@@ -1,0 +1,188 @@
+# vim: foldmethod=marker
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+# Comments {{{
+
+snippet doc "Haddock documentation" !b
+{-| ${1:Documentation for $1}
+-}
+endsnippet
+
+snippet box "Top level header" !b
+	-- |
+	-- Module    :  ${1:`!v ftfunc#haskellModuleName()`}
+	-- Copyright :  ${2:Author} ${0:`!v strftime("%Y-%m-%d")`}
+	-- License   :  MIT
+	-- Maintainer:  ${3:email@example.com}
+	-- Stability :  experimental
+	-- Portability: non-portable
+endsnippet
+# }}}
+
+# Pragmas {{{
+
+snippet lang "LANGUAGE pragma" !b
+{-# LANGUAGE $1 #-}
+endsnippet
+
+snippet ghcopt "GHC options" !b
+{-# OPTIONS_GHC $1 #-}
+endsnippet
+
+snippet preproc "Preprocessor" !b
+{-# OPTIONS_GHC -F -pgmF ${1:executable} #-}
+endsnippet
+
+# snippet trhsx "HSP/HSX Preprocessor (trhsx)" !b
+# {-# OPTIONS_GHC -F -pgmF trhsx #-}
+# endsnippet
+
+snippet hsx "HSP/HSX Preprocessor (hsx2hs)" !b
+{-# OPTIONS_GHC -F -pgmF hsx2hs #-}
+endsnippet
+
+snippet inline "INLINE pragma" !b
+{-# INLINE ${1:name} #-}
+endsnippet
+
+snippet inlinable "INLINABLE pragma" !b
+{-# INLINABLE ${1:name} #-}
+endsnippet
+
+snippet noinline "NOINLINE pragma" !b
+{-# NOINLINE ${1:name} #-}
+endsnippet
+
+snippet specialize "SPECIALIZE pragma" !b
+{-# SPECIALIZE ${1:name} :: ${2:type} #-}
+endsnippet
+
+snippet rules "RULES pragma" !b
+{-# RULES "${1:name}" ${2:rule} #-}
+endsnippet
+
+snippet unpack "UNPACK pragma" !w
+{-# UNPACK #-}
+endsnippet
+
+snippet nounpack "NOUNPACK pragma" !w
+{-# NOUNPACK #-}
+endsnippet
+
+# }}} Pragmas
+
+# Statements {{{
+
+snippet mod "Module declaration" !b
+module ${1:`!v substitute(substitute(expand('%:r'), '[/\\]','.','g'),'^\%(\l*\.\)\?','','')`}
+  -- ( 
+  -- )
+  where
+
+$0
+endsnippet
+
+snippet main "Main module" !b
+module Main (main) where
+
+main :: IO ()
+main = ${1:error "undefined: \`main' in `!v expand('%')`"}
+endsnippet
+
+snippet containers "Import modules for data structures, qualified" !b
+import qualified Data.HashMap.Lazy as HashMap
+import qualified Data.HashSet      as HashSet
+import qualified Data.IntMap       as IntMap
+import qualified Data.IntSet       as IntSet
+import qualified Data.IxSet        as IxSet
+import qualified Data.Map          as Map
+import qualified Data.Sequence     as Seq
+import qualified Data.Set          as Set
+endsnippet
+
+snippet rec "Data record" !b
+data ${1:Type} = $1
+	{ ${3:field} :: ${4:Type}
+	} deriving (${5:Classes})
+endsnippet
+
+snippet cls "Type class definition" !b
+class ${1:Name} where
+		$0
+endsnippet
+
+snippet in "Instance definition" !b
+instance ${1:Class} ${2:Type} where
+		$0
+endsnippet
+
+# }}} Statements
+
+# Definitions {{{
+
+snippet :: "Type signature" !b
+${1:name} :: ${2:Type}
+endsnippet
+
+snippet => "Class constraint" !w
+${1:Class} ${2:variable} => $2
+endsnippet
+
+snippet def "Value definition" !b
+-- | ${4:Documentation for $1}
+$1 :: ${2:Type}
+${1:name} = ${5:error "undefined: \`$1' in `!v expand('%')`"}
+endsnippet
+
+# snippet fun "Function definition" !b
+# -- | ${5:Documentation for '$1'}
+# $1 :: ${3:Type} -> ${4:Type}
+# ${1:name} ${2:args} = ${6:error "undefined: \`$1' in `!v expand('%')`"}
+# endsnippet
+
+# }}} Definitions
+
+# Expressions {{{
+
+snippet \ "Lambda" !w
+\\${1:args} -> ${2:expression}
+endsnippet
+
+snippet if "Boolean conditional" !w
+if ${1:condition} then ${2:true} else ${3:false}
+endsnippet
+
+snippet case "Pattern match" !w
+case ${1:scrutinee} of
+	${2:_} -> ${3:undefined}
+endsnippet
+
+snippet qq "Quasi quote" !w
+[${1:quoter}|${2:content}|]
+endsnippet
+
+# }}} Expressions
