@@ -1,16 +1,14 @@
-colorscheme seoul256-light
-finish
-
 if &termguicolors
-	if (strftime('%H') % 20) > 9
-		execute 'set background=light'
+	if (strftime('%H') % 20) >= 9
+		set background=light
 		let ayucolor = 'light'
-		colorscheme ayu
+		" colorscheme ayu
 	else
-		execute 'set background=dark'
+		set background=dark
 		let ayucolor = 'mirage'
-		colorscheme agila
+		" colorscheme agila
 	endif
 else
 	colorscheme elflord
 endif
+colorscheme PaperColor

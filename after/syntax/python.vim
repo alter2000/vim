@@ -46,10 +46,25 @@ syntax keyword pyNiceBuiltin len conceal cchar=#
 syntax keyword pyNiceStatement lambda conceal cchar=λ
 syntax keyword pyNiceStatement None conceal cchar=∅
 
+syn region pythonfString matchgroup=pythonQuotes
+      \ start=+[fF]\@1<=\z(['"]\)+ end="\z1"
+      \ contains=@Spell,pythonEscape,pythonInterpolation
+syn region pythonfDocstring matchgroup=pythonQuotes
+      \ start=+[fF]\@1<=\z('''\|"""\)+ end="\z1" keepend
+      \ contains=@Spell,pythonEscape,pythonSpaceError,pythonInterpolation,pythonDoctest
+
+syn region pythonInterpolation contained
+      \ matchgroup=SpecialChar
+      \ start=/{/ end=/}/
+      \ contains=ALLBUT,pythonDecoratorName,pythonDecorator,pythonFunction,pythonDoctestValue,pythonDoctest
+
 hi link pyNiceOperator Operator
 hi link pyNiceStatement Statement
 hi link pyNiceKeyword Keyword
 hi link pyNiceBuiltin Builtin
 hi! link Conceal Operator
+
+hi link pythonfString String
+hi link pythonfDocstring String
 
 setlocal conceallevel=1
