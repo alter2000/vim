@@ -91,6 +91,9 @@ set signcolumn=yes  " or number
 if has('win32')
 	set runtimepath+=~/.vim
 endif
+if !has('nvim')
+	set packpath^=~/.local/share/nvim/site
+endif
 
 " disable some built-in plugins
 " let g:loaded_netrwPlugin = '000'
