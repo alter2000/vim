@@ -152,6 +152,11 @@
 			"ignoredRootPaths": [ "~" ]
 		},
 
+		"neuron": {
+			"command": "neuron-language-server",
+			"filetypes": [ "markdown" ]
+		},
+
 		"latex": {
 			"command": "texlab",
 			// not start server at home directory, since it won't work.
