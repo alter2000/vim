@@ -102,8 +102,9 @@
 			"filetypes": [ "c", "cpp" ],
 			"rootPatterns": [ "Makefile", ".ccls", "compile_commands.json", ".git/", ".hg/" ],
 			"settings": {
-				"cache": { "directory": "/home/alter2000/.cache/ccls" },
-				"client": { "snippetSupport": true }
+				"cache.directory": "/home/alter2000/.cache/ccls",
+				"client.snippetSupport": true,
+				"completion.placeholder": false
 			}
 		},
 
