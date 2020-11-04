@@ -4,25 +4,21 @@ endif
 let b:did_ftplugin = 1
 
 " mappings {{{
-inoremap <buffer> <silent> <Bar>   <Bar><Esc>:call ftfunc#MarkdownAlign()<CR>a
-
+" inoremap <buffer> <silent> <Bar>   <Bar><Esc>:call ftfunc#MarkdownAlign()<CR>a
 nnoremap <buffer> <silent> -- :call ftfunc#MarkdownChecklistToggle({})<cr>
 
 " Pandoc + Markdown previews
 " TODO : The mappings do nothing on screen for some reason, whereas typing
 " the full command works
 let b:temp_preview = tempname() . '.pdf'
-nnoremap <buffer> <Space>pc :execute "!pandoc -o"
-            \ . shellescape(b:temp_preview)
-            \ . shellescape(expand("%:p"))
-            \ | redraw!
-nnoremap <buffer> <Space>pp :execute "!zathura"
-            \ . shellescape(b:temp_preview)
-            \ . "&" | redraw!
+nnoremap <buffer> <Space>pc :execute "!pandoc -o "
+	\ . shellescape(b:temp_preview) .' '. shellescape(expand("%:p")) \| redraw!<CR>
+nnoremap <buffer> <Space>pp :execute "!zathura "
+	\ . shellescape(b:temp_preview) .' &' \| redraw!<CR>
 
 " }}}
 
-" options {{{
+" pandoc {{{
 let g:pandoc#filetypes#handled = ['markdown', 'rst', 'latex']
 let g:pandoc#modules#disabled = ['keyboard']
 let g:pandoc#formatting#mode = 's'
@@ -30,16 +26,18 @@ let g:pandoc#spell#enabled = 0
 let g:pandoc#folding#mode = 'syntax'
 let g:pandoc#folding#fold_yaml = 1
 let g:pandoc#folding#fdc = 0
-let g:pandoc#syntax#codeblocks#embeds#langs = ['bash=sh', 'c', 'haskell', 'python', 'nix', 'yaml', 'json']
-" }}}
+let g:pandoc#syntax#codeblocks#embeds#langs = ['bash=sh', 'c', 'cpp', 'go',
+	\ 'haskell', 'python', 'nix', 'yaml', 'json']
 
 packadd vim-gnupg
 packadd vim-pandoc
 packadd vim-pandoc-after
 packadd vim-pandoc-syntax
-packadd vim-waikiki
 packadd goyo.vim
+" }}}
 
+" waikiki {{{
+packadd vim-waikiki
 if !get(g:, 'mywaikikisetup_loaded', 0)
 	nmap <buffer> zl <Plug>(waikikiFollowLinkVSplit)
 	nmap <buffer> zh <Plug>(waikikiGoUp)
@@ -56,12 +54,13 @@ if !get(g:, 'mywaikikisetup_loaded', 0)
 	let g:mywaikikisetup_loaded = 1
 	call waikiki#CheckBuffer(expand('%:p'))
 endif
+" }}}
 
 setlocal nospell wrap
 setlocal spelllang=en,fr,de
 setlocal textwidth=79
 setlocal shiftwidth=2 conceallevel=2
-setlocal syntax=pandoc
+" setlocal syntax=pandoc
 " setlocal filetype=pandoc
 setlocal foldmethod=expr
 setlocal foldexpr=ftfunc#foldingMarkdownFoldExpr()

@@ -165,7 +165,7 @@ endfunction
 " }}}
 " better :grep {{{
 function! func#callGrep(...)
-	return system(join(extend([&grepprg], a:000), ' '))
+	return system(join(extend([&grepprg], [shellescape(join(a:000))])))
 endfunction
 " }}}
 " neato fold {{{

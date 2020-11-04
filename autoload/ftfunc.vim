@@ -77,6 +77,6 @@ endfunction
 " }}}
 " Haskell path to module name {{{
 function! ftfunc#haskellModuleName()
-	return substitute(substitute(expand('%:r'), '[/\\]', '.', 'g'), '^\%(\l*\.\)\?', '', '')
+	return substitute(substitute(v:fname, '[/\\]', '.', 'g'), '^\%(\l*\.\)\?', '', '')
 endfunction
 " }}}
