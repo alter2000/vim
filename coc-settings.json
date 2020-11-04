@@ -31,8 +31,7 @@
 		"ultisnips.enable": true,
 		"snipmate.enable": true,
 		"snippets.author": "Jor Bashllari <altnate2000@gmail.com>",
-		"ultisnips.directories": [ "/home/alter2000/.vim/snips" ],
-		//"userSnippetsDirectory": [ "/home/alter2000/.vim/snips" ],
+		"userSnippetsDirectory": "~/.vim/snips",
 		"convertToSnippetsAction": true,
 		"extend": {
 			"cpp": [ "c" ]
@@ -56,15 +55,15 @@
 	},
 
 	"todolist": {
-		"enable": true,
+		"enable": false,
 		"maxsize": 99999,
 		"dateFormat": "YYYYMMDD-HHmm",
 		"autoUpload": true,
 		"monitor": true,
 		// "floating" | "virtual" | "echo" | "none"
 		"notify": "floating",
-		"promptForReminder": true,
-		"easyMode": true
+		"promptForReminder": true
+		// "easyMode": true
 	},
 
 	"git": {
