@@ -36,14 +36,25 @@ imap          <C-l> <Plug>(coc-snippets-expand)
 let g:coc_snippet_prev = '<C-p>'
 let g:coc_snippet_next = '<C-n>'
 
-" use <tab> for trigger completion and navigate to the next complete item
+" use <tab> to trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1]  =~? '\s'
 endfunction
 
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" use <tab> to:
+" trigger and confirm completion
+" navigate to the next complete item
 inoremap <silent><expr> <Tab>
 	\ pumvisible() ? "\<C-n>" :
-	\ <SID>check_back_space() ? "\<Tab>" :
-	\ coc#refresh()
+	\ <SID>check_back_space() ? "\<Tab>" : coc#refresh()
+
+inoremap <expr> <CR> pumvisible() ? "" : ""
+
+" " use <cr> to select and expand snippet
+" inoremap <silent><expr> <CR>
+" 	\ pumvisible() ? coc#_select_confirm() :
+" 	\ coc#expandableOrJumpable() ?
+" 	\ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" : "\<CR>"
+" " \ coc#rpc#request('doKeymap', 'snippets-expand-jump'):
