@@ -61,7 +61,7 @@ set autoindent
 " }}}
 " Level 2 (acts properly) {{{
 let mapleader=' '
-let maplocalleader = '£'
+let maplocalleader = '\'
 if executable('rg')
 	let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
 	set grepprg=rg\ --vimgrep

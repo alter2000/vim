@@ -4,8 +4,8 @@ endif
 let b:did_ftplugin = 1
 
 " mappings {{{
-" inoremap <buffer> <silent> <Bar>   <Bar><Esc>:call ftfunc#MarkdownAlign()<CR>a
-nnoremap <buffer> <silent> -- :call ftfunc#MarkdownChecklistToggle({})<cr>
+inoremap <buffer> <silent> <Bar>   <Bar><Esc>:call ftfunc#markdown#tableAlign()<CR>a
+nnoremap <buffer> <silent> -- :call ftfunc#markdown#checklistToggle({})<cr>
 
 " Pandoc + Markdown previews
 " TODO : The mappings do nothing on screen for some reason, whereas typing
@@ -63,8 +63,8 @@ setlocal shiftwidth=2 conceallevel=2
 " setlocal syntax=pandoc
 " setlocal filetype=pandoc
 setlocal foldmethod=expr
-setlocal foldexpr=ftfunc#foldingMarkdownFoldExpr()
-setlocal foldtext=ftfunc#foldingMarkdownFoldText()
+setlocal foldexpr=ftfunc#markdown#foldExpr()
+setlocal foldtext=ftfunc#markdown#foldText()
 setlocal makeprg=pandoc\ '%'\ -o\ '%:r'.pdf
 
 packadd vim-ripple

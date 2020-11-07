@@ -3,7 +3,7 @@ setlocal tabstop=8
 setlocal shiftwidth=2
 setlocal textwidth=79
 setlocal iskeyword-='
-" setlocal includeexpr=ftfunc#haskellModuleName()
+" setlocal includeexpr=ftfunc#haskell#moduleName()
 setlocal formatprg=stylish-haskell
 setlocal path=.,app,src,test,lib
 setlocal suffixesadd=hs,lhs,hsc
@@ -51,5 +51,5 @@ let g:cabal_indent_section = 2
 packadd vim-ripple
 let b:ripple_repl = [ 'stack ghci', ':{', ':}', 0 ]
 
-let b:gutentags_project_info = []
-let b:gutentags_ctags_executable_haskell = 'echo ":ctags" | ghci -v0'
+" let b:gutentags_project_info = []
+" let b:gutentags_ctags_executable_haskell = 'echo ":ctags" | ghci -v0'

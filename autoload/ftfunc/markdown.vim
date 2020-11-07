@@ -1,27 +1,5 @@
-" Ansible conversion shiz {{{
-function! ftfunc#ansiblify()
-	exec '%s/"//g'
-	exec '%s/\({.*$\)/"\1"/'
-	exec '%s/yes/true/'
-	exec '%s/=/: /'
-endfunction
-" }}}
-" Epitech headers {{{
-function! ftfunc#skel(path)
-	let l:path = fnamemodify(expand(get(g:, 'epitech_project_path', '$HOME/epitheq')), ':p:h')
-	if expand(a:path . ':p') !~# '^'.l:path
-		return
-	endif
-
-	let l:template = readfile(fnamemodify(expand('$MYVIMRC'), ':p:h') . '/skel/skel.' . fnamemodify(expand(a:path), ':e'))
-	for sumlineidkjustkillme in l:template
-		" [:-2] to remove NUL in the end of output string
-		call append(line('$') - 1, substitute(sumlineidkjustkillme, '\$\$\$\(.*\)\$\$\$', '\=eval(submatch(1))[:-2]', 'ge'))
-	endfor
-endfunction
-" }}}
 " Pandoc folding {{{
-function! ftfunc#foldingMarkdownFoldExpr()
+function! ftfunc#markdown#foldExpr()
 	let l:cur = getline(v:lnum)
 	let l:next = getline(v:lnum+1)
 	if l:cur =~# '^#\{1,6}' && getline(v:lnum-1) =~# '^\s*$'
@@ -34,7 +12,7 @@ function! ftfunc#foldingMarkdownFoldExpr()
 	return '='
 endfunction
 
-function! ftfunc#foldingMarkdownFoldText()
+function! ftfunc#markdown#foldText()
 	let c_line = getline(v:foldstart)
 	let atx_title = match(c_line, '#') > -1
 	if atx_title
@@ -50,18 +28,18 @@ function! ftfunc#foldingMarkdownFoldText()
 endfunction
 " }}}
 " Markdown checklist toggle {{{
-function! ftfunc#mdToggle(pattern, dict, ...)
+function! ftfunc#markdown#mdToggle(pattern, dict, ...)
 	let view = winsaveview()
 	execute 'keeppatterns s/' . a:pattern . '/\=get(a:dict, submatch(0), a:0 ? a:1 : " ")/e'
 	return view
 endfunction
-function! ftfunc#MarkdownChecklistToggle(dict)
-	return winrestview(ftfunc#mdToggle('^\s*-\s*\[\zs.\ze\]',
+function! ftfunc#markdown#checklistToggle(dict)
+	return winrestview(ftfunc#markdown#mdToggle('^\s*-\s*\[\zs.\ze\]',
 				\a:dict == {} ? {' ': '.', '.': 'x', 'x': ' '} : a:dict))
 endfunction
 " }}}
 " Markdown table alignment, borked? {{{
-function! ftfunc#MarkdownAlign()
+function! ftfunc#markdown#tableAlign()
 	let p = '^\s*|\s.*\s|\s*$'
 	if exists(':Tabularize')
 		\  && getline('.') =~# '^\s*|'
@@ -73,10 +51,5 @@ function! ftfunc#MarkdownAlign()
 		normal! 0
 		call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
 	endif
-endfunction
-" }}}
-" Haskell path to module name {{{
-function! ftfunc#haskellModuleName()
-	return substitute(substitute(v:fname, '[/\\]', '.', 'g'), '^\%(\l*\.\)\?', '', '')
 endfunction
 " }}}

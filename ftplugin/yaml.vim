@@ -7,4 +7,4 @@ setlocal softtabstop=2
 setlocal colorcolumn=80
 setlocal foldmethod=indent
 
-command! -bar -nargs=0 Ansiblify call ftfunc#ansiblify()
+command! -bar -nargs=0 Ansiblify call ftfunc#old#ansiblify()

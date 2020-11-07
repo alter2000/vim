@@ -95,12 +95,17 @@ endif
 " Waikiki {{{
 if exists('g:waikiki_loaded')
 	let g:waikiki_roots = [ '~/notes/' ]
-	let g:waikiki_patterns = [ '/wiki/', '/doc/' ]
+	let g:waikiki_patterns = [ '/notes/', '/wiki/', '/doc/' ]
+	let g:waikiki_ext = '.md'
+	let g:waikiki_index = 'index.md'
 	let g:waikiki_default_maps = 1
 	let g:waikiki_mkdir_prompt = 1
 	let g:waikiki_ask_if_noindex = 1
+	let g:waikiki_create_type = 'ext'
 	let g:waikiki_done = '✘'
 	let g:waikiki_lookup_order = [ 'ext', 'raw', 'subdir' ]
+	let g:waikiki_conceal_markdown_url = 1
+	let g:waikiki_space_replacement = '-'
 endif
 " }}}
 " vim-ripple {{{

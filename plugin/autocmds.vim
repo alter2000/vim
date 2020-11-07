@@ -32,10 +32,10 @@ augroup END " }}}
 augroup C " {{{
 	autocmd!
 
-	autocmd BufNewFile *.c   call ftfunc#skel('<afile>')
-	autocmd BufNewFile *.h   call ftfunc#skel('<afile>')
-	autocmd BufNewFile *.cpp call ftfunc#skel('<afile>')
-	autocmd BufNewFile *.hpp call ftfunc#skel('<afile>')
+	autocmd BufNewFile *.c   call ftfunc#old#epiSkel('<afile>')
+	autocmd BufNewFile *.h   call ftfunc#old#epiSkel('<afile>')
+	autocmd BufNewFile *.cpp call ftfunc#old#epiSkel('<afile>')
+	autocmd BufNewFile *.hpp call ftfunc#old#epiSkel('<afile>')
 augroup END " }}}
 augroup quickfix " {{{
 	autocmd!
