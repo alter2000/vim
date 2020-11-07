@@ -39,14 +39,15 @@ packadd goyo.vim
 " waikiki {{{
 packadd vim-waikiki
 if !get(g:, 'mywaikikisetup_loaded', 0)
-	nmap <buffer> zl <Plug>(waikikiFollowLinkVSplit)
+	nmap <buffer> zl <Plug>(waikikiFollowLink)
+	nmap <buffer> zL <Plug>(waikikiFollowLinkVSplit)
 	nmap <buffer> zh <Plug>(waikikiGoUp)
 	nmap <buffer> [[ <Plug>(waikikiPrevLink)
 	nmap <buffer> ]] <Plug>(waikikiNextLink)
 	nmap <buffer> <leader>t <Plug>(waikikiTags)
 
 	" TODO: mark selection as code block, put cursor on start
-	xnoremap <buffer>         <LocalLeader>c    <Esc>g'<O```<Esc>m'g'>o```<Esc>``a
+	xnoremap <buffer> <LocalLeader>c <Esc>g'<O```<Esc>m'g'>o```<Esc>``a
 	                                      " mark beginning; write end;    go to beginning and into insert
 	" change 'concealcursor'
 	" nnoremap <buffer><silent> <LocalLeader>i    :let &l:cocu = (&l:cocu=="" ? "nc" : "")<cr>
