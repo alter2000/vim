@@ -5,4 +5,4 @@ let g:markdown_fenced_languages = [
 	\	]
 
 let readline_has_bash = 1
-runtime! OPT syntax/pandoc.vim
+" runtime! OPT syntax/pandoc.vim
