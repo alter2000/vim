@@ -171,6 +171,7 @@ endfunction
 " neato fold {{{
 function! func#neatFold(fc) abort
 	let indent = repeat(' ', indent(v:foldstart))
+	" pretty pretty:  
 	let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
 	let foldchar = matchstr(&fillchars, 'fold:\zs.')
 	let foldtextstart = printf("%3s", (v:foldend - v:foldstart + 1)) .' '. strpart(a:fc . repeat(foldchar, v:foldlevel * 2) . line, 0, (winwidth(0)*2)/3)
