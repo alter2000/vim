@@ -142,14 +142,19 @@ function! func#asyncDo(cmd)
 endfunction
 " }}}
 " Set writing mode (markdown, mail, etc) {{{
-function! func#modeWriting()
-	packadd goyo.vim
+function! func#goyoEnter()
 	silent !tmux set status off
-	call goyo#execute(0, [110])
-	setlocal spell nolist
-	setlocal nocopyindent nosmartindent noautoindent
-	setlocal noshowmode noshowcmd
-	setlocal complete+=s
+	setlocal spell! list!
+	setlocal copyindent! smartindent! autoindent!
+	setlocal showmode! showcmd!
+	" setlocal complete+=s
+endfunction
+function! func#goyoLeave()
+	silent !tmux set status on
+	setlocal spell! list!
+	setlocal copyindent! smartindent! autoindent!
+	setlocal showmode! showcmd!
+	" setlocal complete=s
 endfunction
 " }}}
 " Show doccs via coccs {{{

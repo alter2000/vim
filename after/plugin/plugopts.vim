@@ -49,11 +49,15 @@ if exists('g:loaded_netrwPlugin') && g:loaded_netrwPlugin !=# '000'
 	let g:netrw_browsex_viewer = 'xdg-open'
 endif
 " }}}
-" quick-scope {{{
-if exists('g:qs_enable')
-	let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-	let g:qs_max_chars=200
-	let g:qs_lazy_highlight = 1
+" Goyo {{{
+if 1 " goyo is just one `command!` and one autoloaded function
+	let g:goyo_width = 110
+	let g:goyo_height = '90%'
+	augroup GoyoCmds
+		autocmd!
+		autocmd! User GoyoEnter nested call func#goyoEnter()
+		autocmd! User GoyoLeave nested call func#goyoLeave()
+	augroup END
 endif
 " }}}
 " Startify {{{
