@@ -15,7 +15,7 @@ if exists('g:loaded_sandwich')
 endif
 " }}}
 " Gcov marker {{{
-if exists('gcov_marker_path')
+if exists('g:gcov_marker_path')
 	let g:gcov_marker_covered    = '✓'
 	let g:gcov_marker_uncovered  = 'X'
 	let g:gcov_marker_path  = './'
