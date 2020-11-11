@@ -1,5 +1,5 @@
 if &termguicolors
-	if (strftime('%H') % 20) >= 9
+	if (strftime('%H') % 20) > 9
 		set background=light
 		let ayucolor = 'light'
 		" colorscheme ayu
@@ -11,4 +11,4 @@ if &termguicolors
 else
 	colorscheme elflord
 endif
-colorscheme PaperColor
+colorscheme gruvbox
