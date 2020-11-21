@@ -122,10 +122,10 @@ endif
 " }}}
 " gutentags {{{
 if get(g:, 'loaded_gutentags', 0) == 1
-	let g:gutenags_cache_dir = "~/.cache/vim/tags"
-	let g:gutentags_project_info = [
-				\ {'type': 'haskell', 'file': 'Setup.hs'}
-				\ ]
+	" let g:gutenags_cache_dir = "~/.cache/vim/tags"
+	" let g:gutentags_project_info = [
+	" 			\ {'type': 'haskell', 'file': 'Setup.hs'}
+	" 			\ ]
 endif
 " }}}
 " colorizer {{{

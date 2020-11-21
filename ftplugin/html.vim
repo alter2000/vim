@@ -5,7 +5,7 @@
 
 packadd matchit
 setlocal nolist
-setlocal expandtab
+setlocal noexpandtab
 setlocal tabstop=2
 setlocal shiftwidth=2
 setlocal foldmethod=indent

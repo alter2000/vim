@@ -8,7 +8,7 @@ setlocal keywordprg=man
 setlocal foldmethod=syntax
 let &path .= './include,'
 		\ . '../include,'
-		\ . './lib/my,'
+		\ . './lib/**,'
 		\ . ','
 		\ . func#git_root('<afile>')
 
