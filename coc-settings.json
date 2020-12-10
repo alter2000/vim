@@ -152,6 +152,19 @@
 			"ignoredRootPaths": [ "~" ]
 		},
 
+		"purescript": {
+			"command": "purescript-language-server",
+			"filetypes": [ "purescript" ],
+			"trace.server": "off",
+			"rootPatterns": ["bower.json", "psc-package.json", "spago.dhall"],
+			"args": ["--stdio"],
+			"settings": {
+				"purescript": {
+					"addSpagoSources": true
+				}
+			}
+		},
+
 		//"neuron": {
 		//	"command": "neuron-language-server",
 		//	"filetypes": [ "markdown" ]
