@@ -147,6 +147,8 @@ else
 	" let &t_EI = "\<Esc>[2 q"
 	" let &t_SR = "\<Esc>[0 q"
 endif
+set t_ZH=[3m
+set t_ZR=[23m
 
 set wildignore+=*.swp,*.swo,*lock,._*
 set wildignore+=.git,.hg,.svn,.darcs

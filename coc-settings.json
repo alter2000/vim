@@ -100,7 +100,7 @@
 		"ccls": {
 			"command": "ccls",
 			"filetypes": [ "c", "cpp" ],
-			"rootPatterns": [ "Makefile", ".ccls", "compile_commands.json", ".git/", ".hg/" ],
+			"rootPatterns": [ "Makefile", ".ccls", ".git/", ".hg/" ],
 			"settings": {
 				"cache.directory": "/home/alter2000/.cache/ccls",
 				"client.snippetSupport": true,
@@ -123,13 +123,17 @@
 				"cabal.config",
 				"package.yaml" ],
 			"filetypes": [ "hs", "lhs", "haskell" ],
-			"settings.haskell": {
+			"settings": {
 				"formattingProvider": "stylish-haskell",
 				//"formatOnImportOn": true,
 				"hlintOn": true,
 				//"liquidOn": true,
-				"maxNumberOfProblems": 10,
-				"completionSnippetsOn": true
+				"maxCompletions": 10,
+				"completionSnippetsOn": true,
+				"haddockComments.globalOn": true,
+				"ghcide-code-actions-type-signatures.globalOn": true,
+				"ghcide-type-lenses.globalOn": true,
+				"ghcide-type-lenses.config.mode": "always"
 			}
 		},
 
@@ -165,14 +169,8 @@
 			}
 		},
 
-		//"neuron": {
-		//	"command": "neuron-language-server",
-		//	"filetypes": [ "markdown" ]
-		//},
-
 		"latex": {
 			"command": "texlab",
-			// not start server at home directory, since it won't work.
 			"ignoredRootPaths": ["~"],
 			"filetypes": [ "tex", "bib", "plaintex", "context" ]
 		}

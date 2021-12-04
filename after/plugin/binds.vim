@@ -111,7 +111,7 @@ nnoremap <silent> <leader>e        :execute "ltag " . expand("<cword>")<CR>
 " but only change the path for the current window
 nnoremap <silent> <leader>cd       :lcd %:h<CR>
 
-" Open files located in the same dir in with the current file is edited
+" Open files located in the same dir as the current file
 nnoremap <leader>ew :e <C-R>=expand("%:.:h") . "/"<CR>
 
 " paste only from yank
