@@ -31,8 +31,7 @@ endif
 " }}}
 " Netrw {{{
 if exists('g:loaded_netrwPlugin') && g:loaded_netrwPlugin !=# '000'
-	let g:netrw_dav_cmd   = 'cadaver'
-	let g:netrw_file_cmd  = 'wget'
+	let g:netrw_file_cmd  = $BROWSER
 	let g:netrw_http_cmd  = $BROWSER
 	" let g:netrw_ftp_list_cmd = 'ls -lhF'
 	" let g:netrw_ftp_timelist_cmd = 'ls -tlhF'

@@ -29,14 +29,14 @@ augroup Colors " {{{
 	autocmd ColorScheme highlight! link VertSplit        NonText
 	autocmd ColorScheme highlight  clear SignColumn
 augroup END " }}}
-augroup C " {{{
-	autocmd!
+" augroup C " {{{
+" 	autocmd!
 
-	autocmd BufNewFile *.c   call ftfunc#old#epiSkel('<afile>')
-	autocmd BufNewFile *.h   call ftfunc#old#epiSkel('<afile>')
-	autocmd BufNewFile *.cpp call ftfunc#old#epiSkel('<afile>')
-	autocmd BufNewFile *.hpp call ftfunc#old#epiSkel('<afile>')
-augroup END " }}}
+" 	autocmd BufNewFile *.c   call ftfunc#old#epiSkel('<afile>')
+" 	autocmd BufNewFile *.h   call ftfunc#old#epiSkel('<afile>')
+" 	autocmd BufNewFile *.cpp call ftfunc#old#epiSkel('<afile>')
+" 	autocmd BufNewFile *.hpp call ftfunc#old#epiSkel('<afile>')
+" augroup END " }}}
 augroup quickfix " {{{
 	autocmd!
 	autocmd QuickFixCmdPost cgetexpr cwindow

@@ -138,7 +138,7 @@
 		},
 
 		"go": {
-			"command": "go-langserver",
+			"command": "gopls",
 			"filetypes": [ "go" ],
 			"rootPatterns": [ "go.mod", "go.sum", "Gopkg.toml", "Gopkg.lock" ],
 			"settings": {
