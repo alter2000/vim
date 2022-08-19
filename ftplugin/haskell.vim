@@ -1,7 +1,7 @@
 setlocal expandtab
 setlocal tabstop=8
 setlocal shiftwidth=2
-setlocal textwidth=79
+setlocal textwidth=115
 setlocal iskeyword-='
 " setlocal includeexpr=ftfunc#haskell#moduleName()
 setlocal formatprg=stylish-haskell

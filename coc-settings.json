@@ -51,7 +51,9 @@
 
 	"codeLens": {
 		"enable": true,
-		"separator": "‣"
+		"separator": "‣",
+		"position": "eol",
+		"subseparator": " | "
 	},
 
 	"todolist": {

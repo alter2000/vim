@@ -162,9 +162,10 @@ function! func#show_documentation()
 	if (index([ 'vim', 'help' ], &filetype) >= 0)
 		execute 'h '.expand('<cword>')
 	elseif (index([ 'c', 'cpp' ], &filetype) >= 0)
-		execute '!man '.expand('<cword>')
+		execute 'Man '.expand('<cword>')
 	else
 		call CocActionAsync('doHover')
+		" lua vim.lsp.buf.hover()
 	endif
 endfunction
 " }}}

@@ -21,7 +21,8 @@ set timeoutlen=700 ttimeoutlen=10
 set updatecount=100
 set updatetime=750
 set tildeop
-set clipboard^=unnamedplus,unnamed
+" set clipboard^=unnamedplus,unnamed
+set clipboard+=unnamedplus
 if has('persistent_undo')
 	set undofile
 	set undodir=~/.cache/vim/undo//

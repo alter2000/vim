@@ -7,9 +7,9 @@ setlocal expandtab
 setlocal autoindent
 setlocal tabstop=4
 setlocal shiftwidth=4
-setlocal textwidth=79
+setlocal textwidth=100
 setlocal softtabstop=4
-setlocal colorcolumn=80
+setlocal colorcolumn=100
 setlocal makeprg=python\ %
 setlocal foldmethod=indent
 setlocal equalprg="yapf --in-place"
