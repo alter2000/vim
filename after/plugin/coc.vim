@@ -27,9 +27,10 @@ omap         ac  <Plug>(coc-classobj-a)
 nmap     <silent> [c        <Plug>(coc-diagnostic-prev)
 nmap     <silent> ]c        <Plug>(coc-diagnostic-next)
 
+xnoremap <silent> K         :call func#show_documentation()<CR>
 nnoremap <silent> K         :call func#show_documentation()<CR>
-nnoremap <silent> <leader>r :CocCommand document.renameCurrentWord<CR>
-" nmap              <leader>r <Plug>(coc-rename)
+" nnoremap <silent> <leader>r :CocCommand document.renameCurrentWord<CR>
+nmap              <leader>r <Plug>(coc-rename)
 
 imap          <C-l> <Plug>(coc-snippets-expand)
 " vmap          <C-j> <Plug>(coc-snippets-select)
@@ -37,20 +38,20 @@ let g:coc_snippet_prev = '<C-p>'
 let g:coc_snippet_next = '<C-n>'
 
 " use <tab> to trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
+function! s:check_backspace() abort
 	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~? '\s'
+	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 " use <tab> to:
 " trigger and confirm completion
 " navigate to the next complete item
 inoremap <silent><expr> <Tab>
-	\ pumvisible() ? "\<C-n>" :
-	\ <SID>check_back_space() ? "\<Tab>" : coc#refresh()
+	\ coc#pum#visible() ? coc#pum#next(1) :
+	\ <SID>check_backspace() ? "\<Tab>" : coc#refresh()
 
-inoremap <expr> <CR> pumvisible() ? "" : ""
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " " use <cr> to select and expand snippet
 " inoremap <silent><expr> <CR>

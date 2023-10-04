@@ -20,6 +20,7 @@
 	},
 
 	"suggest": {
+		"noselect": true,
 		"autoTrigger": "always",
 		"snippetIndicator": " ",
 		"floatEnable": true
@@ -124,7 +125,7 @@
 				".stack.yaml",
 				"cabal.config",
 				"package.yaml" ],
-			"filetypes": [ "hs", "lhs", "haskell" ],
+			"filetypes": [ "hs", "hsc", "lhs", "haskell" ],
 			"settings": {
 				"formattingProvider": "stylish-haskell",
 				//"formatOnImportOn": true,

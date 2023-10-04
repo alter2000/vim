@@ -1,8 +1,8 @@
 if &termguicolors
 	let now = strftime('%H')
-	if 9 < now  && now < 19
+	if 7 < now  && now < 19
 		set background=light
-		let ayucolor = 'dark'
+		let ayucolor = 'mirage'
 		let g:gruvbox_contrast_dark = 'hard'
 		colorscheme ayu
 	else

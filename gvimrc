@@ -4,7 +4,7 @@ set guifont=League\ Mono\ 9
 set guipty
 execute 'set background=' . ((strftime('%H') % 20) > 7 ? 'light' : 'dark')
 packadd gruvbox
-colorscheme agila
+colorscheme fruchtig
 " if exists('g:loaded_gruvbox')
 " 	let g:gruvbox_italic = 1
 " 	let g:gruvbox_contrast_dark='oft'

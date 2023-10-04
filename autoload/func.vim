@@ -161,7 +161,7 @@ endfunction
 function! func#show_documentation()
 	if (index([ 'vim', 'help' ], &filetype) >= 0)
 		execute 'h '.expand('<cword>')
-	elseif (index([ 'c', 'cpp' ], &filetype) >= 0)
+	elseif (index([ 'c' ], &filetype) >= 0)
 		execute 'Man '.expand('<cword>')
 	else
 		call CocActionAsync('doHover')
